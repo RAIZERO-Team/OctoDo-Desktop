@@ -342,7 +342,7 @@ public class sign_up extends javax.swing.JPanel {
         if (rbn_male.isSelected()){
             FormsManager.getInstance().showForm(new sign_up_Male_User());
         } else {
-            FormsManager.getInstance().showForm(new sign_up_Famele_User());
+            FormsManager.getInstance().showForm(new sign_up_Female_User());
         }       
     }//GEN-LAST:event_btn_NextActionPerformed
 

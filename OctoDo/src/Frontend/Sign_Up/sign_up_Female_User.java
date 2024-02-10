@@ -1,17 +1,21 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
 package Frontend.Sign_Up;
 
 import com.formdev.flatlaf.FlatClientProperties;
 
 
-public class sign_up_Male_User extends javax.swing.JPanel {
+public class sign_up_Female_User extends javax.swing.JPanel {
 
-    public sign_up_Male_User() {
+   
+    public sign_up_Female_User() {
         initComponents();
-        Sign_Up_Male_User.putClientProperty(FlatClientProperties.STYLE, ""
+        Sign_Up_Female_User.putClientProperty(FlatClientProperties.STYLE, ""
                 + "background:$Login.background;"
                 + "arc:20;"
-                + "border:30,40,50,30");        
+                + "border:30,40,50,30");          
     }
 
 
@@ -19,7 +23,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Sign_Up_Male_User = new Frontend.UI_Components.PanelRound();
+        Sign_Up_Female_User = new Frontend.UI_Components.PanelRound();
         panelRound1 = new Frontend.UI_Components.PanelRound();
         imageAvatar1 = new Frontend.UI_Components.ImageAvatar();
         panelRound2 = new Frontend.UI_Components.PanelRound();
@@ -39,11 +43,11 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound9 = new Frontend.UI_Components.PanelRound();
         imageAvatar9 = new Frontend.UI_Components.ImageAvatar();
 
-        Sign_Up_Male_User.setRoundBottomLeft(30);
-        Sign_Up_Male_User.setRoundBottomRight(30);
-        Sign_Up_Male_User.setRoundTopLeft(30);
-        Sign_Up_Male_User.setRoundTopRight(30);
-        Sign_Up_Male_User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Sign_Up_Female_User.setRoundBottomLeft(30);
+        Sign_Up_Female_User.setRoundBottomRight(30);
+        Sign_Up_Female_User.setRoundTopLeft(30);
+        Sign_Up_Female_User.setRoundTopRight(30);
+        Sign_Up_Female_User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(49, 62, 74));
         panelRound1.setRoundBottomLeft(30);
@@ -53,7 +57,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound1.add(imageAvatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 150, 150));
+        Sign_Up_Female_User.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 150, 150));
 
         panelRound2.setBackground(new java.awt.Color(49, 62, 74));
         panelRound2.setRoundBottomLeft(30);
@@ -63,7 +67,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound2.add(imageAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 150, 150));
+        Sign_Up_Female_User.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 150, 150));
 
         panelRound3.setBackground(new java.awt.Color(49, 62, 74));
         panelRound3.setRoundBottomLeft(30);
@@ -73,7 +77,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound3.add(imageAvatar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 150, 150));
+        Sign_Up_Female_User.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 150, 150));
 
         panelRound4.setBackground(new java.awt.Color(49, 62, 74));
         panelRound4.setDoubleBuffered(false);
@@ -84,7 +88,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound4.add(imageAvatar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, 150, 150));
+        Sign_Up_Female_User.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, 150, 150));
 
         panelRound5.setBackground(new java.awt.Color(49, 62, 74));
         panelRound5.setRoundBottomLeft(30);
@@ -94,7 +98,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound5.add(imageAvatar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 150, 150));
+        Sign_Up_Female_User.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 150, 150));
 
         panelRound6.setBackground(new java.awt.Color(49, 62, 74));
         panelRound6.setRoundBottomLeft(30);
@@ -104,7 +108,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound6.add(imageAvatar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 150, 150));
+        Sign_Up_Female_User.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 150, 150));
 
         panelRound7.setBackground(new java.awt.Color(49, 62, 74));
         panelRound7.setRoundBottomLeft(30);
@@ -114,7 +118,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound7.add(imageAvatar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 150, 150));
+        Sign_Up_Female_User.add(panelRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 150, 150));
 
         panelRound8.setBackground(new java.awt.Color(49, 62, 74));
         panelRound8.setRoundBottomLeft(30);
@@ -124,13 +128,13 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         panelRound8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound8.add(imageAvatar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 150, 150));
+        Sign_Up_Female_User.add(panelRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 150, 150));
 
         panelRound9.setBackground(new java.awt.Color(49, 62, 74));
         panelRound9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelRound9.add(imageAvatar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Male_User.add(panelRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 150, 150));
+        Sign_Up_Female_User.add(panelRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 150, 150));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -138,21 +142,21 @@ public class sign_up_Male_User extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Sign_Up_Male_User, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+                .addComponent(Sign_Up_Female_User, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Sign_Up_Male_User, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+                .addComponent(Sign_Up_Female_User, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Frontend.UI_Components.PanelRound Sign_Up_Male_User;
+    private Frontend.UI_Components.PanelRound Sign_Up_Female_User;
     private Frontend.UI_Components.ImageAvatar imageAvatar1;
     private Frontend.UI_Components.ImageAvatar imageAvatar2;
     private Frontend.UI_Components.ImageAvatar imageAvatar3;
