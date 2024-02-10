@@ -1,0 +1,144 @@
+    private class LoginFormLayout implements LayoutManager {
+
+        @Override
+        public void addLayoutComponent(String name, Component comp) {
+        }
+
+        @Override
+        public void removeLayoutComponent(Component comp) {
+        }
+
+        @Override
+        public Dimension preferredLayoutSize(Container parent) {
+            synchronized (parent.getTreeLock()) {
+                return new Dimension(0, 0);
+            }
+        }
+
+        @Override
+        public Dimension minimumLayoutSize(Container parent) {
+            synchronized (parent.getTreeLock()) {
+                return new Dimension(0, 0);
+            }
+        }
+
+        @Override
+        public void layoutContainer(Container parent) {
+            synchronized (parent.getTreeLock()) {
+                int width = parent.getWidth();
+                int height = parent.getHeight();
+                int loginWidth = UIScale.scale(320);
+                int loginHeight = login.getPreferredSize().height;
+                int x = (width - loginWidth) / 2;
+                int y = (height - loginHeight) / 2;
+                login.setBounds(x, y, loginWidth, loginHeight);
+            }
+        }
+    }
+
+
+=============================================================================
+
+    private class LoginLayout implements LayoutManager {
+
+        private final int titleGap = 10;
+        private final int textGap = 10;
+        private final int labelGap = 5;
+        private final int buttonGap = 50;
+
+        @Override
+        public void addLayoutComponent(String name, Component comp) {
+        }
+
+        @Override
+        public void removeLayoutComponent(Component comp) {
+        }
+
+        @Override
+        public Dimension preferredLayoutSize(Container parent) {
+            synchronized (parent.getTreeLock()) {
+                Insets insets = parent.getInsets();
+                int height = insets.top + insets.bottom;
+
+                height += lb_Title.getPreferredSize().height;
+                height += UIScale.scale(titleGap);
+                height += lb_Description.getPreferredSize().height;
+                height += UIScale.scale(titleGap);
+                
+                height += lab_email.getPreferredSize().height;
+                height += UIScale.scale(labelGap);
+                height += txt_email.getPreferredSize().height;
+                height += UIScale.scale(textGap);
+                height += lab_user_is_exits.getPreferredSize().height;
+                height += UIScale.scale(labelGap);
+                
+                height += lab_password.getPreferredSize().height;
+                height += UIScale.scale(labelGap);
+                height += PasswordField.getPreferredSize().height;
+                height += UIScale.scale(textGap);
+                height += lab_error_Password.getPreferredSize().height;
+                height += UIScale.scale(labelGap);
+                
+                height += cbx_rememberMe.getPreferredSize().height;
+                height += UIScale.scale(textGap);
+                
+                height += btn_login.getPreferredSize().height;
+                height += UIScale.scale(buttonGap);
+                height += lab_DHAAC.getPreferredSize().height;
+                height += UIScale.scale(labelGap);
+                height += btn_signup.getPreferredSize().height;
+                height += UIScale.scale(20);
+                
+                return new Dimension(0, height);
+            }
+        }
+
+        @Override
+        public Dimension minimumLayoutSize(Container parent) {
+            synchronized (parent.getTreeLock()) {
+                return new Dimension(0, 0);
+            }
+        }
+
+        @Override
+        public void layoutContainer(Container parent) {
+            synchronized (parent.getTreeLock()) {
+                Insets insets = parent.getInsets();
+                int x = insets.left;
+                int y = insets.top;
+                int width = parent.getWidth() - (insets.left + insets.right);
+
+                lb_Title.setBounds(x, y, width, lb_Title.getPreferredSize().height);
+                y += lb_Title.getPreferredSize().height + UIScale.scale(titleGap);
+                lb_Description.setBounds(x, y, width, lb_Description.getPreferredSize().height);
+                y += lb_Description.getPreferredSize().height + UIScale.scale(titleGap);                
+                
+                
+                lab_email.setBounds(x, y, width, lab_email.getPreferredSize().height);
+                y += lab_email.getPreferredSize().height + UIScale.scale(labelGap);
+                txt_email.setBounds(x, y, width, txt_email.getPreferredSize().height);
+                y += txt_email.getPreferredSize().height + UIScale.scale(textGap);
+                lab_user_is_exits.setBounds(x, y, width, lab_user_is_exits.getPreferredSize().height);
+                y += lab_user_is_exits.getPreferredSize().height + UIScale.scale(labelGap);
+                
+                
+                lab_password.setBounds(x, y, width, lab_password.getPreferredSize().height);
+                y += lab_password.getPreferredSize().height + UIScale.scale(labelGap);
+                PasswordField.setBounds(x, y, width, PasswordField.getPreferredSize().height);
+                y += PasswordField.getPreferredSize().height + UIScale.scale(buttonGap);
+                lab_error_Password.setBounds(x, y, width, lab_error_Password.getPreferredSize().height);
+                y += lab_error_Password.getPreferredSize().height + UIScale.scale(labelGap);
+                
+                cbx_rememberMe.setBounds(x, y, width, cbx_rememberMe.getPreferredSize().height);
+                y += cbx_rememberMe.getPreferredSize().height + UIScale.scale(textGap);
+                
+                btn_login.setBounds(x, y, width, btn_login.getPreferredSize().height);
+                lab_DHAAC.setBounds(x, y, width, lab_DHAAC.getPreferredSize().height);
+                y += lab_DHAAC.getPreferredSize().height + UIScale.scale(labelGap); 
+                btn_signup.setBounds(x, y, width, btn_login.getPreferredSize().height);
+                
+            }
+
+        }
+
+    }
