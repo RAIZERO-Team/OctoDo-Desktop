@@ -5,6 +5,14 @@
 package Frontend.Sign_Up;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class sign_up_Female_User extends javax.swing.JPanel {
@@ -24,24 +32,26 @@ public class sign_up_Female_User extends javax.swing.JPanel {
     private void initComponents() {
 
         Sign_Up_Female_User = new Frontend.UI_Components.PanelRound();
-        panelRound1 = new Frontend.UI_Components.PanelRound();
-        imageAvatar1 = new Frontend.UI_Components.ImageAvatar();
-        panelRound2 = new Frontend.UI_Components.PanelRound();
-        imageAvatar2 = new Frontend.UI_Components.ImageAvatar();
-        panelRound3 = new Frontend.UI_Components.PanelRound();
-        imageAvatar3 = new Frontend.UI_Components.ImageAvatar();
-        panelRound4 = new Frontend.UI_Components.PanelRound();
-        imageAvatar4 = new Frontend.UI_Components.ImageAvatar();
-        panelRound5 = new Frontend.UI_Components.PanelRound();
-        imageAvatar5 = new Frontend.UI_Components.ImageAvatar();
-        panelRound6 = new Frontend.UI_Components.PanelRound();
-        imageAvatar6 = new Frontend.UI_Components.ImageAvatar();
-        panelRound7 = new Frontend.UI_Components.PanelRound();
-        imageAvatar7 = new Frontend.UI_Components.ImageAvatar();
-        panelRound8 = new Frontend.UI_Components.PanelRound();
-        imageAvatar8 = new Frontend.UI_Components.ImageAvatar();
-        panelRound9 = new Frontend.UI_Components.PanelRound();
-        imageAvatar9 = new Frontend.UI_Components.ImageAvatar();
+        pane1 = new Frontend.UI_Components.PanelRound();
+        img1 = new Frontend.UI_Components.ImageAvatar();
+        pane2 = new Frontend.UI_Components.PanelRound();
+        img2 = new Frontend.UI_Components.ImageAvatar();
+        pane3 = new Frontend.UI_Components.PanelRound();
+        img3 = new Frontend.UI_Components.ImageAvatar();
+        pane4 = new Frontend.UI_Components.PanelRound();
+        img4 = new Frontend.UI_Components.ImageAvatar();
+        pane5 = new Frontend.UI_Components.PanelRound();
+        img5 = new Frontend.UI_Components.ImageAvatar();
+        pane6 = new Frontend.UI_Components.PanelRound();
+        img6 = new Frontend.UI_Components.ImageAvatar();
+        pane7 = new Frontend.UI_Components.PanelRound();
+        img7 = new Frontend.UI_Components.ImageAvatar();
+        pane8 = new Frontend.UI_Components.PanelRound();
+        img8 = new Frontend.UI_Components.ImageAvatar();
+        pane9 = new Frontend.UI_Components.PanelRound();
+        img9 = new Frontend.UI_Components.ImageAvatar();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         Sign_Up_Female_User.setRoundBottomLeft(30);
         Sign_Up_Female_User.setRoundBottomRight(30);
@@ -49,92 +59,165 @@ public class sign_up_Female_User extends javax.swing.JPanel {
         Sign_Up_Female_User.setRoundTopRight(30);
         Sign_Up_Female_User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound1.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound1.setRoundBottomLeft(30);
-        panelRound1.setRoundBottomRight(30);
-        panelRound1.setRoundTopLeft(30);
-        panelRound1.setRoundTopRight(30);
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound1.add(imageAvatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        pane1.setBackground(new java.awt.Color(49, 62, 74));
+        pane1.setRoundBottomLeft(30);
+        pane1.setRoundBottomRight(30);
+        pane1.setRoundTopLeft(30);
+        pane1.setRoundTopRight(30);
+        pane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Sign_Up_Female_User.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 150, 150));
+        img1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/femal1.jpg"))); // NOI18N
+        img1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img1MouseClicked(evt);
+            }
+        });
+        pane1.add(img1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 120));
 
-        panelRound2.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound2.setRoundBottomLeft(30);
-        panelRound2.setRoundBottomRight(30);
-        panelRound2.setRoundTopLeft(30);
-        panelRound2.setRoundTopRight(30);
-        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound2.add(imageAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        Sign_Up_Female_User.add(pane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 150, 150));
 
-        Sign_Up_Female_User.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 150, 150));
+        pane2.setBackground(new java.awt.Color(49, 62, 74));
+        pane2.setRoundBottomLeft(30);
+        pane2.setRoundBottomRight(30);
+        pane2.setRoundTopLeft(30);
+        pane2.setRoundTopRight(30);
+        pane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound3.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound3.setRoundBottomLeft(30);
-        panelRound3.setRoundBottomRight(30);
-        panelRound3.setRoundTopLeft(30);
-        panelRound3.setRoundTopRight(30);
-        panelRound3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound3.add(imageAvatar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        img2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/femal2.jpg"))); // NOI18N
+        img2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img2MouseClicked(evt);
+            }
+        });
+        pane2.add(img2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Female_User.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 150, 150));
+        Sign_Up_Female_User.add(pane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 150, 150));
 
-        panelRound4.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound4.setDoubleBuffered(false);
-        panelRound4.setRoundBottomLeft(30);
-        panelRound4.setRoundBottomRight(30);
-        panelRound4.setRoundTopLeft(30);
-        panelRound4.setRoundTopRight(30);
-        panelRound4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound4.add(imageAvatar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        pane3.setBackground(new java.awt.Color(49, 62, 74));
+        pane3.setRoundBottomLeft(30);
+        pane3.setRoundBottomRight(30);
+        pane3.setRoundTopLeft(30);
+        pane3.setRoundTopRight(30);
+        pane3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Sign_Up_Female_User.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, 150, 150));
+        img3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/femal3.jpg"))); // NOI18N
+        img3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img3MouseClicked(evt);
+            }
+        });
+        pane3.add(img3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        panelRound5.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound5.setRoundBottomLeft(30);
-        panelRound5.setRoundBottomRight(30);
-        panelRound5.setRoundTopLeft(30);
-        panelRound5.setRoundTopRight(30);
-        panelRound5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound5.add(imageAvatar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        Sign_Up_Female_User.add(pane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 150, 150));
 
-        Sign_Up_Female_User.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 150, 150));
+        pane4.setBackground(new java.awt.Color(49, 62, 74));
+        pane4.setDoubleBuffered(false);
+        pane4.setRoundBottomLeft(30);
+        pane4.setRoundBottomRight(30);
+        pane4.setRoundTopLeft(30);
+        pane4.setRoundTopRight(30);
+        pane4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound6.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound6.setRoundBottomLeft(30);
-        panelRound6.setRoundBottomRight(30);
-        panelRound6.setRoundTopLeft(30);
-        panelRound6.setRoundTopRight(30);
-        panelRound6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound6.add(imageAvatar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        img4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/femal4.jpg"))); // NOI18N
+        img4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img4MouseClicked(evt);
+            }
+        });
+        pane4.add(img4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Female_User.add(panelRound6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 150, 150));
+        Sign_Up_Female_User.add(pane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 290, 150, 150));
 
-        panelRound7.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound7.setRoundBottomLeft(30);
-        panelRound7.setRoundBottomRight(30);
-        panelRound7.setRoundTopLeft(30);
-        panelRound7.setRoundTopRight(30);
-        panelRound7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound7.add(imageAvatar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        pane5.setBackground(new java.awt.Color(49, 62, 74));
+        pane5.setRoundBottomLeft(30);
+        pane5.setRoundBottomRight(30);
+        pane5.setRoundTopLeft(30);
+        pane5.setRoundTopRight(30);
+        pane5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Sign_Up_Female_User.add(panelRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 150, 150));
+        img5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/femal5.jpg"))); // NOI18N
+        img5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img5MouseClicked(evt);
+            }
+        });
+        pane5.add(img5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        panelRound8.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound8.setRoundBottomLeft(30);
-        panelRound8.setRoundBottomRight(30);
-        panelRound8.setRoundTopLeft(30);
-        panelRound8.setRoundTopRight(30);
-        panelRound8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound8.add(imageAvatar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        Sign_Up_Female_User.add(pane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 150, 150));
 
-        Sign_Up_Female_User.add(panelRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, 150, 150));
+        pane6.setBackground(new java.awt.Color(49, 62, 74));
+        pane6.setRoundBottomLeft(30);
+        pane6.setRoundBottomRight(30);
+        pane6.setRoundTopLeft(30);
+        pane6.setRoundTopRight(30);
+        pane6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound9.setBackground(new java.awt.Color(49, 62, 74));
-        panelRound9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelRound9.add(imageAvatar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+        img6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/femal6.jpg"))); // NOI18N
+        img6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img6MouseClicked(evt);
+            }
+        });
+        pane6.add(img6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
 
-        Sign_Up_Female_User.add(panelRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 150, 150));
+        Sign_Up_Female_User.add(pane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 150, 150));
+
+        pane7.setBackground(new java.awt.Color(49, 62, 74));
+        pane7.setRoundBottomLeft(30);
+        pane7.setRoundBottomRight(30);
+        pane7.setRoundTopLeft(30);
+        pane7.setRoundTopRight(30);
+        pane7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        img7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/femal7.jpg"))); // NOI18N
+        img7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img7MouseClicked(evt);
+            }
+        });
+        pane7.add(img7, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+
+        Sign_Up_Female_User.add(pane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, 150, 150));
+
+        pane8.setBackground(new java.awt.Color(49, 62, 74));
+        pane8.setRoundBottomLeft(30);
+        pane8.setRoundBottomRight(30);
+        pane8.setRoundTopLeft(30);
+        pane8.setRoundTopRight(30);
+        pane8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        img8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/femal9.jpg"))); // NOI18N
+        img8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img8MouseClicked(evt);
+            }
+        });
+        pane8.add(img8, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+
+        Sign_Up_Female_User.add(pane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 490, 150, 150));
+
+        pane9.setBackground(new java.awt.Color(49, 62, 74));
+        pane9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        img9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Female_User_Avatar/user.png"))); // NOI18N
+        img9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                img9MouseClicked(evt);
+            }
+        });
+        pane9.add(img9, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 100, 100));
+
+        Sign_Up_Female_User.add(pane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 150, 150));
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("OR SELECT AVATAR");
+        Sign_Up_Female_User.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 260, 30));
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("UPLOAD A PICTURE");
+        Sign_Up_Female_User.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 150, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -154,26 +237,116 @@ public class sign_up_Female_User extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+     private String Pathimage;
+    private void setPathimag(String Path)
+    {
+    this.Pathimage=Path;
+    
+    }
+    private String getPath()
+    {
+    return this.Pathimage;
+    }
+   
+   
+     private String filePath = "";
+   
+   String getUplodedImagePath()
+   {
+   return this.filePath;
+   }
+   
+    
+    private void img9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img9MouseClicked
+        // TODO add your handling code here:
+        try {
+    
+    JFileChooser filechooser = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Images", "jpg", "png");
+    filechooser.setFileFilter(filter);
+
+    filechooser.showDialog(null, "Choose Image");
+
+    File imagefile = filechooser.getSelectedFile();
+    
+    if (imagefile != null) { 
+        filePath = imagefile.getAbsolutePath();
+
+       
+        Image image = Toolkit.getDefaultToolkit().getImage(filePath);
+        Image finalimage = image.getScaledInstance(img9.getWidth(), img9.getHeight(), Image.SCALE_AREA_AVERAGING);
+        ImageIcon imageicon = new ImageIcon(finalimage);
+        img9.setIcon(imageicon);
+        
+    }
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(null, e);
+}
+
+    }//GEN-LAST:event_img9MouseClicked
+
+    private void img1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img1MouseClicked
+        // TODO add your handling code here:
+        setPathimag("Asstes/Female_User_Avatar/femal1.jpg");
+    }//GEN-LAST:event_img1MouseClicked
+
+    private void img2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img2MouseClicked
+        // TODO add your handling code here:
+        setPathimag("Asstes/Female_User_Avatar/femal2.jpg");
+    }//GEN-LAST:event_img2MouseClicked
+
+    private void img3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img3MouseClicked
+        // TODO add your handling code here:
+        setPathimag("Asstes/Female_User_Avatar/femal3.jpg");
+    }//GEN-LAST:event_img3MouseClicked
+
+    private void img4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img4MouseClicked
+        // TODO add your handling code here:
+        setPathimag("Asstes/Female_User_Avatar/femal4.jpg");
+    }//GEN-LAST:event_img4MouseClicked
+
+    private void img5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img5MouseClicked
+        // TODO add your handling code here:
+        setPathimag("Asstes/Female_User_Avatar/femal5.jpg");
+    }//GEN-LAST:event_img5MouseClicked
+
+    private void img6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img6MouseClicked
+        // TODO add your handling code here:
+        setPathimag("Asstes/Female_User_Avatar/femal6.jpg");
+    }//GEN-LAST:event_img6MouseClicked
+
+    private void img7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img7MouseClicked
+        // TODO add your handling code here:
+        setPathimag("Asstes/Female_User_Avatar/femal7.jpg");
+    }//GEN-LAST:event_img7MouseClicked
+
+    private void img8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img8MouseClicked
+        // TODO add your handling code here:
+        setPathimag("Asstes/Female_User_Avatar/femal9.jpg");
+    }//GEN-LAST:event_img8MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Frontend.UI_Components.PanelRound Sign_Up_Female_User;
-    private Frontend.UI_Components.ImageAvatar imageAvatar1;
-    private Frontend.UI_Components.ImageAvatar imageAvatar2;
-    private Frontend.UI_Components.ImageAvatar imageAvatar3;
-    private Frontend.UI_Components.ImageAvatar imageAvatar4;
-    private Frontend.UI_Components.ImageAvatar imageAvatar5;
-    private Frontend.UI_Components.ImageAvatar imageAvatar6;
-    private Frontend.UI_Components.ImageAvatar imageAvatar7;
-    private Frontend.UI_Components.ImageAvatar imageAvatar8;
-    private Frontend.UI_Components.ImageAvatar imageAvatar9;
-    private Frontend.UI_Components.PanelRound panelRound1;
-    private Frontend.UI_Components.PanelRound panelRound2;
-    private Frontend.UI_Components.PanelRound panelRound3;
-    private Frontend.UI_Components.PanelRound panelRound4;
-    private Frontend.UI_Components.PanelRound panelRound5;
-    private Frontend.UI_Components.PanelRound panelRound6;
-    private Frontend.UI_Components.PanelRound panelRound7;
-    private Frontend.UI_Components.PanelRound panelRound8;
-    private Frontend.UI_Components.PanelRound panelRound9;
+    private Frontend.UI_Components.ImageAvatar img1;
+    private Frontend.UI_Components.ImageAvatar img2;
+    private Frontend.UI_Components.ImageAvatar img3;
+    private Frontend.UI_Components.ImageAvatar img4;
+    private Frontend.UI_Components.ImageAvatar img5;
+    private Frontend.UI_Components.ImageAvatar img6;
+    private Frontend.UI_Components.ImageAvatar img7;
+    private Frontend.UI_Components.ImageAvatar img8;
+    private Frontend.UI_Components.ImageAvatar img9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private Frontend.UI_Components.PanelRound pane1;
+    private Frontend.UI_Components.PanelRound pane2;
+    private Frontend.UI_Components.PanelRound pane3;
+    private Frontend.UI_Components.PanelRound pane4;
+    private Frontend.UI_Components.PanelRound pane5;
+    private Frontend.UI_Components.PanelRound pane6;
+    private Frontend.UI_Components.PanelRound pane7;
+    private Frontend.UI_Components.PanelRound pane8;
+    private Frontend.UI_Components.PanelRound pane9;
     // End of variables declaration//GEN-END:variables
 }
