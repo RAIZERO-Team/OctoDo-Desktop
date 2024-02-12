@@ -110,4 +110,8 @@ public class Shadow_Button extends JButton {
             return null;
         }
     }
+
+    public void setCursorHand() {
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    }
 }

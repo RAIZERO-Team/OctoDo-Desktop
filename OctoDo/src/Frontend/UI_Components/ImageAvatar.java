@@ -99,4 +99,8 @@ public class ImageAvatar extends JComponent {
     private Image toImage(Icon icon) {
         return ((ImageIcon) icon).getImage();
     }
+
+    public void setCursorHand() {
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    }
 }

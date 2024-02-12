@@ -3,6 +3,7 @@ package Frontend.Sign_Up;
 import Application.Form.FormsManager;
 import Backend.Account.PasswordUtil;
 import Frontend.Sign_In.sign_in;
+import Frontend.Program_Intro.Intro_To_Program;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
 import javax.swing.JPasswordField;
@@ -168,7 +169,7 @@ public class sign_up extends javax.swing.JPanel {
         svgIconGitHub = new Frontend.UI_Components.svgIcon();
         svgIconGoogle = new Frontend.UI_Components.svgIcon();
         svgIconFaceBook = new Frontend.UI_Components.svgIcon();
-        jLabel1 = new javax.swing.JLabel();
+        lab_sign_in = new javax.swing.JLabel();
         svgIcon_Sign_Up = new Frontend.UI_Components.svgIcon();
 
         Sign_Up.setRoundBottomLeft(30);
@@ -306,16 +307,16 @@ public class sign_up extends javax.swing.JPanel {
         sign_up_Panel.add(svgIconGoogle, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 30, 30));
         sign_up_Panel.add(svgIconFaceBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 30, 30));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(21, 101, 192));
-        jLabel1.setText("Sign in here");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lab_sign_in.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lab_sign_in.setForeground(new java.awt.Color(21, 101, 192));
+        lab_sign_in.setText("Sign in here");
+        lab_sign_in.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lab_sign_in.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lab_sign_inMouseClicked(evt);
             }
         });
-        sign_up_Panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, -1, -1));
+        sign_up_Panel.add(lab_sign_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, -1, -1));
 
         Sign_Up.add(sign_up_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 520, 620));
         Sign_Up.add(svgIcon_Sign_Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 20, 520, 620));
@@ -346,9 +347,9 @@ public class sign_up extends javax.swing.JPanel {
         }       
     }//GEN-LAST:event_btn_NextActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        FormsManager.getInstance().showForm(new sign_in());
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void lab_sign_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_inMouseClicked
+        FormsManager.getInstance().showForm(new Intro_To_Program());
+    }//GEN-LAST:event_lab_sign_inMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -359,7 +360,6 @@ public class sign_up extends javax.swing.JPanel {
     private javax.swing.JProgressBar bar_strong;
     private javax.swing.JProgressBar bar_week;
     private javax.swing.JButton btn_Next;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lab_FName;
     private javax.swing.JLabel lab_LName;
     private javax.swing.JLabel lab_email;
@@ -371,6 +371,7 @@ public class sign_up extends javax.swing.JPanel {
     private javax.swing.JLabel lab_password;
     private javax.swing.JLabel lab_passwordStatus;
     private javax.swing.JLabel lab_signUp_options;
+    private javax.swing.JLabel lab_sign_in;
     private javax.swing.JLabel lb_Description;
     private javax.swing.JLabel lb_Title;
     private javax.swing.JRadioButton rbn_female;
