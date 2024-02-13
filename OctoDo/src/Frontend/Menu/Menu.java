@@ -19,13 +19,15 @@ import javax.swing.JScrollPane;
 public class Menu extends JPanel {
 
     private final String menuItems[][] = {
-        //{"~MAIN~"},
-        //{"Home Page"},
+        {"~MAIN~"},
+        {"Home Page"},
         {"Dashboard"},
-        //{"~WEB APP~"},
-        {"Email" , "Inbox", "Read",},
-        {"Calendar" , "Month" , "Week"},
-        //{"~OTHER~"},
+        {"~Study Space~"},
+        {"Week Plan"},
+        {"Pomodoro"},
+        {"~Reminder~"},
+        {"Medicine reminder"},
+        {"~OTHER~"},
         {"Logout"}
     };
 
@@ -54,6 +56,7 @@ public class Menu extends JPanel {
     private final List<MenuEvent> events = new ArrayList<>();
     private boolean menuFull = true;
     private final String headerName = "RAIZERO";
+    private final String headerName2 = "ahmedbad063@gmail.com";
 
     protected final boolean hideMenuTitleOnMinimum = true;
     protected final int menuTitleLeftInset = 5;
@@ -73,7 +76,7 @@ public class Menu extends JPanel {
                 + "background:$Menu.background;"
                 + "arc:10");
         header = new JLabel(headerName);
-        header.setIcon(new ImageIcon(getClass().getResource("/Asstes/Icons/logo.png")));
+        //header.setIcon(new ImageIcon(getClass().getResource("/Asstes/Icons/logo.png")));
         header.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:$Menu.header.font;"
                 + "foreground:$Menu.foreground");
@@ -235,7 +238,7 @@ public class Menu extends JPanel {
                 int hgap = menuFull ? sheaderFullHgap : 0;
                 int accentColorHeight = 0;
                 if (toolBarAccentColor.isVisible()) {
-                    accentColorHeight = toolBarAccentColor.getPreferredSize().height+gap;
+                    accentColorHeight = toolBarAccentColor.getPreferredSize().height + gap;
                 }
 
                 header.setBounds(x + hgap, y, iconWidth - (hgap * 2), iconHeight);
@@ -243,7 +246,7 @@ public class Menu extends JPanel {
                 int ldWidth = width - ldgap * 2;
                 int ldHeight = lightDarkMode.getPreferredSize().height;
                 int ldx = x + ldgap;
-                int ldy = y + height - ldHeight - ldgap  - accentColorHeight;
+                int ldy = y + height - ldHeight - ldgap - accentColorHeight;
 
                 int menux = x;
                 int menuy = y + iconHeight + gap;

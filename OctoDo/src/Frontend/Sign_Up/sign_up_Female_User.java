@@ -16,7 +16,7 @@ public class sign_up_Female_User extends javax.swing.JPanel {
     public sign_up_Female_User() {
         initComponents();
         Sign_Up_Female_User.putClientProperty(FlatClientProperties.STYLE, ""
-                + "background:$Login.background;"
+                + "background:$SSS.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");
         cursorhand();

@@ -14,12 +14,10 @@ public class sign_in extends javax.swing.JPanel {
     }
 
     private void init() {
-        //setLayout(new LoginFormLayout());
-        //login.setLayout(new LoginLayout());
         lb_Title.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:$h1.font");
         Login.putClientProperty(FlatClientProperties.STYLE, ""
-                + "background:$Login.background;"
+                + "background:$SSS.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");
 
@@ -34,14 +32,25 @@ public class sign_in extends javax.swing.JPanel {
     }
 
     private void fillText() {
-        txt_email.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Enter your Email");
+        txt_email.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Enter The username");
         PasswordField.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Enter your Password");
     }
 
-    private void SetSVGIcon(){
-        svgIcon1.setSVGIcon("Asstes/SVG_Icons/test2.svg", 449, 460);
+    private void SetSVGIcon() {
+        svgIcon1.setSVGIcon("Asstes/SVG_Icons/test2.svg", 449, 540);
+
+        svgIconLinkedin.setSVGIcon("Asstes/SVG_Icons/linkedin.svg", 30, 30);
+        svgIconGitHub.setSVGIcon("Asstes/SVG_Icons/Github.svg", 30, 30);
+        svgIconGoogle.setSVGIcon("Asstes/SVG_Icons/google.svg", 30, 30);
+        svgIconFaceBook.setSVGIcon("Asstes/SVG_Icons/facebook.svg", 30, 30);
+
+        svgIconLinkedin.setCursorHand();
+        svgIconGitHub.setCursorHand();
+        svgIconGoogle.setCursorHand();
+        svgIconFaceBook.setCursorHand();
     }
-    
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -57,11 +66,16 @@ public class sign_in extends javax.swing.JPanel {
         cbx_rememberMe = new javax.swing.JCheckBox();
         btn_login = new javax.swing.JButton();
         lab_DHAAC = new javax.swing.JLabel();
-        btn_signup = new javax.swing.JButton();
         lab_error_Password = new javax.swing.JLabel();
         lab_user_is_exits = new javax.swing.JLabel();
         panelRound1 = new Frontend.UI_Components.PanelRound();
         lab_forgetPass = new javax.swing.JLabel();
+        lab_signUp_options = new javax.swing.JLabel();
+        svgIconLinkedin = new Frontend.UI_Components.svgIcon();
+        svgIconGitHub = new Frontend.UI_Components.svgIcon();
+        svgIconGoogle = new Frontend.UI_Components.svgIcon();
+        svgIconFaceBook = new Frontend.UI_Components.svgIcon();
+        lab_sign_up = new javax.swing.JLabel();
         svgIcon1 = new Frontend.UI_Components.svgIcon();
 
         Login.setRoundBottomLeft(30);
@@ -89,7 +103,7 @@ public class sign_in extends javax.swing.JPanel {
 
         lab_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lab_email.setForeground(new java.awt.Color(255, 255, 255));
-        lab_email.setText("Email");
+        lab_email.setText("User Name");
         sign_in_Panel.add(lab_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
         txt_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -126,25 +140,12 @@ public class sign_in extends javax.swing.JPanel {
                 btn_loginActionPerformed(evt);
             }
         });
-        sign_in_Panel.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 290, -1));
+        sign_in_Panel.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 290, -1));
 
         lab_DHAAC.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lab_DHAAC.setForeground(new java.awt.Color(255, 255, 255));
         lab_DHAAC.setText("Don't have an account ? ");
-        sign_in_Panel.add(lab_DHAAC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 150, -1));
-
-        btn_signup.setBackground(new java.awt.Color(60, 63, 65));
-        btn_signup.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_signup.setForeground(new java.awt.Color(21, 101, 192));
-        btn_signup.setText("Sign up now");
-        btn_signup.setBorder(null);
-        btn_signup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_signup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_signupActionPerformed(evt);
-            }
-        });
-        sign_in_Panel.add(btn_signup, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
+        sign_in_Panel.add(lab_DHAAC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 150, -1));
 
         lab_error_Password.setForeground(new java.awt.Color(255, 77, 77));
         sign_in_Panel.add(lab_error_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 290, 16));
@@ -173,10 +174,60 @@ public class sign_in extends javax.swing.JPanel {
         lab_forgetPass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lab_forgetPass.setForeground(new java.awt.Color(21, 101, 192));
         lab_forgetPass.setText("Forget Password?");
+        lab_forgetPass.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lab_forgetPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lab_forgetPassMouseClicked(evt);
+            }
+        });
         sign_in_Panel.add(lab_forgetPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 320, -1, 25));
 
-        Login.add(sign_in_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 449, 460));
-        Login.add(svgIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 449, 460));
+        lab_signUp_options.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lab_signUp_options.setForeground(new java.awt.Color(255, 255, 255));
+        lab_signUp_options.setText("Or Login with");
+        sign_in_Panel.add(lab_signUp_options, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, -1, -1));
+
+        svgIconLinkedin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                svgIconLinkedinMouseClicked(evt);
+            }
+        });
+        sign_in_Panel.add(svgIconLinkedin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 30, 30));
+
+        svgIconGitHub.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                svgIconGitHubMouseClicked(evt);
+            }
+        });
+        sign_in_Panel.add(svgIconGitHub, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 30, 30));
+
+        svgIconGoogle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                svgIconGoogleMouseClicked(evt);
+            }
+        });
+        sign_in_Panel.add(svgIconGoogle, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 30, 30));
+
+        svgIconFaceBook.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                svgIconFaceBookMouseClicked(evt);
+            }
+        });
+        sign_in_Panel.add(svgIconFaceBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 30, 30));
+
+        lab_sign_up.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lab_sign_up.setForeground(new java.awt.Color(21, 101, 192));
+        lab_sign_up.setText("Sign up here");
+        lab_sign_up.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lab_sign_up.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lab_sign_upMouseClicked(evt);
+            }
+        });
+        sign_in_Panel.add(lab_sign_up, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+
+        Login.add(sign_in_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 449, 540));
+        Login.add(svgIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 449, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -204,13 +255,40 @@ public class sign_in extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_cbx_rememberMeActionPerformed
 
+    
+    private void lab_forgetPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_forgetPassMouseClicked
+        
+    }//GEN-LAST:event_lab_forgetPassMouseClicked
+
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         Application.sign_in();
     }//GEN-LAST:event_btn_loginActionPerformed
 
-    private void btn_signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signupActionPerformed
+    private void lab_sign_upMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_upMouseClicked
         FormsManager.getInstance().showForm(new sign_up());
-    }//GEN-LAST:event_btn_signupActionPerformed
+    }//GEN-LAST:event_lab_sign_upMouseClicked
+
+    
+    
+    private void Sign_Up_API_Key(){
+        
+    }
+    
+    private void svgIconLinkedinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svgIconLinkedinMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_svgIconLinkedinMouseClicked
+
+    private void svgIconGitHubMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svgIconGitHubMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_svgIconGitHubMouseClicked
+
+    private void svgIconGoogleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svgIconGoogleMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_svgIconGoogleMouseClicked
+
+    private void svgIconFaceBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svgIconFaceBookMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_svgIconFaceBookMouseClicked
 
     // The next Methodes is For Remember Me Check box
     private void saveCredentials(String email, String password) {
@@ -247,19 +325,24 @@ public class sign_in extends javax.swing.JPanel {
     private Frontend.UI_Components.PanelRound Login;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JButton btn_login;
-    private javax.swing.JButton btn_signup;
     private javax.swing.JCheckBox cbx_rememberMe;
     private javax.swing.JLabel lab_DHAAC;
     private javax.swing.JLabel lab_email;
     private javax.swing.JLabel lab_error_Password;
     private javax.swing.JLabel lab_forgetPass;
     private javax.swing.JLabel lab_password;
+    private javax.swing.JLabel lab_signUp_options;
+    private javax.swing.JLabel lab_sign_up;
     private javax.swing.JLabel lab_user_is_exits;
     private javax.swing.JLabel lb_Description;
     private javax.swing.JLabel lb_Title;
     private Frontend.UI_Components.PanelRound panelRound1;
     private Frontend.UI_Components.PanelRound sign_in_Panel;
     private Frontend.UI_Components.svgIcon svgIcon1;
+    private Frontend.UI_Components.svgIcon svgIconFaceBook;
+    private Frontend.UI_Components.svgIcon svgIconGitHub;
+    private Frontend.UI_Components.svgIcon svgIconGoogle;
+    private Frontend.UI_Components.svgIcon svgIconLinkedin;
     private javax.swing.JTextField txt_email;
     // End of variables declaration//GEN-END:variables
 }

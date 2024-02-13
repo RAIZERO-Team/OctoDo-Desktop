@@ -26,8 +26,6 @@ public class Application extends javax.swing.JFrame {
         setSize(new Dimension(1366, 768));
         setLocationRelativeTo(null);
         setTitle("<html><b>OCTODO</b></html>");
-
-        //setFont(new java.awt.Font("Segoe UI", 1, 14));
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Asstes/Icons/logo.png")));
         mainForm = new MainForm();
         loginForm = new sign_in();
@@ -46,20 +44,10 @@ public class Application extends javax.swing.JFrame {
         app.setContentPane(app.mainForm);
         app.mainForm.applyComponentOrientation(app.getComponentOrientation());
         setSelectedMenu(0, 0);
-        app.mainForm.hideMenu();
+        //app.mainForm.hideMenu();
         SwingUtilities.updateComponentTreeUI(app.mainForm);
         FlatAnimatedLafChange.hideSnapshotWithAnimation();
     }
-
-//    public static void sign_up() {
-//        FlatAnimatedLafChange.showSnapshot();
-//        app.setContentPane(app.mainForm);
-//        app.mainForm.applyComponentOrientation(app.getComponentOrientation());
-//        setSelectedMenu(0, 0);
-//        app.mainForm.hideMenu();
-//        SwingUtilities.updateComponentTreeUI(app.mainForm);
-//        FlatAnimatedLafChange.hideSnapshotWithAnimation();
-//    }
 
     public static void logout() {
         FlatAnimatedLafChange.showSnapshot();
@@ -77,7 +65,6 @@ public class Application extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        menu2 = new Frontend.Menu.Menu();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -96,17 +83,11 @@ public class Application extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menu2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(849, Short.MAX_VALUE))
+            .addGap(0, 1079, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menu2, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 661, Short.MAX_VALUE)
         );
 
         pack();
@@ -119,7 +100,6 @@ public class Application extends javax.swing.JFrame {
         FlatMacDarkLaf.setup();
         java.awt.EventQueue.invokeLater(() -> {
             app = new Application();
-            //  app.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
             app.setVisible(true);
         });
     }
@@ -128,6 +108,5 @@ public class Application extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private Frontend.Menu.Menu menu2;
     // End of variables declaration//GEN-END:variables
 }

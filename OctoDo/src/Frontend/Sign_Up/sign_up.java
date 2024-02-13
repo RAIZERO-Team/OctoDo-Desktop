@@ -20,7 +20,7 @@ public class sign_up extends javax.swing.JPanel {
         initComponents();
         initPasswordField(PasswordField);
         Sign_Up.putClientProperty(FlatClientProperties.STYLE, ""
-                + "background:$Login.background;"
+                + "background:$SSS.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");
         

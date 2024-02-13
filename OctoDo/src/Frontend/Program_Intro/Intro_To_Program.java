@@ -9,7 +9,7 @@ public class Intro_To_Program extends javax.swing.JPanel {
     public Intro_To_Program() {
         initComponents();
         intro_to_program.putClientProperty(FlatClientProperties.STYLE, ""
-                + "background:$Login.background;"
+                + "background:$SSS.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");
         
