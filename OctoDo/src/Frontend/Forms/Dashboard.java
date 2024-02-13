@@ -10,7 +10,7 @@ public class Dashboard extends javax.swing.JPanel {
     public Dashboard() {
         initComponents();
         Dashborad.putClientProperty(FlatClientProperties.STYLE, ""
-                + "background:$Login.background;"
+                + "background:$Form.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");    
     }

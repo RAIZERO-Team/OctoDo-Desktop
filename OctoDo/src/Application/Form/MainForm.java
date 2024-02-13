@@ -62,21 +62,20 @@ public class MainForm extends JLayeredPane {
     }
 
     // Here the Forms Is Changes
-    
     private void initMenuEvent() {
         menu.addMenuEvent((int index, int subIndex, MenuAction action) -> {
             // Application.mainForm.showForm(new DefaultForm("Form : " + index + " " + subIndex));
             if (index == 0) {
                 Application.showForm(new Dashboard());
             } else if (index == 1) {
-                if (subIndex == 1) {
-                    Application.showForm(new Dashboard());
-                } else if (subIndex == 2) {
-                    Application.showForm(new Dashboard());
-                } else {
-                    action.cancel();
-                }
+                Application.showForm(new Dashboard());
+            } else if (index == 2) {
+                Application.showForm(new Dashboard());
             } else if (index == 3) {
+                Application.showForm(new Dashboard());
+            } else if (index == 4) {
+                Application.showForm(new Dashboard());
+            } else if (index == 5) {
                 Application.logout();
             } else {
                 action.cancel();
