@@ -23,9 +23,10 @@ public class Application extends javax.swing.JFrame {
 
     public Application() {
         initComponents();
-        setSize(new Dimension(1366, 768));
+        setSize(new Dimension(1360, 770));
         setLocationRelativeTo(null);
         setTitle("<html><b>OCTODO</b></html>");
+        setResizable(true);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Asstes/Icons/logo.png")));
         mainForm = new MainForm();
         loginForm = new sign_in();
@@ -65,19 +66,20 @@ public class Application extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        MenuBar = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jMenu3.setText("File");
+        MenuBar.add(jMenu3);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jMenu4.setText("Edit");
+        MenuBar.add(jMenu4);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(MenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,8 +107,8 @@ public class Application extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     // End of variables declaration//GEN-END:variables
 }
