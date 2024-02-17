@@ -22,18 +22,28 @@ public class QueriesAdministrator {
         return false;
     }
 
-    public static User CurrentUser(String email) throws SQLException {
-       stm = ConnectionDB.con.prepareStatement("select User_id , User_fname , User_lname ,User_ gender from user where User_email=? ");
-       stm.setNString(1, email);
+    public static User CurrentUser(String email) {
+        try{
+        stm = ConnectionDB.con.prepareStatement("select User_id , User_fname , User_lname ,User_ gender from user where User_email=? ");
+        stm.setNString(1, email);
         ResultSet rs = stm.executeQuery();
-        ٍString  User_id= stm.getString( 1);
-        ٍString User_fname = stm.getString( 2);
-        ٍString User_lname = stm.getString( 3);
-        ٍString User_ gender = stm.getString( 6);
-        
-        return new User();//send parameter in this constructor
+        if (rs.next()) {
+        String user_id    = rs.getString("User_id");
+        String user_fname = rs.getString("User_fname");
+        String user_lname = rs.getString("User_lname");
+        String user_gender = rs.getString("User_gender");
+
+        return new User(user_id, user_fname, user_lname, user_gender);
+        } 
+        }
+            
+        catch (SQLException e) {
+
+            return null;
+        }
     }
 
+    
     static private String encryptionPassword(String password) {
 
         return password;
