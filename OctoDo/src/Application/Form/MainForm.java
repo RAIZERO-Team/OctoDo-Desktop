@@ -2,6 +2,10 @@ package Application.Form;
 
 import Application.Main.Application;
 import Frontend.Forms.Dashboard;
+import Frontend.Forms.Home_Page;
+import Frontend.Forms.Medicine_Reminder;
+import Frontend.Forms.Pomodoro;
+import Frontend.Forms.Week_Plan;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.util.UIScale;
@@ -57,7 +61,7 @@ public class MainForm extends JLayeredPane {
         if (menuButton == null) {
             menuButton = new JButton();
         }
-        String icon = (getComponentOrientation().isLeftToRight()) ? "menu_left.svg" : "menu_right.svg";
+        String icon = (getComponentOrientation().isLeftToRight()) ? "left.svg" : "right.svg";
         menuButton.setIcon(new FlatSVGIcon("Asstes/SVG_Icons/" + icon, 0.8f));
     }
 
@@ -66,15 +70,15 @@ public class MainForm extends JLayeredPane {
         menu.addMenuEvent((int index, int subIndex, MenuAction action) -> {
             // Application.mainForm.showForm(new DefaultForm("Form : " + index + " " + subIndex));
             if (index == 0) {
-                Application.showForm(new Dashboard());
+                Application.showForm(new Home_Page());
             } else if (index == 1) {
                 Application.showForm(new Dashboard());
             } else if (index == 2) {
-                Application.showForm(new Dashboard());
+                Application.showForm(new Week_Plan());
             } else if (index == 3) {
-                Application.showForm(new Dashboard());
+                Application.showForm(new Pomodoro());
             } else if (index == 4) {
-                Application.showForm(new Dashboard());
+                Application.showForm(new Medicine_Reminder());
             } else if (index == 5) {
                 Application.logout();
             } else {
@@ -86,9 +90,9 @@ public class MainForm extends JLayeredPane {
     private void setMenuFull(boolean full) {
         String icon;
         if (getComponentOrientation().isLeftToRight()) {
-            icon = (full) ? "menu_left.svg" : "menu_right.svg";
+            icon = (full) ? "left.svg" : "right.svg";
         } else {
-            icon = (full) ? "menu_right.svg" : "menu_left.svg";
+            icon = (full) ? "right.svg" : "left.svg";
         }
         menuButton.setIcon(new FlatSVGIcon("Asstes/SVG_Icons/" + icon, 0.8f));
         menu.setMenuFull(full);

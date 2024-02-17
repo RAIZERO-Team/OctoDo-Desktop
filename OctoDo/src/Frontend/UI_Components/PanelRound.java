@@ -46,7 +46,6 @@ public class PanelRound extends JPanel {
         this.roundBottomRight = roundBottomRight;
         repaint();
     }
-    
 
     private int roundTopLeft = 0;
     private int roundTopRight = 0;
@@ -119,6 +118,10 @@ public class PanelRound extends JPanel {
         area.add(new Area(new Rectangle2D.Double(0, 0, width - roundX / 2, height)));
         area.add(new Area(new Rectangle2D.Double(0, 0, width, height - roundY / 2)));
         return area;
+    }
+
+    public void setCursorHand() {
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }
 
 }
