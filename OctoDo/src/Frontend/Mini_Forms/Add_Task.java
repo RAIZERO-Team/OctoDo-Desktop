@@ -23,8 +23,8 @@ public class Add_Task extends javax.swing.JPanel {
         Task_Reminder_Time = Set_Task_Time.getText();
         
         // Here we want the day and date of create this task
-        Task_Day = Date_Time.getDay();
-        Task_Date = Date_Time.getDate();
+        //Task_Day = Date_Time.getDay();
+        //Task_Date = Date_Time.getDate();
     }
 
     @SuppressWarnings("unchecked")
@@ -116,9 +116,11 @@ public class Add_Task extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+  public int n = 0;
+    
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-        
+        new Task().setdata(Task_Name ,Task_Reminder_Time);
+        n++;
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed

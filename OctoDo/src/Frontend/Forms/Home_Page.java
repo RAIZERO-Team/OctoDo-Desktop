@@ -1,27 +1,18 @@
 package Frontend.Forms;
 
+import Frontend.Mini_Forms.Add_Task;
 import com.formdev.flatlaf.FlatClientProperties;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class Home_Page extends javax.swing.JPanel {
 
-    private List<JPanel> Tasks;
-
+    
     public Home_Page() {
         initComponents();
         svgtIcon();
-        increment();
         init();
+        showDialog();
+        createTasks();
     }
 
     private void svgtIcon() {
@@ -36,47 +27,30 @@ public class Home_Page extends javax.swing.JPanel {
         btn_Add_Task.setCursorHand();
     }
 
-    private void addtask() {
-        //today_tasks.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        btn_Add_Task.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                createSubPanel();
-            }
-        });
-        Tasks = new ArrayList<>();
+    private void showDialog(){
+        Dialog.setSize(400, 600);
+        Dialog.add(add_Task);        
     }
-
-    private void createSubPanel() {
-        Frontend.Mini_Forms.Task subPanel = new Frontend.Mini_Forms.Task();
-        subPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-        subPanel.setMaximumSize(new Dimension(240, 70));
-
-        JLabel label = new JLabel("Sub Panel");
-        subPanel.add(label);
-
-        JButton removeButton = new JButton("Remove");
-        removeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                remove(subPanel);
-                Tasks.remove(subPanel);
-                revalidate();
-                repaint();
-            }
-        });
-        subPanel.add(removeButton);
-
-        Tasks.add(subPanel);
-        add(subPanel);
+    
+    public void createTasks() {
+        if (new Add_Task().n == 1){
+        Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task();
+        Tasks.setMaximumSize(new Dimension(240, 70));
+        num++;
+        today_tasks.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, m, -1, -1));
+        m += 100;
+        System.out.println(test + num);
         revalidate();
         repaint();
+        }
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Dialog = new javax.swing.JDialog();
+        add_Task = new Frontend.Mini_Forms.Add_Task();
         homepage = new Frontend.UI_Components.PanelRound();
         lab_welc = new javax.swing.JLabel();
         svgIcon_welco = new Frontend.UI_Components.svgIcon();
@@ -88,13 +62,36 @@ public class Home_Page extends javax.swing.JPanel {
         btn_Add_Task = new Frontend.UI_Components.Shadow_Button();
         scrollPane1 = new Frontend.UI_Components.ScrollBar.ScrollPaneWin11();
         today_tasks = new javax.swing.JPanel();
-        task1 = new Frontend.Mini_Forms.Task();
         Completed = new Frontend.UI_Components.PanelRound();
         scrollPaneWin2 = new Frontend.UI_Components.ScrollBar.ScrollPaneWin11();
         completed_Tasks = new javax.swing.JPanel();
         Overdue_Tasks = new Frontend.UI_Components.PanelRound();
         ScrollPane3 = new javax.swing.JScrollPane();
         overdue_tasks = new javax.swing.JPanel();
+
+        Dialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        Dialog.setLocation(new java.awt.Point(588, 150));
+
+        javax.swing.GroupLayout DialogLayout = new javax.swing.GroupLayout(Dialog.getContentPane());
+        Dialog.getContentPane().setLayout(DialogLayout);
+        DialogLayout.setHorizontalGroup(
+            DialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(DialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DialogLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(add_Task, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        DialogLayout.setVerticalGroup(
+            DialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(DialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DialogLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(add_Task, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         homepage.setRoundBottomLeft(30);
         homepage.setRoundBottomRight(30);
@@ -144,23 +141,9 @@ public class Home_Page extends javax.swing.JPanel {
         });
         Today_Tasks.add(btn_Add_Task, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 140, -1));
 
-        scrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        javax.swing.GroupLayout today_tasksLayout = new javax.swing.GroupLayout(today_tasks);
-        today_tasks.setLayout(today_tasksLayout);
-        today_tasksLayout.setHorizontalGroup(
-            today_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(today_tasksLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(task1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        today_tasksLayout.setVerticalGroup(
-            today_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(today_tasksLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(task1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
+        today_tasks.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         scrollPane1.setViewportView(today_tasks);
 
         Today_Tasks.add(scrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 440));
@@ -222,50 +205,36 @@ public class Home_Page extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(homepage, javax.swing.GroupLayout.PREFERRED_SIZE, 1088, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(homepage, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    short num = 0;
-    String test = "";
+    short num = 0, m = 10;
+    String test = "Task";
 
-    private void increment() {
-        num++;
-        test = "Task" + num;
-        System.out.println(test);
-    }
-
-    int n = 0, m = 0;
-
-    private Frontend.Mini_Forms.Task tasks2 = new Frontend.Mini_Forms.Task();
-
-    private void Task(int count) {
-        m += 100;
-        if (count == 1) {
-            today_tasks.add(tasks2, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, m, -1, -1));
-        }
-    }
-
-
+    
     private void btn_Add_TaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Add_TaskActionPerformed
-        addtask();
+        //createTasks();        
+        Dialog.setVisible(true);
     }//GEN-LAST:event_btn_Add_TaskActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Frontend.UI_Components.PanelRound Completed;
+    public javax.swing.JDialog Dialog;
     private Frontend.UI_Components.PanelRound Overdue_Tasks;
     private javax.swing.JScrollPane ScrollPane3;
     private Frontend.UI_Components.PanelRound Today_Tasks;
+    private Frontend.Mini_Forms.Add_Task add_Task;
     private Frontend.UI_Components.Shadow_Button btn_Add_Task;
     private javax.swing.JPanel completed_Tasks;
     private Frontend.UI_Components.PanelRound homepage;
@@ -278,7 +247,6 @@ public class Home_Page extends javax.swing.JPanel {
     private Frontend.UI_Components.ScrollBar.ScrollPaneWin11 scrollPane1;
     private Frontend.UI_Components.ScrollBar.ScrollPaneWin11 scrollPaneWin2;
     private Frontend.UI_Components.svgIcon svgIcon_welco;
-    private Frontend.Mini_Forms.Task task1;
     private javax.swing.JPanel today_tasks;
     // End of variables declaration//GEN-END:variables
 }
