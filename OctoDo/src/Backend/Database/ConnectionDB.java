@@ -13,7 +13,7 @@ public class ConnectionDB {
     static {
         try {
             con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/Octodo",
-                    "root", "19712003");
+                    "root", "Mkh@3032024M");
 
         } catch (SQLException ex) {
             Notifications.getInstance().show(Notifications.Type.ERROR, "Error");
