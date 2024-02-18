@@ -269,8 +269,7 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         return this.filePath;
     }
 
-    private void img9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img9MouseClicked
-
+    private void setUserImag(){
         try {
 
             JFileChooser filechooser = new JFileChooser();
@@ -297,7 +296,12 @@ public class sign_up_Male_User extends javax.swing.JPanel {
         }
 
         // here the backend work
-        System.out.println(getUplodedImagePath());
+        System.out.println(getUplodedImagePath());        
+    }
+    
+    
+    private void img9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img9MouseClicked
+        setUserImag();
     }//GEN-LAST:event_img9MouseClicked
 
     private void goto_signIn() {
