@@ -22,7 +22,15 @@ public class QueriesAdministrator {
         return false;
     }
 
-    public static User CurrentUser(String email) {
+    public static User CurrentUser(String email) throws SQLException {
+       stm = ConnectionDB.con.prepareStatement("select User_id , User_fname , User_lname ,User_ gender from user where User_email=? ");
+       stm.setNString(1, email);
+        ResultSet rs = stm.executeQuery();
+        ٍString  User_id= stm.getString( 1);
+        ٍString User_fname = stm.getString( 2);
+        ٍString User_lname = stm.getString( 3);
+        ٍString User_ gender = stm.getString( 6);
+        
         return new User();//send parameter in this constructor
     }
 
