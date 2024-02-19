@@ -11,7 +11,7 @@ public class QueriesAdministrator {
     public static boolean isEmailExist(String Email) {
 
         try {
-            stm = con.prepareStatement("select count(User_email) from student where User_email = ?");
+            stm = con.prepareStatement("select count(User_email) from User where User_email = ?");
             stm.setString(1, Email);
             ResultSet rs = stm.executeQuery();
             int count = -1;
@@ -32,7 +32,7 @@ public class QueriesAdministrator {
     public static boolean sign_up(String fname, String lname, String email, String password, String gender) {
 
         try {
-            stm = con.prepareStatement("insert into student (User_fname , User_lname , User_email  , User_password , User_gender  )"
+            stm = con.prepareStatement("insert into User (User_fname , User_lname , User_email  , User_password , User_gender  )"
                     + "values(? , ? , ? , ? , ?  )");
 
             stm.setString(1, fname);
@@ -52,18 +52,19 @@ public class QueriesAdministrator {
 
     public static boolean sign_in(String Email, String paswword) {
         try {
-            stm = con.prepareStatement("select count(*) from User where User_email = ? and User_password = ? ");
+            stm = con.prepareStatement("select count(*) from User where User_email = ? AND User_password = ?");
             stm.setString(1, Email);
-            stm.setString(2, encryptionPassword(paswword));
-
+            stm.setString(2, paswword);
             ResultSet re = stm.executeQuery();
             int count = 0;
             while (re.next()) {
                 count = re.getInt(1);
             }
-            return count >= 1;
+            System.out.println(count);
+            return count == 1;
 
         } catch (SQLException e) {
+            System.out.println("count");
             e.printStackTrace();
             return false;
 
@@ -73,7 +74,7 @@ public class QueriesAdministrator {
 
     public static User CurrentUser(String email) throws SQLException {
 
-        stm = ConnectionDB.con.prepareStatement("select User_fname , User_lname ,User_ gender from user where User_email=? ");
+        stm = ConnectionDB.con.prepareStatement("select User_fname , User_lname ,User_gender from User where User_email=?");
         stm.setNString(1, email);
         ResultSet rs = stm.executeQuery();
         if (rs.next()) {
@@ -81,7 +82,7 @@ public class QueriesAdministrator {
             String user_lname = rs.getString("User_lname");
             String user_gender = rs.getString("User_gender");
 
-            return new User(user_fname, user_lname, user_gender);
+            return new User(user_fname + " " + user_lname, email, user_gender);
         }
 
         return null;
@@ -102,8 +103,8 @@ public class QueriesAdministrator {
         try {
             stm = ConnectionDB.con.prepareStatement("UPDATE User SET User_password = ? WHERE User_email = ?");
 
-            stm.setString(1, username);
-            stm.setString(2, newPassword);
+            stm.setString(1, newPassword);
+            stm.setString(2, username );
             stm.executeUpdate();
             return true;
         } catch (SQLException e) {

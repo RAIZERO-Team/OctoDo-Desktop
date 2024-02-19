@@ -386,6 +386,12 @@ public class sign_up extends javax.swing.JPanel {
         if (Check) {
             if (sign_up(Fname, Lname, Email, passwordstr, Gender)) {
                 System.out.println("Successful stored");//informations stored
+                if (rbn_male.isSelected()) {
+                    FormsManager.getInstance().showForm(new sign_up_Male_User());
+                } else {
+                    FormsManager.getInstance().showForm(new sign_up_Female_User());
+                }
+
             } else {
                 System.out.println("something went wrong");//Exception when stored information
             }
@@ -393,11 +399,7 @@ public class sign_up extends javax.swing.JPanel {
             System.out.println("you stored wrong information");// if user insert false information at least one of them
         }
 
-        if (rbn_male.isSelected()) {
-            FormsManager.getInstance().showForm(new sign_up_Male_User());
-        } else {
-            FormsManager.getInstance().showForm(new sign_up_Female_User());
-        }
+
     }//GEN-LAST:event_btn_NextActionPerformed
 
     private void lab_sign_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_inMouseClicked

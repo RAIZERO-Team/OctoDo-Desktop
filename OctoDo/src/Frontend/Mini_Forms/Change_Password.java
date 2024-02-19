@@ -242,10 +242,11 @@ public class Change_Password extends javax.swing.JPanel {
                     if (QueriesAdministrator.updatePassword(Email, newPassword)) {
                         JOptionPane.showMessageDialog(null, "changing  is done");
                     } else {
+                        // close panal change password
                         JOptionPane.showMessageDialog(this,
                                 "changing is not done",
                                 "error",
-                                JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.ERROR_MESSAGE);  
                     }
 
                 } else {

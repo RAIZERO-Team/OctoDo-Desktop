@@ -1,11 +1,11 @@
 package Frontend.Forms;
 
+import Backend.Account.User;
 import Frontend.Mini_Forms.Add_Task;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Dimension;
 
 public class Home_Page extends javax.swing.JPanel {
-
     
     public Home_Page() {
         initComponents();
@@ -13,12 +13,13 @@ public class Home_Page extends javax.swing.JPanel {
         init();
         showDialog();
         createTasks();
+        lab_user_Name.setText(User.currentUser.getUserName());
     }
-
+    
     private void svgtIcon() {
         svgIcon_welco.setSVGIcon("Asstes/SVG_Icons/1F44B.svg", 30, 30);
     }
-
+    
     private void init() {
         homepage.putClientProperty(FlatClientProperties.STYLE, ""
                 + "background:$Form.background;"
@@ -26,25 +27,25 @@ public class Home_Page extends javax.swing.JPanel {
                 + "border:30,40,50,30");
         btn_Add_Task.setCursorHand();
     }
-
-    private void showDialog(){
+    
+    private void showDialog() {
         Dialog.setSize(400, 600);
         Dialog.add(add_Task);        
     }
     
     public void createTasks() {
-        if (new Add_Task().n == 1){
-        Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task();
-        Tasks.setMaximumSize(new Dimension(240, 70));
-        num++;
-        today_tasks.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, m, -1, -1));
-        m += 100;
-        System.out.println(test + num);
-        revalidate();
-        repaint();
+        if (new Add_Task().n == 1) {
+            Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task();
+            Tasks.setMaximumSize(new Dimension(240, 70));
+            num++;
+            today_tasks.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, m, -1, -1));
+            m += 100;
+            System.out.println(test + num);
+            revalidate();
+            repaint();
         }
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -220,8 +221,8 @@ public class Home_Page extends javax.swing.JPanel {
 
     short num = 0, m = 10;
     String test = "Task";
-
     
+
     private void btn_Add_TaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Add_TaskActionPerformed
         //createTasks();        
         Dialog.setVisible(true);

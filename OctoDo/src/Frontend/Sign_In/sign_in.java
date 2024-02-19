@@ -267,30 +267,35 @@ public class sign_in extends javax.swing.JPanel {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
 
         String email = txt_email.getText();
-        char password[] = PasswordField.getPassword();
+
+        String pass = PasswordField.getText();
         // Check sign-in
-        if (QueriesAdministrator.sign_in(email, password.toString().trim())) {
+        if (QueriesAdministrator.sign_in(email, pass)) {
             try {
                 // Successful sign-in
 
                 User.currentUser = QueriesAdministrator.CurrentUser(email);
+
                 Application.sign_in();
 
             } catch (SQLException ex) {
                 Logger.getLogger(sign_in.class.getName()).log(Level.SEVERE, null, ex);
+
             }
         } else {
             // Unsuccessful sign-in   
 
             if (QueriesAdministrator.isEmailExist(email)) {
-                // Email exists, but password is incorrect              }
+                // Email exists, but password is incorrect sout
+
             } else {
                 // Email and password are both incorrect
+
             }
 
         }
 
-
+        //   Application.sign_in();
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void lab_sign_upMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_upMouseClicked
