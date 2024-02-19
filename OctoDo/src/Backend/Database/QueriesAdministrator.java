@@ -23,7 +23,22 @@ public class QueriesAdministrator {
     }
 
     public static User CurrentUser(String email) {
-        return new User();//send parameter in this constructor
+        try {
+            stm = ConnectionDB.con.prepareStatement("select User_id , User_fname , User_lname ,User_ gender from user where User_email=? ");
+            stm.setNString(1, email);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                String user_id = rs.getString("User_id");
+                String user_fname = rs.getString("User_fname");
+                String user_lname = rs.getString("User_lname");
+                String user_gender = rs.getString("User_gender");
+
+                return new User(user_id, user_fname, user_lname, user_gender);
+            }
+        } catch (SQLException e) {
+
+            return null;
+        }
     }
 
     static private String encryptionPassword(String password) {
@@ -34,6 +49,17 @@ public class QueriesAdministrator {
     static private String decryptionPassword(String password) {
 
         return password;
+    }
+
+    public static boolean updatePassword(String username, String newPassword) {
+        try {
+            stm = ConnectionDB.con.prepareStatement("UPDATE User SET user_password = ? WHERE user_email = ?");
+            stm.setString(1, username);
+            stm.setString(2, newPassword);
+            return true ;
+        }catch (SQLException e) {
+            return false;
+        }
     }
 
 }
