@@ -43,10 +43,6 @@ private static String encode(byte[] data) {
     }
 
 
-
-
-    
-    
     public String decrypt(String encryptedMessage) throws Exception {
         byte[] encryptedBytes = decode(encryptedMessage);
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
@@ -59,10 +55,9 @@ private static String encode(byte[] data) {
         return Base64.getDecoder().decode(data);
     }
     
-    
     public void printKeys(){
-        System.out.println("Public key\n"+ encode(publicKey.getEncoded()));
-        System.out.println("Private key\n"+ encode(privateKey.getEncoded()));
+        System.out.println("Public  key\n"+ encode(publicKey.getEncoded()));
+        System.out.println("Private  key\n"+ encode(privateKey.getEncoded()));
     }
         
     

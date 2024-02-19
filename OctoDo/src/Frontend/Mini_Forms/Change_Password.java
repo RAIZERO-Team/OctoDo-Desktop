@@ -256,7 +256,7 @@ public class Change_Password extends javax.swing.JPanel {
 
                 } else {
                     JOptionPane.showMessageDialog(this,
-                            "the new Password not confirm Password",
+                            "the new Password not confirm    Password",
                             "confirm Password",
                             JOptionPane.ERROR_MESSAGE);
                 }
