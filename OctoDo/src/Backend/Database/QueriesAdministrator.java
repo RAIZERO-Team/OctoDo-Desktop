@@ -10,12 +10,43 @@ public class QueriesAdministrator {
 
     public static boolean isEmailExist(String Email) {
 
-        return false;
+        try {
+            stm = con.prepareStatement("select count(User_email) from student where User_email = ?");
+            stm.setString(1, Email);
+            ResultSet rs = stm.executeQuery();
+            int count = -1;
+            while (rs.next()) {
+
+                count = rs.getInt(1);
+
+            }
+
+            return count >= 1;
+
+        } catch (SQLException e) {
+
+            return false;
+        }
     }
 
     public static boolean sign_up(String fname, String lname, String email, String password, String gender) {
 
-        return false;
+        try {
+            stm = con.prepareStatement("insert into student (User_fname , User_lname , User_email  , User_password , User_gender  )"
+                    + "values(? , ? , ? , ? , ?  )");
+
+            stm.setString(1, fname);
+            stm.setString(2, lname);
+            stm.setString(3, email);
+            stm.setString(4, encryptionPassword(password));
+            stm.setString(5, gender);
+
+            stm.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+
+            return false;
+        }
 
     }
 
