@@ -246,7 +246,7 @@ public class Change_Password extends javax.swing.JPanel {
                 if (newPassword.equals(confirmPassword)) {
 
                     if (QueriesAdministrator.updatePassword(Email, newPassword)) {
-                        JOptionPane.showMessageDialog(null, "changing is done");
+                        JOptionPane.showMessageDialog(null, "changing  is done");
                     } else {
                         JOptionPane.showMessageDialog(this,
                                 "changing is not done",
