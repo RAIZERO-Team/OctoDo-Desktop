@@ -1,5 +1,6 @@
 package Backend.Account;
 
+import Backend.Audio.NotificationSound;
 public class User {
 
     public static User currentUser;
@@ -9,32 +10,37 @@ public class User {
     private String userType;
     private String userImage;
     private String userGender;
+    private NotificationSound  notification ;
 
-    public String gitUserName() {
+    public String getUserName() {
         return userName;
     }
 
-    public String gitUserEmail() {
+    public String getUserEmail() {
         return userEmail;
     }
 
-    public String gitUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public String gitUserImage() {
+    public String getUserImage() {
         return userImage;
     }
 
-    public String gitUserGender() {
+    public String getUserGender() {
         return userGender;
     }
 
-    public User(String userName, String userEmail, String userPassword, String userType, String userImage, String userGender) {
+    public NotificationSound getNotification() {
+        return notification;
+    }
+
+   
+
+    public User(String userName, String userEmail , String userGender) {
         this.userName = userName;
         this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userType = userType;
         this.userImage = userImage;
         this.userGender = userGender;
     }
