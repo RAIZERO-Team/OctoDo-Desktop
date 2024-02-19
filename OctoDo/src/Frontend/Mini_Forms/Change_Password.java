@@ -262,7 +262,7 @@ public class Change_Password extends javax.swing.JPanel {
                 }
             } else {
                 JOptionPane.showMessageDialog(this,
-                        "Please enter a Strong Password",
+                        "Please enter a    Strong Password",
                         "Strong Password",
                         JOptionPane.ERROR_MESSAGE);
             }

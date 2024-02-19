@@ -56,8 +56,8 @@ private static String encode(byte[] data) {
     }
     
     public void printKeys(){
-        System.out.println("Public  key\n"+ encode(publicKey.getEncoded()));
-        System.out.println("Private  key\n"+ encode(privateKey.getEncoded()));
+        System.out.println("Public   key\n"+ encode(publicKey.getEncoded()));
+        System.out.println("Private    key\n"+ encode(privateKey.getEncoded()));
     }
         
     
