@@ -1,6 +1,7 @@
 package Frontend.Mini_Forms;
 
 import Backend.Date.Date_Time;
+import Backend.Task.TodayTask;
 import javax.swing.SwingConstants;
 
 public class Add_Task extends javax.swing.JPanel {
@@ -119,8 +120,17 @@ public class Add_Task extends javax.swing.JPanel {
   public int n = 0;
     
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
+        
         new Task().setdata(Task_Name ,Task_Reminder_Time);
-        n++;
+        n++; 
+        String taskName = Set_Task_Name.getText();
+        String description = Task_description.getText() ;      
+        String time = Set_Task_Time.getText();
+        TodayTask task = new TodayTask(taskName , description , Date_Time.getTime(time));
+        
+        
+        
+        
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
