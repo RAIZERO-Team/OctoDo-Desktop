@@ -53,5 +53,16 @@ public class QueriesAdministrator {
 
         return password;
     }
+    
+    public static boolean updatePassword(String username , String newPassword) {
+        try {
+            stm = ConnectionDB.con.prepareStatement("UPDATE User SET user_password = ? WHERE user_email = ?");
+            stm.setString(1 , username);
+            stm.setString(2 , newPassword);
+            return true ;
+        }catch (SQLException e) {
+            return false;
+        }
+    }
 
 }
