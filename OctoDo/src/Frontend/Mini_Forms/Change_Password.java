@@ -227,7 +227,7 @@ public class Change_Password extends javax.swing.JPanel {
 
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-        String Email = User.currentUser.gitUserEmail();
+        String Email = User.currentUser.getUserEmail();
 
         String oldPassword = Current_PasswordField.getText();
         String newPassword = New_PasswordField.getText();
