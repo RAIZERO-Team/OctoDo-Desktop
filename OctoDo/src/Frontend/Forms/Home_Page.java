@@ -1,5 +1,6 @@
 package Frontend.Forms;
 
+import Application.Main.Application;
 import Backend.Account.User;
 import Frontend.Mini_Forms.Add_Task;
 import com.formdev.flatlaf.FlatClientProperties;
@@ -7,13 +8,12 @@ import java.awt.Dimension;
 
 public class Home_Page extends javax.swing.JPanel {
 
-    
     public Home_Page() {
         initComponents();
         svgtIcon();
         init();
-        showDialog();
         createTasks();
+        panelRound2.setVisible(false);
         lab_user_Name.setText(User.currentUser.getUserName());
     }
 
@@ -27,24 +27,22 @@ public class Home_Page extends javax.swing.JPanel {
                 + "arc:20;"
                 + "border:30,40,50,30");
         btn_Add_Task.setCursorHand();
+
+        Dialog.setSize(400, 600);
+        Dialog.add(add_Task);
     }
 
-    private void showDialog(){
-        Dialog.setSize(400, 600);
-        Dialog.add(add_Task);        
-    }
-    
     public void createTasks() {
-        if (new Add_Task().n == 1){
-        Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task();
-        Tasks.setMaximumSize(new Dimension(240, 70));
-        num++;
-        today_tasks.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, m, -1, -1));
-        m += 100;
-        System.out.println(test + num);
-        revalidate();
-        repaint();
-        }
+
+            Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task();
+            Tasks.setMaximumSize(new Dimension(240, 70));
+            num++;
+            today_tasks.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, m, -1, -1));
+            m += 100;
+            System.out.println(test + num);
+            revalidate();
+            repaint();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -70,6 +68,11 @@ public class Home_Page extends javax.swing.JPanel {
         Overdue_Tasks = new Frontend.UI_Components.PanelRound();
         ScrollPane3 = new javax.swing.JScrollPane();
         overdue_tasks = new javax.swing.JPanel();
+        panelRound1 = new Frontend.UI_Components.PanelRound();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        panelRound2 = new Frontend.UI_Components.PanelRound();
+        jTextArea1 = new javax.swing.JTextArea();
 
         Dialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         Dialog.setLocation(new java.awt.Point(588, 150));
@@ -202,6 +205,42 @@ public class Home_Page extends javax.swing.JPanel {
 
         homepage.add(Overdue_Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 320, 520));
 
+        panelRound1.setRoundBottomLeft(30);
+        panelRound1.setRoundBottomRight(30);
+        panelRound1.setRoundTopLeft(30);
+        panelRound1.setRoundTopRight(30);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("8:23 PM");
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 140, 30));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Wednesday , February 17, 2024 ");
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 20));
+
+        homepage.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 280, 100));
+
+        panelRound2.setRoundBottomLeft(30);
+        panelRound2.setRoundBottomRight(30);
+        panelRound2.setRoundTopLeft(30);
+        panelRound2.setRoundTopRight(30);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("\"You can, you should, \nand if you’re brave enough to start, you will.\"");
+        panelRound2.add(jTextArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 460, 80));
+
+        homepage.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 480, 100));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,10 +262,13 @@ public class Home_Page extends javax.swing.JPanel {
     short num = 0, m = 10;
     String test = "Task";
 
-    
+
     private void btn_Add_TaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Add_TaskActionPerformed
         //createTasks();        
         Dialog.setVisible(true);
+        createTasks();
+        panelRound2.setVisible(true);
+        //new Application().showDialog();
     }//GEN-LAST:event_btn_Add_TaskActionPerformed
 
 
@@ -240,12 +282,17 @@ public class Home_Page extends javax.swing.JPanel {
     private Frontend.UI_Components.Shadow_Button btn_Add_Task;
     private javax.swing.JPanel completed_Tasks;
     private Frontend.UI_Components.PanelRound homepage;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lab_completed;
     private javax.swing.JLabel lab_notStarted;
     private javax.swing.JLabel lab_todayTask;
     private javax.swing.JLabel lab_user_Name;
     private javax.swing.JLabel lab_welc;
     private javax.swing.JPanel overdue_tasks;
+    private Frontend.UI_Components.PanelRound panelRound1;
+    private Frontend.UI_Components.PanelRound panelRound2;
     private Frontend.UI_Components.ScrollBar.ScrollPaneWin11 scrollPane1;
     private Frontend.UI_Components.ScrollBar.ScrollPaneWin11 scrollPaneWin2;
     private Frontend.UI_Components.svgIcon svgIcon_welco;

@@ -1,6 +1,6 @@
 package Frontend.Sign_Up;
 
-import Application.Form.FormsManager;
+import Application.Form.SSS_Forms_Manager;
 import Frontend.Sign_In.sign_in;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Image;
@@ -294,7 +294,7 @@ public class sign_up_Female_User extends javax.swing.JPanel {
     }//GEN-LAST:event_img9MouseClicked
 
     private void goto_signIn() {
-        FormsManager.getInstance().showForm(new sign_in());
+        SSS_Forms_Manager.getInstance().showForm(new sign_in());
     }
 
     private void img1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img1MouseClicked

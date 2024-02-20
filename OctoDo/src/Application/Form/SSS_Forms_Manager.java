@@ -5,19 +5,19 @@ import javax.swing.*;
 import java.awt.*;
 //import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 
-public class FormsManager {
+public class SSS_Forms_Manager {
 
     private Application application;
-    private static FormsManager instance;
+    private static SSS_Forms_Manager instance;
 
-    public static FormsManager getInstance() {
+    public static SSS_Forms_Manager getInstance() {
         if (instance == null) {
-            instance = new FormsManager();
+            instance = new SSS_Forms_Manager();
         }
         return instance;
     }
 
-    private FormsManager() {
+    private SSS_Forms_Manager() {
 
     }
 
