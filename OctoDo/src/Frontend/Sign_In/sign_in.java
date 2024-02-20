@@ -3,7 +3,12 @@ package Frontend.Sign_In;
 import Application.Form.SSS_Forms_Manager;
 import com.formdev.flatlaf.FlatClientProperties;
 import Application.Main.Application;
+import Backend.Account.User;
+import Backend.Database.QueriesAdministrator;
 import Frontend.Sign_Up.sign_up;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 
 public class sign_in extends javax.swing.JPanel {
@@ -49,7 +54,6 @@ public class sign_in extends javax.swing.JPanel {
         svgIconGoogle.setCursorHand();
         svgIconFaceBook.setCursorHand();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -315,25 +319,48 @@ public class sign_in extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_cbx_rememberMeActionPerformed
 
-    
+
     private void lab_forgetPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_forgetPassMouseClicked
-        
+
     }//GEN-LAST:event_lab_forgetPassMouseClicked
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        Application.sign_in();
+
+        String email = txt_email.getText();
+        String password = PasswordField.getText();
+        // Check sign-in
+        if (QueriesAdministrator.sign_in(email, password.toString().trim())) {
+            try {
+                // Successful sign-in
+
+                User.currentUser = QueriesAdministrator.CurrentUser(email);
+                Application.sign_in();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(sign_in.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            // Unsuccessful sign-in   
+
+            if (QueriesAdministrator.isEmailExist(email)) {
+                // Email exists, but password is incorrect              }
+            } else {
+                // Email and password are both incorrect
+            }
+
+        }
+
+
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void lab_sign_upMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_upMouseClicked
         SSS_Forms_Manager.getInstance().showForm(new sign_up());
     }//GEN-LAST:event_lab_sign_upMouseClicked
 
-    
-    
-    private void Sign_Up_API_Key(){
-        
+    private void Sign_Up_API_Key() {
+
     }
-    
+
     private void svgIconLinkedinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svgIconLinkedinMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_svgIconLinkedinMouseClicked

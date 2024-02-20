@@ -3,28 +3,18 @@ package Backend.Account;
 public class Vaildition {
 
     public static boolean isValidName(String userName) {
-        if (userName != null && userName.length() <= 50 && userName.matches("^[a-zA-Z][a-zA-Z\\s]+$")) {
-            return true;
-        } else {
-            return false;
-        }
+        return userName != null && !userName.trim().isEmpty() && (userName.matches("[a-zA-Z]+") || userName.matches("[\\u0600-\\u06FF]+"));
 
     }
 
     public static boolean isValidemail(String userEmail) {
 
-        String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$]";
-        boolean result = userEmail.matches(regex);
-        return result;
-
+        return userEmail.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$");
     }
 
     public static boolean isValidPassword(String userPassword) {
 
-        return userPassword.length() < 8
-                && userPassword.matches(".*\\d.*")
-                && userPassword.matches(".*[a-z].*")
-                && userPassword.matches(".*[A-Z].*");
+        return userPassword.matches("^[\\p{Alnum}\\p{Punct}]{8,}$");
     }
 
 }

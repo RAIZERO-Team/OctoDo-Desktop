@@ -1,8 +1,12 @@
 package Frontend.Mini_Forms;
 
 import Backend.Account.PasswordUtil;
+import Backend.Account.User;
+import Backend.Account.Vaildition;
+import Backend.Database.QueriesAdministrator;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -223,8 +227,47 @@ public class Change_Password extends javax.swing.JPanel {
 
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-        // Here Backend work
-        System.out.println("Test");
+        String Email = User.currentUser.getUserEmail();
+
+        String oldPassword = Current_PasswordField.getText();
+        String newPassword = New_PasswordField.getText();
+        String confirmPassword = Confirm_PasswordField.getText();
+
+        boolean isValid = QueriesAdministrator.sign_in(Email, oldPassword);
+
+        if (isValid) {
+            if (Vaildition.isValidPassword(newPassword)) {
+                if (newPassword.equals(confirmPassword)) {
+
+                    if (QueriesAdministrator.updatePassword(Email, newPassword)) {
+                        JOptionPane.showMessageDialog(null, "changing  is done");
+                    } else {
+                        JOptionPane.showMessageDialog(this,
+                                "changing is not done",
+                                "error",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "the new Password not confirm    Password",
+                            "confirm Password",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "Please enter a    Strong Password",
+                        "Strong Password",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Please enter correct Email Or Password",
+                    "Invalid Email or Password",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btn_saveActionPerformed
 
 

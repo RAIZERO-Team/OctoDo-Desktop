@@ -1,5 +1,6 @@
 package Frontend.Forms;
 
+import Backend.Account.User;
 import com.formdev.flatlaf.FlatClientProperties;
 
 public class Dashboard extends javax.swing.JPanel {
@@ -9,6 +10,14 @@ public class Dashboard extends javax.swing.JPanel {
         init();
         showDialog();
         setSVGIcons();
+        fillDadhboard();
+    }
+
+    private void fillDadhboard() {
+        user.setText(User.currentUser.getUserName());
+        email.setText(User.currentUser.getUserEmail());
+        //sound.setText(User.currentUser.getNotification().getNotification_name());
+
     }
 
     private void init() {
@@ -22,11 +31,11 @@ public class Dashboard extends javax.swing.JPanel {
         user_password.setCursorHand();
         sound_notfication.setCursorHand();
         delete_account.setCursorHand();
-        
+
         edit_userName.setCursorHand();
         edit_Pass.setCursorHand();
         edit_sound.setCursorHand();
-        
+
     }
 
     private void showDialog() {
@@ -40,7 +49,7 @@ public class Dashboard extends javax.swing.JPanel {
         user_password.setSVGIcon("Asstes/SVG_Icons/password.svg", 30, 30);
         sound_notfication.setSVGIcon("Asstes/SVG_Icons/notification-Sound.svg", 30, 30);
         delete_account.setSVGIcon("Asstes/SVG_Icons/delete-account.svg", 30, 30);
-        
+
         edit_userName.setSVGIcon("Asstes/SVG_Icons/edit.svg", 30, 30);
         edit_Pass.setSVGIcon("Asstes/SVG_Icons/edit.svg", 30, 30);
         edit_sound.setSVGIcon("Asstes/SVG_Icons/edit.svg", 30, 30);
@@ -237,7 +246,7 @@ public class Dashboard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pane_passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pane_passMouseClicked
-       Change_Pass.setVisible(true);
+        Change_Pass.setVisible(true);
     }//GEN-LAST:event_pane_passMouseClicked
 
     private void edit_PassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit_PassMouseClicked

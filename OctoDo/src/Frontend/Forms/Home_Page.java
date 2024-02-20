@@ -1,6 +1,7 @@
 package Frontend.Forms;
 
 import Application.Main.Application;
+import Backend.Account.User;
 import Frontend.Mini_Forms.Add_Task;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Dimension;
@@ -13,6 +14,7 @@ public class Home_Page extends javax.swing.JPanel {
         init();
         createTasks();
         panelRound2.setVisible(false);
+        lab_user_Name.setText(User.currentUser.getUserName());
     }
 
     private void svgtIcon() {

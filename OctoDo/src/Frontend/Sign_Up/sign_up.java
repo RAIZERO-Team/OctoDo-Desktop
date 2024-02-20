@@ -2,6 +2,11 @@ package Frontend.Sign_Up;
 
 import Application.Form.SSS_Forms_Manager;
 import Backend.Account.PasswordUtil;
+import static Backend.Account.Vaildition.isValidName;
+import static Backend.Account.Vaildition.isValidPassword;
+import static Backend.Account.Vaildition.isValidemail;
+import static Backend.Database.QueriesAdministrator.isEmailExist;
+import static Backend.Database.QueriesAdministrator.sign_up;
 import Frontend.Sign_In.sign_in;
 import Frontend.Program_Intro.Intro_To_Program;
 import com.formdev.flatlaf.FlatClientProperties;
@@ -23,7 +28,7 @@ public class sign_up extends javax.swing.JPanel {
                 + "background:$SSS.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");
-        
+
         fillText();
         setSVGIcons();
     }
@@ -38,12 +43,12 @@ public class sign_up extends javax.swing.JPanel {
 
     private void setSVGIcons() {
         svgIcon_Sign_Up.setSVGIcon("Asstes/SVG_Icons/sign_up.svg", 520, 620);
-        
+
         svgIconLinkedin.setSVGIcon("Asstes/SVG_Icons/linkedin.svg", 30, 30);
         svgIconGitHub.setSVGIcon("Asstes/SVG_Icons/Github.svg", 30, 30);
         svgIconGoogle.setSVGIcon("Asstes/SVG_Icons/google.svg", 30, 30);
-        svgIconFaceBook.setSVGIcon("Asstes/SVG_Icons/facebook.svg", 30, 30); 
-        
+        svgIconFaceBook.setSVGIcon("Asstes/SVG_Icons/facebook.svg", 30, 30);
+
         svgIconLinkedin.setCursorHand();
         svgIconGitHub.setCursorHand();
         svgIconGoogle.setCursorHand();
@@ -423,6 +428,62 @@ public class sign_up extends javax.swing.JPanel {
         } else {
             SSS_Forms_Manager.getInstance().showForm(new sign_up_Female_User());
         }       
+
+        String Fname = txt_Fname.getText().trim();
+        String Lname = txt_Lname.getText().trim();
+        String Email = txt_email.getText().trim();
+        char[] password = PasswordField.getPassword();
+        String passwordstr = new String(password);//convert char[] to string (password)
+        String Gender;
+        boolean Check = true; // check all information
+
+        if (!isValidName(Fname)) {//check valid first name
+            Check = false;
+        }
+
+        if (!isValidName(Lname)) {//check valid last name
+            Check = false;
+        }
+
+        if (isValidemail(Email)) {//check valid email and if ok check is exist or not
+            if (isEmailExist(Email)) {
+                System.out.println("is already exist");
+                Check = false;
+            }
+
+        } else {
+            Check = false;
+        }
+
+        if (!isValidPassword(passwordstr)) {//check valid password
+            Check = false;
+        }
+
+        if (rbn_male.isSelected()) {// check if user chossen male or female
+            Gender = "Male";
+        } else {
+            Gender = "Female";
+        }
+
+        // check if all are ok or not
+        if (Check) {
+            if (sign_up(Fname, Lname, Email, passwordstr, Gender)) {
+                System.out.println("Successful stored");//informations stored
+
+                if (rbn_male.isSelected()) {
+                    FormsManager.getInstance().showForm(new sign_up_Male_User());
+                } else {
+                    FormsManager.getInstance().showForm(new sign_up_Female_User());
+                }
+
+            } else {
+                System.out.println("something went wrong");//Exception when stored information
+            }
+        } else {
+            System.out.println("you stored wrong information");// if user insert false information at least one of them
+        }
+
+
     }//GEN-LAST:event_btn_NextActionPerformed
 
     private void lab_sign_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_inMouseClicked
