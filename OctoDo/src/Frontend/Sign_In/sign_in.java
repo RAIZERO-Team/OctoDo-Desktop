@@ -267,7 +267,7 @@ public class sign_in extends javax.swing.JPanel {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
 
         String email = txt_email.getText();
-        char password[] = PasswordField.getPassword();
+        String password = PasswordField.getText();
         // Check sign-in
         if (QueriesAdministrator.sign_in(email, password.toString().trim())) {
             try {
