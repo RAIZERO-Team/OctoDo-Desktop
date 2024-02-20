@@ -10,14 +10,14 @@ public class Dashboard extends javax.swing.JPanel {
         init();
         showDialog();
         setSVGIcons();
-        // fillDadhboard();
+        fillDadhboard();
     }
 
     private void fillDadhboard() {
         user.setText(User.currentUser.getUserName());
         email.setText(User.currentUser.getUserEmail());
-        sound.setText(User.currentUser.getNotification().getNotification_name());
-        
+        //sound.setText(User.currentUser.getNotification().getNotification_name());
+
     }
 
     private void init() {
