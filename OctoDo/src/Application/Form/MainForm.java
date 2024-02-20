@@ -23,8 +23,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import Frontend.Menu.Menu;
 import Frontend.Menu.MenuAction;
+import javax.swing.Icon;
+import net.miginfocom.swing.MigLayout;
 
 public class MainForm extends JLayeredPane {
+
+    private JPanel header;
+    private JButton cmdUndo;
+    private JButton cmdRedo;
+    private JButton cmdRefresh;
 
     public MainForm() {
         init();
@@ -33,6 +40,7 @@ public class MainForm extends JLayeredPane {
     private void init() {
         setBorder(new EmptyBorder(5, 5, 5, 5));
         setLayout(new MainFormLayout());
+        header = createHeader();
         menu = new Menu();
         panelBody = new JPanel(new BorderLayout());
         initMenuArrowIcon();
@@ -46,9 +54,46 @@ public class MainForm extends JLayeredPane {
         });
         initMenuEvent();
         setLayer(menuButton, JLayeredPane.POPUP_LAYER);
+        add(header);
         add(menuButton);
         add(menu);
         add(panelBody);
+    }
+
+    private JPanel createHeader() {
+        JPanel panel = new JPanel(new MigLayout("insets 3"));
+        panel.putClientProperty(FlatClientProperties.STYLE, ""
+                + "background:null");
+
+        cmdUndo = createButton(new FlatSVGIcon("raven/resources/icon/undo.svg"));
+        cmdRedo = createButton(new FlatSVGIcon("raven/resources/icon/redo.svg"));
+        cmdRefresh = createButton(new FlatSVGIcon("raven/resources/icon/refresh.svg"));
+
+        cmdUndo.addActionListener(e -> {
+            FormManager.undo();
+        });
+        cmdRedo.addActionListener(e -> {
+            FormManager.redo();
+        });
+        cmdRefresh.addActionListener(e -> {
+            FormManager.refresh();
+        });
+
+        panel.add(cmdUndo);
+        panel.add(cmdRedo);
+        panel.add(cmdRefresh);
+        return panel;
+    }
+
+    private JButton createButton(Icon icon) {
+        JButton button = new JButton(icon);
+        button.putClientProperty(FlatClientProperties.STYLE, ""
+                + "background:$Button.toolbar.background;"
+                + "arc:10;"
+                + "borderWidth:0;"
+                + "focusWidth:0;"
+                + "innerFocusWidth:0");
+        return button;
     }
 
     @Override

@@ -20,23 +20,24 @@ public class Pomodoro extends javax.swing.JPanel {
                 + "background:$Form.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");
-        
-        
+
         UP_Minutes.setCursorHand();
         Dowen_Minutes.setCursorHand();
         svgIconplay_sound.setCursorHand();
         svgIcon_soundcloud.setCursorHand();
         svgIcon_steting.setCursorHand();
         svgIcon_edit.setCursorHand();
-    }
 
+        play_sounds.setSize(400, 460);
+        play_sounds.add(play_Sound1);
+    }
 
     private void setSVGIcons() {
         UP_Minutes.setSVGIcon("Asstes/SVG_Icons/up-arrow.svg", 30, 30);
         Dowen_Minutes.setSVGIcon("Asstes/SVG_Icons/down-arrow.svg", 30, 30);
         svgIcon_steting.setSVGIcon("Asstes/SVG_Icons/settings.svg", 30, 30);
 
-        svgIconplay_sound.setSVGIcon("Asstes/SVG_Icons/play-circle-outline.svg", 40, 40);
+        svgIconplay_sound.setSVGIcon("Asstes/SVG_Icons/play-circle-sound.svg", 40, 40);
         svgIcon_soundcloud.setSVGIcon("Asstes/SVG_Icons/soundcloud.svg", 53, 53);
 
         svgIcon_edit.setSVGIcon("Asstes/SVG_Icons/edit.svg", 30, 30);
@@ -46,6 +47,8 @@ public class Pomodoro extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        play_sounds = new javax.swing.JDialog();
+        play_Sound1 = new Frontend.Mini_Forms.play_Sound();
         Study_Space = new Frontend.UI_Components.PanelRound();
         Pomodoro = new Frontend.UI_Components.PanelRound();
         jLabel1 = new javax.swing.JLabel();
@@ -58,13 +61,7 @@ public class Pomodoro extends javax.swing.JPanel {
         UP_Minutes = new Frontend.UI_Components.svgIcon();
         shadow_Round_Panel2 = new Frontend.UI_Components.Shadow_Round_Panel();
         Dowen_Minutes = new Frontend.UI_Components.svgIcon();
-        shadow_Round_Panel3 = new Frontend.UI_Components.Shadow_Round_Panel();
-        svgIcon2 = new Frontend.UI_Components.svgIcon();
-        shadow_Round_Panel4 = new Frontend.UI_Components.Shadow_Round_Panel();
-        svgIcon3 = new Frontend.UI_Components.svgIcon();
-        lab_hours = new javax.swing.JLabel();
-        leb_minutes = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        TextField_minutes = new javax.swing.JTextField();
         Sound_Player = new Frontend.UI_Components.PanelRound();
         lab_play_sound = new javax.swing.JLabel();
         svgIconplay_sound = new Frontend.UI_Components.svgIcon();
@@ -87,6 +84,29 @@ public class Pomodoro extends javax.swing.JPanel {
         svgIcon_edit = new Frontend.UI_Components.svgIcon();
         Tasks = new Frontend.UI_Components.PanelRound();
         lab_tasks = new javax.swing.JLabel();
+
+        play_sounds.setLocation(new java.awt.Point(588, 150));
+
+        javax.swing.GroupLayout play_soundsLayout = new javax.swing.GroupLayout(play_sounds.getContentPane());
+        play_sounds.getContentPane().setLayout(play_soundsLayout);
+        play_soundsLayout.setHorizontalGroup(
+            play_soundsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(play_soundsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(play_soundsLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(play_Sound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        play_soundsLayout.setVerticalGroup(
+            play_soundsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(play_soundsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(play_soundsLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(play_Sound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         Study_Space.setRoundBottomLeft(30);
         Study_Space.setRoundBottomRight(30);
@@ -134,7 +154,7 @@ public class Pomodoro extends javax.swing.JPanel {
         });
         shadow_Round_Panel1.add(UP_Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 30, 30));
 
-        Timer.add(shadow_Round_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 60, 60));
+        Timer.add(shadow_Round_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 60, 60));
 
         shadow_Round_Panel2.setRippleColor(new java.awt.Color(153, 0, 153));
         shadow_Round_Panel2.setRoundBottomRight(30);
@@ -147,33 +167,14 @@ public class Pomodoro extends javax.swing.JPanel {
         });
         shadow_Round_Panel2.add(Dowen_Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 30, 30));
 
-        Timer.add(shadow_Round_Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 60, 60));
+        Timer.add(shadow_Round_Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 60, 60));
 
-        shadow_Round_Panel3.setRippleColor(new java.awt.Color(153, 0, 153));
-        shadow_Round_Panel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        shadow_Round_Panel3.add(svgIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 30, 30));
+        TextField_minutes.setFont(new java.awt.Font("Segoe UI", 1, 39)); // NOI18N
+        TextField_minutes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TextField_minutes.setText("25");
+        Timer.add(TextField_minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 120));
 
-        Timer.add(shadow_Round_Panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
-
-        shadow_Round_Panel4.setRippleColor(new java.awt.Color(153, 0, 153));
-        shadow_Round_Panel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        shadow_Round_Panel4.add(svgIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 30, 30));
-
-        Timer.add(shadow_Round_Panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 60, 60));
-
-        lab_hours.setFont(new java.awt.Font("Segoe UI", 1, 39)); // NOI18N
-        lab_hours.setText("25");
-        Timer.add(lab_hours, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 50, 60));
-
-        leb_minutes.setFont(new java.awt.Font("Segoe UI", 1, 39)); // NOI18N
-        leb_minutes.setText("25");
-        Timer.add(leb_minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 50, 60));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 39)); // NOI18N
-        jLabel11.setText(":");
-        Timer.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 11, 60));
-
-        Pomodoro.add(Timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 320, 120));
+        Pomodoro.add(Timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 160, 120));
 
         Study_Space.add(Pomodoro, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 20, 500, 510));
 
@@ -273,7 +274,7 @@ public class Pomodoro extends javax.swing.JPanel {
         lab_tasks.setText("Tasks");
         Tasks.add(lab_tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        Study_Space.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 500, 270));
+        Study_Space.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 500, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -294,11 +295,11 @@ public class Pomodoro extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UP_MinutesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UP_MinutesMouseClicked
-        shadow_Round_Panel1.setRippleColor(new java.awt.Color(153, 0, 153));
+        play_sounds.setVisible(true);
     }//GEN-LAST:event_UP_MinutesMouseClicked
 
     private void Dowen_MinutesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Dowen_MinutesMouseClicked
-        shadow_Round_Panel1.setRippleColor(new java.awt.Color(153, 0, 153));
+
     }//GEN-LAST:event_Dowen_MinutesMouseClicked
 
 
@@ -309,6 +310,7 @@ public class Pomodoro extends javax.swing.JPanel {
     private Frontend.UI_Components.PanelRound Sound_Player;
     private Frontend.UI_Components.PanelRound Study_Space;
     private Frontend.UI_Components.PanelRound Tasks;
+    private javax.swing.JTextField TextField_minutes;
     private Frontend.UI_Components.PanelRound Timer;
     private Frontend.UI_Components.svgIcon UP_Minutes;
     private javax.swing.JButton btn_reset;
@@ -316,7 +318,6 @@ public class Pomodoro extends javax.swing.JPanel {
     private javax.swing.JButton btn_stop;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -329,17 +330,13 @@ public class Pomodoro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lab_Daily_Day;
-    private javax.swing.JLabel lab_hours;
     private javax.swing.JLabel lab_play_sound;
     private javax.swing.JLabel lab_tasks;
-    private javax.swing.JLabel leb_minutes;
+    private Frontend.Mini_Forms.play_Sound play_Sound1;
+    private javax.swing.JDialog play_sounds;
     private Frontend.UI_Components.Shadow_Round_Panel shadow_Round_Panel1;
     private Frontend.UI_Components.Shadow_Round_Panel shadow_Round_Panel2;
-    private Frontend.UI_Components.Shadow_Round_Panel shadow_Round_Panel3;
-    private Frontend.UI_Components.Shadow_Round_Panel shadow_Round_Panel4;
     private Frontend.UI_Components.spinner_progress.SpinnerProgress spinnerProgress;
-    private Frontend.UI_Components.svgIcon svgIcon2;
-    private Frontend.UI_Components.svgIcon svgIcon3;
     private Frontend.UI_Components.svgIcon svgIcon_edit;
     private Frontend.UI_Components.svgIcon svgIcon_soundcloud;
     private Frontend.UI_Components.svgIcon svgIcon_steting;

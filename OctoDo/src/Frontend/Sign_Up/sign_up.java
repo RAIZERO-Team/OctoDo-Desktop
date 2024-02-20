@@ -1,6 +1,6 @@
 package Frontend.Sign_Up;
 
-import Application.Form.FormsManager;
+import Application.Form.SSS_Forms_Manager;
 import Backend.Account.PasswordUtil;
 import Frontend.Sign_In.sign_in;
 import Frontend.Program_Intro.Intro_To_Program;
@@ -170,6 +170,10 @@ public class sign_up extends javax.swing.JPanel {
         svgIconGoogle = new Frontend.UI_Components.svgIcon();
         svgIconFaceBook = new Frontend.UI_Components.svgIcon();
         lab_sign_in = new javax.swing.JLabel();
+        panelRound1 = new Frontend.UI_Components.PanelRound();
+        panelRound2 = new Frontend.UI_Components.PanelRound();
+        panelRound3 = new Frontend.UI_Components.PanelRound();
+        panelRound4 = new Frontend.UI_Components.PanelRound();
         svgIcon_Sign_Up = new Frontend.UI_Components.svgIcon();
 
         Sign_Up.setRoundBottomLeft(30);
@@ -256,7 +260,7 @@ public class sign_up extends javax.swing.JPanel {
         sign_up_Panel.add(lab_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         PasswordField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        sign_up_Panel.add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 370, 33));
+        sign_up_Panel.add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 360, 33));
 
         bar_week.setMinimumSize(new java.awt.Dimension(8, 4));
         sign_up_Panel.add(bar_week, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 45, -1));
@@ -318,6 +322,80 @@ public class sign_up extends javax.swing.JPanel {
         });
         sign_up_Panel.add(lab_sign_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, -1, -1));
 
+        panelRound1.setBackground(new java.awt.Color(201, 222, 255));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        sign_up_Panel.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        panelRound2.setBackground(new java.awt.Color(84, 87, 212));
+        panelRound2.setRoundBottomLeft(500);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setRoundTopLeft(500);
+        panelRound2.setRoundTopRight(20);
+
+        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
+        panelRound2.setLayout(panelRound2Layout);
+        panelRound2Layout.setHorizontalGroup(
+            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound2Layout.setVerticalGroup(
+            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        sign_up_Panel.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
+
+        panelRound3.setBackground(new java.awt.Color(52, 59, 151));
+        panelRound3.setRoundBottomLeft(500);
+        panelRound3.setRoundBottomRight(500);
+        panelRound3.setRoundTopLeft(500);
+
+        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
+        panelRound3.setLayout(panelRound3Layout);
+        panelRound3Layout.setHorizontalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound3Layout.setVerticalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        sign_up_Panel.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
+
+        panelRound4.setBackground(new java.awt.Color(142, 229, 255));
+        panelRound4.setRoundBottomLeft(500);
+        panelRound4.setRoundBottomRight(500);
+        panelRound4.setRoundTopLeft(50);
+
+        javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
+        panelRound4.setLayout(panelRound4Layout);
+        panelRound4Layout.setHorizontalGroup(
+            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound4Layout.setVerticalGroup(
+            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        sign_up_Panel.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
+
         Sign_Up.add(sign_up_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 520, 620));
         Sign_Up.add(svgIcon_Sign_Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 20, 520, 620));
 
@@ -341,14 +419,14 @@ public class sign_up extends javax.swing.JPanel {
 
     private void btn_NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NextActionPerformed
         if (rbn_male.isSelected()){
-            FormsManager.getInstance().showForm(new sign_up_Male_User());
+            SSS_Forms_Manager.getInstance().showForm(new sign_up_Male_User());
         } else {
-            FormsManager.getInstance().showForm(new sign_up_Female_User());
+            SSS_Forms_Manager.getInstance().showForm(new sign_up_Female_User());
         }       
     }//GEN-LAST:event_btn_NextActionPerformed
 
     private void lab_sign_inMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_inMouseClicked
-        FormsManager.getInstance().showForm(new Intro_To_Program());
+        SSS_Forms_Manager.getInstance().showForm(new Intro_To_Program());
     }//GEN-LAST:event_lab_sign_inMouseClicked
 
 
@@ -374,6 +452,10 @@ public class sign_up extends javax.swing.JPanel {
     private javax.swing.JLabel lab_sign_in;
     private javax.swing.JLabel lb_Description;
     private javax.swing.JLabel lb_Title;
+    private Frontend.UI_Components.PanelRound panelRound1;
+    private Frontend.UI_Components.PanelRound panelRound2;
+    private Frontend.UI_Components.PanelRound panelRound3;
+    private Frontend.UI_Components.PanelRound panelRound4;
     private javax.swing.JRadioButton rbn_female;
     private javax.swing.JRadioButton rbn_male;
     private Frontend.UI_Components.PanelRound sign_up_Panel;

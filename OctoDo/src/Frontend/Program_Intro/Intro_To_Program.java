@@ -1,21 +1,28 @@
 package Frontend.Program_Intro;
 
-import Application.Form.FormsManager;
+import Application.Form.SSS_Forms_Manager;
 import Frontend.Sign_In.sign_in;
 import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Color;
 
 public class Intro_To_Program extends javax.swing.JPanel {
 
     public Intro_To_Program() {
         initComponents();
+        init();
+        svgIcon1.setSVGIcon("Asstes/SVG_Icons/Splash_Screen 1.svg", 250, 250);
+        panelRound1.setBackground(new java.awt.Color(212, 244, 242));  //[212,244,242]
+        //lab_image.setText("The Application help you to manage your time");
+        //svgIcon2.setSVGIcon("Icons/1F642.svg", 50, 50);
+
+    }
+
+    private void init() {
         intro_to_program.putClientProperty(FlatClientProperties.STYLE, ""
                 + "background:$SSS.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");
-        
-        svgIcon1.setSVGIcon("Asstes/SVG_Icons/Splash_Screen 1.svg", 250, 250);
-        //lab_image.setText("The Application help you to manage your time");
-        //svgIcon2.setSVGIcon("Icons/1F642.svg", 50, 50);
+
         btn_skip.setCursorHand();
         btn_next.setCursorHand();
         jProgressBar1.setValue(100);
@@ -70,7 +77,6 @@ public class Intro_To_Program extends javax.swing.JPanel {
         });
         intro_to_program.add(btn_next, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 550, 150, 40));
 
-        panelRound1.setBackground(new java.awt.Color(49, 62, 74));
         panelRound1.setRoundBottomLeft(500);
         panelRound1.setRoundBottomRight(500);
         panelRound1.setRoundTopLeft(150);
@@ -114,35 +120,38 @@ public class Intro_To_Program extends javax.swing.JPanel {
 
     private void image(short x) {
         if (x == 2) {
+            //panelRound1.setBackground(new java.awt.Color(146, 207, 176));
             svgIcon1.setSVGIcon("Asstes/SVG_Icons/Splash_Screen 2.svg", 250, 250);
             jProgressBar2.setValue(100);
             lab_mainTxt.setText("");
         } else if (x == 3) {
+            panelRound1.setBackground(new java.awt.Color(146, 207, 176));
             svgIcon1.setSVGIcon("Asstes/SVG_Icons/Splash_Screen 3.svg", 250, 250);
             jProgressBar3.setValue(100);
             lab_mainTxt.setText("");
-        } else if (x == 4){
+        } else if (x == 4) {
+            panelRound1.setBackground(new java.awt.Color(255, 146, 146));
             svgIcon1.setSVGIcon("Asstes/SVG_Icons/Splash_Screen 4.svg", 250, 250);
             jProgressBar4.setValue(100);
             lab_mainTxt.setText("");
             btn_next.setText("Let's Start");
         } else {
-            FormsManager.getInstance().showForm(new sign_in());
+            SSS_Forms_Manager.getInstance().showForm(new sign_in());
         }
     }
 
-    private void close_This_panel(){
-        
+    private void close_This_panel() {
+
     }
-    
+
     private void btn_skipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_skipActionPerformed
-        FormsManager.getInstance().showForm(new sign_in());
+        SSS_Forms_Manager.getInstance().showForm(new sign_in());
     }//GEN-LAST:event_btn_skipActionPerformed
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
         count++;
         image(count);
-        
+
     }//GEN-LAST:event_btn_nextActionPerformed
 
 

@@ -1,6 +1,6 @@
 package Frontend.Sign_In;
 
-import Application.Form.FormsManager;
+import Application.Form.SSS_Forms_Manager;
 import com.formdev.flatlaf.FlatClientProperties;
 import Application.Main.Application;
 import Frontend.Sign_Up.sign_up;
@@ -37,7 +37,7 @@ public class sign_in extends javax.swing.JPanel {
     }
 
     private void SetSVGIcon() {
-        svgIcon1.setSVGIcon("Asstes/SVG_Icons/test2.svg", 449, 540);
+        svgIcon_sign_in.setSVGIcon("Asstes/SVG_Icons/sign_in.svg", 449, 540);
 
         svgIconLinkedin.setSVGIcon("Asstes/SVG_Icons/linkedin.svg", 30, 30);
         svgIconGitHub.setSVGIcon("Asstes/SVG_Icons/Github.svg", 30, 30);
@@ -69,14 +69,17 @@ public class sign_in extends javax.swing.JPanel {
         lab_error_Password = new javax.swing.JLabel();
         lab_user_is_exits = new javax.swing.JLabel();
         panelRound1 = new Frontend.UI_Components.PanelRound();
+        panelRound4 = new Frontend.UI_Components.PanelRound();
         lab_forgetPass = new javax.swing.JLabel();
         lab_signUp_options = new javax.swing.JLabel();
         svgIconLinkedin = new Frontend.UI_Components.svgIcon();
         svgIconGitHub = new Frontend.UI_Components.svgIcon();
         svgIconGoogle = new Frontend.UI_Components.svgIcon();
         svgIconFaceBook = new Frontend.UI_Components.svgIcon();
+        panelRound3 = new Frontend.UI_Components.PanelRound();
         lab_sign_up = new javax.swing.JLabel();
-        svgIcon1 = new Frontend.UI_Components.svgIcon();
+        panelRound2 = new Frontend.UI_Components.PanelRound();
+        svgIcon_sign_in = new Frontend.UI_Components.svgIcon();
 
         Login.setRoundBottomLeft(30);
         Login.setRoundBottomRight(30);
@@ -153,7 +156,7 @@ public class sign_in extends javax.swing.JPanel {
         lab_user_is_exits.setForeground(new java.awt.Color(255, 77, 77));
         sign_in_Panel.add(lab_user_is_exits, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 290, 16));
 
-        panelRound1.setBackground(new java.awt.Color(0, 204, 204));
+        panelRound1.setBackground(new java.awt.Color(90, 106, 144));
         panelRound1.setRoundBottomRight(500);
         panelRound1.setRoundTopLeft(500);
         panelRound1.setRoundTopRight(500);
@@ -170,6 +173,25 @@ public class sign_in extends javax.swing.JPanel {
         );
 
         sign_in_Panel.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 100, 100));
+
+        panelRound4.setBackground(new java.awt.Color(2, 178, 202));
+        panelRound4.setRoundBottomLeft(50);
+        panelRound4.setRoundBottomRight(20);
+        panelRound4.setRoundTopLeft(40);
+        panelRound4.setRoundTopRight(50);
+
+        javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
+        panelRound4.setLayout(panelRound4Layout);
+        panelRound4Layout.setHorizontalGroup(
+            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound4Layout.setVerticalGroup(
+            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        sign_in_Panel.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
 
         lab_forgetPass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lab_forgetPass.setForeground(new java.awt.Color(21, 101, 192));
@@ -215,6 +237,25 @@ public class sign_in extends javax.swing.JPanel {
         });
         sign_in_Panel.add(svgIconFaceBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 30, 30));
 
+        panelRound3.setBackground(new java.awt.Color(254, 116, 106));
+        panelRound3.setRoundBottomLeft(40);
+        panelRound3.setRoundBottomRight(50);
+        panelRound3.setRoundTopLeft(35);
+        panelRound3.setRoundTopRight(500);
+
+        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
+        panelRound3.setLayout(panelRound3Layout);
+        panelRound3Layout.setHorizontalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound3Layout.setVerticalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        sign_in_Panel.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+
         lab_sign_up.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lab_sign_up.setForeground(new java.awt.Color(21, 101, 192));
         lab_sign_up.setText("Sign up here");
@@ -226,8 +267,27 @@ public class sign_in extends javax.swing.JPanel {
         });
         sign_in_Panel.add(lab_sign_up, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
+        panelRound2.setBackground(new java.awt.Color(255, 162, 110));
+        panelRound2.setRoundBottomLeft(500);
+        panelRound2.setRoundBottomRight(40);
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(500);
+
+        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
+        panelRound2.setLayout(panelRound2Layout);
+        panelRound2Layout.setHorizontalGroup(
+            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panelRound2Layout.setVerticalGroup(
+            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        sign_in_Panel.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, -1));
+
         Login.add(sign_in_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 449, 540));
-        Login.add(svgIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 449, 540));
+        Login.add(svgIcon_sign_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 449, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -265,7 +325,7 @@ public class sign_in extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void lab_sign_upMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_upMouseClicked
-        FormsManager.getInstance().showForm(new sign_up());
+        SSS_Forms_Manager.getInstance().showForm(new sign_up());
     }//GEN-LAST:event_lab_sign_upMouseClicked
 
     
@@ -337,12 +397,15 @@ public class sign_in extends javax.swing.JPanel {
     private javax.swing.JLabel lb_Description;
     private javax.swing.JLabel lb_Title;
     private Frontend.UI_Components.PanelRound panelRound1;
+    private Frontend.UI_Components.PanelRound panelRound2;
+    private Frontend.UI_Components.PanelRound panelRound3;
+    private Frontend.UI_Components.PanelRound panelRound4;
     private Frontend.UI_Components.PanelRound sign_in_Panel;
-    private Frontend.UI_Components.svgIcon svgIcon1;
     private Frontend.UI_Components.svgIcon svgIconFaceBook;
     private Frontend.UI_Components.svgIcon svgIconGitHub;
     private Frontend.UI_Components.svgIcon svgIconGoogle;
     private Frontend.UI_Components.svgIcon svgIconLinkedin;
+    private Frontend.UI_Components.svgIcon svgIcon_sign_in;
     private javax.swing.JTextField txt_email;
     // End of variables declaration//GEN-END:variables
 }
