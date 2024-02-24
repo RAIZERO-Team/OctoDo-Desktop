@@ -471,9 +471,9 @@ public class sign_up extends javax.swing.JPanel {
                 System.out.println("Successful stored");//informations stored
 
                 if (rbn_male.isSelected()) {
-                    FormsManager.getInstance().showForm(new sign_up_Male_User());
+                    SSS_Forms_Manager.getInstance().showForm(new sign_up_Male_User());
                 } else {
-                    FormsManager.getInstance().showForm(new sign_up_Female_User());
+                    SSS_Forms_Manager.getInstance().showForm(new sign_up_Female_User());
                 }
 
             } else {
