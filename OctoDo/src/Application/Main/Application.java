@@ -110,10 +110,14 @@ public class Application extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jMenu3.setText("File");
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Icons/undo.png"))); // NOI18N
+        jMenu3.setText("Back");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         MenuBar.add(jMenu3);
 
-        jMenu4.setText("Edit");
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Asstes/Icons/redo.png"))); // NOI18N
+        jMenu4.setText("Forword");
+        jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         MenuBar.add(jMenu4);
 
         setJMenuBar(MenuBar);
@@ -126,7 +130,7 @@ public class Application extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
+            .addGap(0, 676, Short.MAX_VALUE)
         );
 
         pack();

@@ -2,29 +2,26 @@ package Frontend.Mini_Forms;
 
 public class Task extends javax.swing.JPanel {
 
-    public String taskName;
-    public String time;
+    public String taskname = "";
+    public String time = "";
 
-    public Task() {
+    public Task(String taskName, String Time) {
         initComponents();
         init();
-        getdata();
-    }
-    
-    private void init(){
-        Task.setCursorHand();
-        Task.add(edit_Task1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 2, -1, -1));
-        edit_Task1.setVisible(false);        
+        this.taskname = taskName;
+        this.time = Time;
+        Task_Name.setText(taskname);
+        Task_Reminder_Time.setText(time);
     }
 
-    public void setdata(String taskName, String Time) {
-        this.taskName = taskName;
-        this.time = Time;
+    private void init() {
+        Task.setCursorHand();
+        Task.add(edit_Task1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 2, -1, -1));
+        edit_Task1.setVisible(false);
     }
 
     public void getdata() {
-        Task_Name.setText(taskName);
-        Task_Reminder_Time.setText(time);
+        System.out.println(taskname + " " + time);
     }
 
     @SuppressWarnings("unchecked")
@@ -51,12 +48,13 @@ public class Task extends javax.swing.JPanel {
         Task_Name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Task_Name.setForeground(new java.awt.Color(0, 0, 0));
         Task_Name.setText("Task1");
-        Task.add(Task_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 25, 90, 20));
+        Task.add(Task_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 25, 110, 20));
 
         Task_Reminder_Time.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Task_Reminder_Time.setForeground(new java.awt.Color(0, 0, 0));
-        Task_Reminder_Time.setText("8:00 Pm");
-        Task.add(Task_Reminder_Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 25, 75, 20));
+        Task_Reminder_Time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Task_Reminder_Time.setText("12:00 PM");
+        Task.add(Task_Reminder_Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 25, 110, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,17 +75,17 @@ public class Task extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void back() {
-        if (edit_Task1.n == 1){
-        edit_Task1.setVisible(false);
-        Task.setBackground(new java.awt.Color(153, 153, 153));  // [135,135,135]
-        Task_Name.setVisible(true);
-        Task_Reminder_Time.setVisible(true);
+        if (edit_Task1.n == 1) {
+            edit_Task1.setVisible(false);
+            Task.setBackground(new java.awt.Color(153, 153, 153));  // [135,135,135]
+            Task_Name.setVisible(true);
+            Task_Reminder_Time.setVisible(true);
         }
     }
 
     private void TaskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TaskMouseClicked
 
-       edit_Task1.setVisible(true);
+        edit_Task1.setVisible(true);
         Task.setBackground(new java.awt.Color(135, 135, 135));  // [135,135,135]
         Task_Name.setVisible(false);
         Task_Reminder_Time.setVisible(false);
