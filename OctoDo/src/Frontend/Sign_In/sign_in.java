@@ -19,19 +19,34 @@ public class sign_in extends javax.swing.JPanel {
     }
 
     private void init() {
-        lb_Title.putClientProperty(FlatClientProperties.STYLE, ""
-                + "font:$h1.font");
         Login.putClientProperty(FlatClientProperties.STYLE, ""
                 + "background:$SSS.background;"
                 + "arc:20;"
                 + "border:30,40,50,30");
 
+        lb_Title.putClientProperty(FlatClientProperties.STYLE, ""
+                + "foreground:$Whigt_Lab.background;");
+
+        lb_Description.putClientProperty(FlatClientProperties.STYLE, ""
+                + "foreground:$Gray_Lab.background;");
+
+        lab_email.putClientProperty(FlatClientProperties.STYLE, ""
+                + "foreground:$Whigt_Lab.background;");
+
+        lab_password.putClientProperty(FlatClientProperties.STYLE, ""
+                + "foreground:$Whigt_Lab.background;");
+        
         PasswordField.putClientProperty(FlatClientProperties.STYLE, ""
                 + "showRevealButton:true;"
                 + "showCapsLock:true");
+
+        cbx_rememberMe.putClientProperty(FlatClientProperties.STYLE, ""
+                + "foreground:$Whigt_Lab.background;");
+        
         btn_login.putClientProperty(FlatClientProperties.STYLE, ""
                 + "borderWidth:0;"
                 + "focusWidth:0");
+
         fillText();
         SetSVGIcon();
     }
@@ -72,17 +87,13 @@ public class sign_in extends javax.swing.JPanel {
         lab_DHAAC = new javax.swing.JLabel();
         lab_error_Password = new javax.swing.JLabel();
         lab_user_is_exits = new javax.swing.JLabel();
-        panelRound1 = new Frontend.UI_Components.PanelRound();
-        panelRound4 = new Frontend.UI_Components.PanelRound();
         lab_forgetPass = new javax.swing.JLabel();
         lab_signUp_options = new javax.swing.JLabel();
         svgIconLinkedin = new Frontend.UI_Components.svgIcon();
         svgIconGitHub = new Frontend.UI_Components.svgIcon();
         svgIconGoogle = new Frontend.UI_Components.svgIcon();
         svgIconFaceBook = new Frontend.UI_Components.svgIcon();
-        panelRound3 = new Frontend.UI_Components.PanelRound();
         lab_sign_up = new javax.swing.JLabel();
-        panelRound2 = new Frontend.UI_Components.PanelRound();
         svgIcon_sign_in = new Frontend.UI_Components.svgIcon();
 
         Login.setRoundBottomLeft(30);
@@ -91,7 +102,6 @@ public class sign_in extends javax.swing.JPanel {
         Login.setRoundTopRight(30);
         Login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        sign_in_Panel.setBackground(new java.awt.Color(49, 62, 74));
         sign_in_Panel.setRoundBottomLeft(30);
         sign_in_Panel.setRoundBottomRight(30);
         sign_in_Panel.setRoundTopLeft(30);
@@ -99,17 +109,14 @@ public class sign_in extends javax.swing.JPanel {
         sign_in_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb_Title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lb_Title.setForeground(new java.awt.Color(255, 255, 255));
         lb_Title.setText("Welcome back!");
         sign_in_Panel.add(lb_Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         lb_Description.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lb_Description.setForeground(new java.awt.Color(204, 204, 204));
         lb_Description.setText("Please sign in to access your account");
         sign_in_Panel.add(lb_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
         lab_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lab_email.setForeground(new java.awt.Color(255, 255, 255));
         lab_email.setText("User Name");
         sign_in_Panel.add(lab_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
@@ -118,7 +125,6 @@ public class sign_in extends javax.swing.JPanel {
         sign_in_Panel.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 290, 36));
 
         lab_password.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lab_password.setForeground(new java.awt.Color(255, 255, 255));
         lab_password.setText("Password");
         sign_in_Panel.add(lab_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
@@ -127,7 +133,6 @@ public class sign_in extends javax.swing.JPanel {
         sign_in_Panel.add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 290, 36));
 
         cbx_rememberMe.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        cbx_rememberMe.setForeground(new java.awt.Color(255, 255, 255));
         cbx_rememberMe.setText("Remember me");
         cbx_rememberMe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +155,6 @@ public class sign_in extends javax.swing.JPanel {
         sign_in_Panel.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 290, -1));
 
         lab_DHAAC.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lab_DHAAC.setForeground(new java.awt.Color(255, 255, 255));
         lab_DHAAC.setText("Don't have an account ? ");
         sign_in_Panel.add(lab_DHAAC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 150, -1));
 
@@ -159,43 +163,6 @@ public class sign_in extends javax.swing.JPanel {
 
         lab_user_is_exits.setForeground(new java.awt.Color(255, 77, 77));
         sign_in_Panel.add(lab_user_is_exits, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 290, 16));
-
-        panelRound1.setBackground(new java.awt.Color(90, 106, 144));
-        panelRound1.setRoundBottomRight(500);
-        panelRound1.setRoundTopLeft(500);
-        panelRound1.setRoundTopRight(500);
-
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        sign_in_Panel.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 100, 100));
-
-        panelRound4.setBackground(new java.awt.Color(2, 178, 202));
-        panelRound4.setRoundBottomLeft(50);
-        panelRound4.setRoundBottomRight(20);
-        panelRound4.setRoundTopLeft(40);
-        panelRound4.setRoundTopRight(50);
-
-        javax.swing.GroupLayout panelRound4Layout = new javax.swing.GroupLayout(panelRound4);
-        panelRound4.setLayout(panelRound4Layout);
-        panelRound4Layout.setHorizontalGroup(
-            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        panelRound4Layout.setVerticalGroup(
-            panelRound4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        sign_in_Panel.add(panelRound4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
 
         lab_forgetPass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lab_forgetPass.setForeground(new java.awt.Color(21, 101, 192));
@@ -209,7 +176,6 @@ public class sign_in extends javax.swing.JPanel {
         sign_in_Panel.add(lab_forgetPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 320, -1, 25));
 
         lab_signUp_options.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lab_signUp_options.setForeground(new java.awt.Color(255, 255, 255));
         lab_signUp_options.setText("Or Login with");
         sign_in_Panel.add(lab_signUp_options, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, -1, -1));
 
@@ -241,25 +207,6 @@ public class sign_in extends javax.swing.JPanel {
         });
         sign_in_Panel.add(svgIconFaceBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 30, 30));
 
-        panelRound3.setBackground(new java.awt.Color(254, 116, 106));
-        panelRound3.setRoundBottomLeft(40);
-        panelRound3.setRoundBottomRight(50);
-        panelRound3.setRoundTopLeft(35);
-        panelRound3.setRoundTopRight(500);
-
-        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
-        panelRound3.setLayout(panelRound3Layout);
-        panelRound3Layout.setHorizontalGroup(
-            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        panelRound3Layout.setVerticalGroup(
-            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        sign_in_Panel.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
-
         lab_sign_up.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lab_sign_up.setForeground(new java.awt.Color(21, 101, 192));
         lab_sign_up.setText("Sign up here");
@@ -270,25 +217,6 @@ public class sign_in extends javax.swing.JPanel {
             }
         });
         sign_in_Panel.add(lab_sign_up, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
-
-        panelRound2.setBackground(new java.awt.Color(255, 162, 110));
-        panelRound2.setRoundBottomLeft(500);
-        panelRound2.setRoundBottomRight(40);
-        panelRound2.setRoundTopLeft(50);
-        panelRound2.setRoundTopRight(500);
-
-        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
-        panelRound2.setLayout(panelRound2Layout);
-        panelRound2Layout.setHorizontalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        panelRound2Layout.setVerticalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        sign_in_Panel.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, -1));
 
         Login.add(sign_in_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 449, 540));
         Login.add(svgIcon_sign_in, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 449, 540));
@@ -326,31 +254,30 @@ public class sign_in extends javax.swing.JPanel {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
 
-        String email = txt_email.getText();
-        String password = PasswordField.getText();
-        // Check sign-in
-        if (QueriesAdministrator.sign_in(email, password.toString().trim())) {
-            try {
-                // Successful sign-in
-
-                User.currentUser = QueriesAdministrator.CurrentUser(email);
-                Application.sign_in();
-
-            } catch (SQLException ex) {
-                Logger.getLogger(sign_in.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else {
-            // Unsuccessful sign-in   
-
-            if (QueriesAdministrator.isEmailExist(email)) {
-                // Email exists, but password is incorrect              }
-            } else {
-                // Email and password are both incorrect
-            }
-
-        }
-
-
+//        String email = txt_email.getText();
+//        String password = PasswordField.getText();
+//        // Check sign-in
+//        if (QueriesAdministrator.sign_in(email, password.toString().trim())) {
+//            try {
+//                // Successful sign-in
+//
+//                User.currentUser = QueriesAdministrator.CurrentUser(email);
+//                Application.sign_in();
+//
+//            } catch (SQLException ex) {
+//                Logger.getLogger(sign_in.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            // Unsuccessful sign-in   
+//
+//            if (QueriesAdministrator.isEmailExist(email)) {
+//                // Email exists, but password is incorrect              }
+//            } else {
+//                // Email and password are both incorrect
+//            }
+//
+//        }
+        Application.sign_in();
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void lab_sign_upMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_upMouseClicked
@@ -423,10 +350,6 @@ public class sign_in extends javax.swing.JPanel {
     private javax.swing.JLabel lab_user_is_exits;
     private javax.swing.JLabel lb_Description;
     private javax.swing.JLabel lb_Title;
-    private Frontend.UI_Components.PanelRound panelRound1;
-    private Frontend.UI_Components.PanelRound panelRound2;
-    private Frontend.UI_Components.PanelRound panelRound3;
-    private Frontend.UI_Components.PanelRound panelRound4;
     private Frontend.UI_Components.PanelRound sign_in_Panel;
     private Frontend.UI_Components.svgIcon svgIconFaceBook;
     private Frontend.UI_Components.svgIcon svgIconGitHub;
