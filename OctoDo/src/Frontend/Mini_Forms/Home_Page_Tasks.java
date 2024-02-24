@@ -4,15 +4,12 @@ package Frontend.Mini_Forms;
 public class Home_Page_Tasks extends javax.swing.JPanel {
 
 
-    public Home_Page_Tasks() {
+    public Home_Page_Tasks(String HTName , String HTRTime , String HTDay , String HTDate) {
         initComponents();
-    }
-
-    public void set_Home_Task(String HTName , String HTRTime , String HTDay , String HTDate){
         H_Task_Name.setText(HTName);
         H_Task_Reminder_Time.setText(HTRTime);
         H_Task_Day.setText(HTDay);
-        H_Task_Date.setText(HTDate);
+        H_Task_Date.setText(HTDate);        
     }
 
     @SuppressWarnings("unchecked")
@@ -36,32 +33,37 @@ public class Home_Page_Tasks extends javax.swing.JPanel {
         H_Task_Name.setForeground(new java.awt.Color(255, 255, 255));
         H_Task_Name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         H_Task_Name.setText("Task1");
-        panelRound1.add(H_Task_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 10, 130, 20));
+        panelRound1.add(H_Task_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 10, 110, 20));
 
         H_Task_Day.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         H_Task_Day.setForeground(new java.awt.Color(255, 255, 255));
+        H_Task_Day.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         H_Task_Day.setText("Thursday");
-        panelRound1.add(H_Task_Day, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 80, -1));
+        panelRound1.add(H_Task_Day, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 10, 105, 20));
 
         H_Task_Reminder_Time.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         H_Task_Reminder_Time.setForeground(new java.awt.Color(255, 255, 255));
+        H_Task_Reminder_Time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         H_Task_Reminder_Time.setText("10:00 PM");
-        panelRound1.add(H_Task_Reminder_Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 33, 60, -1));
+        panelRound1.add(H_Task_Reminder_Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 35, 60, -1));
 
         H_Task_Date.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         H_Task_Date.setForeground(new java.awt.Color(255, 255, 255));
+        H_Task_Date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         H_Task_Date.setText("30-12-2024");
-        panelRound1.add(H_Task_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 33, 70, -1));
+        panelRound1.add(H_Task_Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 35, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
