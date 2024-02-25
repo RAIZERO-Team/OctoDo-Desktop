@@ -98,17 +98,20 @@ public class QueriesAdministrator {
         return password;
     }
 
-    public static boolean updatePassword(String username, String newPassword) {
-        try {
-            stm = ConnectionDB.con.prepareStatement("UPDATE User SET User_password = ? WHERE User_email = ?");
+   public static boolean UpdatePassword(String fname, String lname, String email){
+         try{
+            stm =ConnectionDB .con.prepareStatement("UPDATE User SET User_fname = ?, User_lname = ? WHERE User_email = ?");
+             stm.setString(1, fname);
+           stm.setString(2, lname);
+           stm.setString(3, email);
+           
+           int rowsAffected = stm.executeUpdate();
+            return rowsAffected > 0;
 
-            stm.setString(1, newPassword);
-            stm.setString(2, username);
-            stm.executeUpdate();
-            return true;
-        } catch (SQLException e) {
+        }catch (SQLException e){
             return false;
         }
+        
     }
 
 }
