@@ -1,5 +1,6 @@
 package Frontend.Mini_Forms;
 
+import Backend.Database.QueriesAdministrator;
 import Backend.Date.Date_Time;
 import Frontend.Forms.Week_Plan;
 import Backend.Task.TodayTask;
@@ -92,6 +93,11 @@ public class Add_Task extends javax.swing.JPanel {
 
         btn_save.setText("Save");
         btn_save.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_saveActionPerformed(evt);
+            }
+        });
         panelRound1.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 100, -1));
 
         btn_cancel.setText("Cancel");
@@ -158,6 +164,17 @@ public class Add_Task extends javax.swing.JPanel {
     private void svgIcon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svgIcon1MouseClicked
         dateChooser.showPopup();
     }//GEN-LAST:event_svgIcon1MouseClicked
+
+    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
+//        if (QueriesAdministrator.addTask(taskName, description,time, )) {
+//            JOptionPane.showMessageDialog(null, "changing  is done");
+//        } else {
+//            JOptionPane.showMessageDialog(this,
+//                    "changing is not done",
+//                    "error",
+//                    JOptionPane.ERROR_MESSAGE);
+//        } 
+    }//GEN-LAST:event_btn_saveActionPerformed
 
     private Task task;
     private Home_Page_Tasks Htask;
