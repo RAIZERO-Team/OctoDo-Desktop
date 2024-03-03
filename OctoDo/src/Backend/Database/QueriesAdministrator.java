@@ -110,5 +110,22 @@ public class QueriesAdministrator {
             return false;
         }
     }
+    
+    
+//    public static boolean addTask(String Task_Name, String description, String Task_Reminder_Date, String Task_Reminder_Time ) {
+//        try {
+//            PreparedStatement stm = ConnectionDB.con.prepareStatement("INSERT INTO tasks (task_name, descript, reminder_date, reminder_time) VALUES (?, ?, ?, ?)");
+//            
+//            stm.setString(1, Task_Name);
+//            stm.setString(2, description);
+//            stm.setString(3, Task_Reminder_Date);
+//            stm.setString(4, Task_Reminder_Time);
+//            
+//            return true;
+//        } catch (SQLException e) {
+//            return false;
+//        }
+//    }
+
 
 }
