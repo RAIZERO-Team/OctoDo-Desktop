@@ -172,22 +172,22 @@ public class sign_up_Male_User extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    private static String Pathimage;
+    private String Pathimage;
 
-    private static void setPathimag(String Path) {
-        sign_up_Male_User.Pathimage = Path;
+    private void setPathimag(String Path) {
+        this.Pathimage = Path;
     }
 
-    private String getPath() {
+    public String getPath() {
         return this.Pathimage;
     }
 
-    private static String filePath = "";
+    //private static String filePath = "";
 
     // here the backend work
-    String getUplodedImagePath() {
-        return this.filePath;
-    }
+//    String getUplodedImagePath() {
+//        return this.filePath;
+//    }
 
     private void setUserImag() {
         try {
@@ -201,22 +201,23 @@ public class sign_up_Male_User extends javax.swing.JPanel {
             File imagefile = filechooser.getSelectedFile();
             //filechooser.APPROVE_OPTION;
             if (imagefile != null) {
-                filePath = imagefile.getAbsolutePath();
+                Pathimage = imagefile.getAbsolutePath();
 
-                Image image = Toolkit.getDefaultToolkit().getImage(filePath);
+                Image image = Toolkit.getDefaultToolkit().getImage(Pathimage);
                 Image finalimage = image.getScaledInstance(img9.getWidth(), img9.getHeight(), Image.SCALE_AREA_AVERAGING);
                 ImageIcon imageicon = new ImageIcon(finalimage);
                 img9.setIcon(imageicon);
             }
 
+            setPathimag(Pathimage);
             lab_uploadImg.setText("Save");
-
+            
         } catch (Exception e) {
             Notifications.getInstance().show(Notifications.Type.ERROR, "Please Select good image and have extension .jpg or png");
         }
 
         // here the backend work
-        System.out.println(getUplodedImagePath());
+        System.out.println(getPath());
     }
 
 
@@ -239,16 +240,19 @@ public class sign_up_Male_User extends javax.swing.JPanel {
     private void img4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img4MouseClicked
         goto_signIn();
         setPathimag("Asstes/Male_User_Avatar/male4.jpg");
+        System.out.println(getPath());
     }//GEN-LAST:event_img4MouseClicked
 
     private void img5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img5MouseClicked
         goto_signIn();
         setPathimag("Asstes/Male_User_Avatar/male5.jpg");
+        System.out.println(getPath());
     }//GEN-LAST:event_img5MouseClicked
 
     private void img8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_img8MouseClicked
         goto_signIn();
         setPathimag("Asstes/Male_User_Avatar/male9.jpg");
+        System.out.println(getPath());
     }//GEN-LAST:event_img8MouseClicked
 
 

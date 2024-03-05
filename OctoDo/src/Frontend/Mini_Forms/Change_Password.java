@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import raven.toast.Notifications;
 
 public class Change_Password extends javax.swing.JPanel {
 
@@ -187,21 +188,11 @@ public class Change_Password extends javax.swing.JPanel {
 
         btn_save.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_save.setText("Save");
-        btn_save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_saveActionPerformed(evt);
-            }
-        });
         panelRound1.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, -1, -1));
 
         btn_cancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_cancel.setText("Cancel");
-        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelActionPerformed(evt);
-            }
-        });
-        panelRound1.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+        panelRound1.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -221,12 +212,8 @@ public class Change_Password extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelActionPerformed
 
-
-    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
+    public void change_pass(){
         String Email = User.currentUser.getUserEmail();
 
         String oldPassword = Current_PasswordField.getText();
@@ -242,34 +229,21 @@ public class Change_Password extends javax.swing.JPanel {
                     if (QueriesAdministrator.updatePassword(Email, newPassword)) {
                         JOptionPane.showMessageDialog(null, "changing  is done");
                     } else {
-                        JOptionPane.showMessageDialog(this,
-                                "changing is not done",
-                                "error",
-                                JOptionPane.ERROR_MESSAGE);
+                        Notifications.getInstance().show(Notifications.Type.ERROR, "Wrong! changing is not done");
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(this,
-                            "the new Password not confirm    Password",
-                            "confirm Password",
-                            JOptionPane.ERROR_MESSAGE);
+                    Notifications.getInstance().show(Notifications.Type.ERROR, "the new Password not confirm Password");
                 }
             } else {
-                JOptionPane.showMessageDialog(this,
-                        "Please enter a    Strong Password",
-                        "Strong Password",
-                        JOptionPane.ERROR_MESSAGE);
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Please enter a Strong Password");
             }
 
         } else {
-            JOptionPane.showMessageDialog(this,
-                    "Please enter correct Email Or Password",
-                    "Invalid Email or Password",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-
-    }//GEN-LAST:event_btn_saveActionPerformed
-
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Please enter Current Password!");
+        }        
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Confirm_PasswordField;
@@ -278,8 +252,8 @@ public class Change_Password extends javax.swing.JPanel {
     private javax.swing.JProgressBar bar_medium;
     private javax.swing.JProgressBar bar_strong;
     private javax.swing.JProgressBar bar_week;
-    private javax.swing.JButton btn_cancel;
-    private javax.swing.JButton btn_save;
+    public javax.swing.JButton btn_cancel;
+    public javax.swing.JButton btn_save;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lab_confirm_NewPass;
