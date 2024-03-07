@@ -5,6 +5,8 @@ import Backend.Account.User;
 import Frontend.Mini_Forms.Add_Task;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Home_Page extends javax.swing.JPanel {
 
@@ -12,9 +14,10 @@ public class Home_Page extends javax.swing.JPanel {
         initComponents();
         svgtIcon();
         init();
-        createTasks();
+        Dialog_init();
+        //createTasks();
         panelRound2.setVisible(false);
-        lab_user_Name.setText(User.currentUser.getUserName());
+        //lab_user_Name.setText(User.currentUser.getUserName());
     }
 
     private void svgtIcon() {
@@ -27,22 +30,54 @@ public class Home_Page extends javax.swing.JPanel {
                 + "arc:20;"
                 + "border:30,40,50,30");
         btn_Add_Task.setCursorHand();
+    }
 
+    private Frontend.Forms.Week_Plan week = new Frontend.Forms.Week_Plan();
+
+    private void Dialog_init() {
         Dialog.setSize(400, 600);
         Dialog.add(add_Task);
+        add_Task.btn_cancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Dialog.dispose();
+            }
+        });
+
+        // The Backend Work Week Task
+        add_Task.btn_save.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Backend Function
+                
+                
+                add_Task.addTask();
+                createTasks();
+
+                week.createweekTasks();
+                Dialog.dispose();
+
+            }
+        });
     }
 
     public void createTasks() {
+        Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task(add_Task.Task_Name, add_Task.Task_Reminder_Time);
+        Tasks.setMaximumSize(new Dimension(240, 70));
+        num++;
+        today_tasks.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, T, -1, -1));
+        T += 100;
+        System.out.println(test + num);
 
-            Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task();
-            Tasks.setMaximumSize(new Dimension(240, 70));
-            num++;
-            today_tasks.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, m, -1, -1));
-            m += 100;
-            System.out.println(test + num);
-            revalidate();
-            repaint();
-        
+        revalidate();
+        repaint();
+    }
+
+    private void CompletedTasks() {
+        Frontend.Mini_Forms.Home_Page_Tasks Completedtasks = new Frontend.Mini_Forms.Home_Page_Tasks(add_Task.Task_Name, add_Task.Task_Reminder_Time, add_Task.Task_Reminder_Day, add_Task.Task_Reminder_Date);
+        Completedtasks.setMaximumSize(new Dimension(240, 70));
+        completed_Tasks.add(Completedtasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, CT, -1, -1));
+        CT += 100;
+        revalidate();
+        repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -259,14 +294,14 @@ public class Home_Page extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    short num = 0, m = 10;
+    short num = 0, T = 10, CT = 10;
     String test = "Task";
 
 
     private void btn_Add_TaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Add_TaskActionPerformed
         //createTasks();        
         Dialog.setVisible(true);
-        createTasks();
+        add_Task.clearData();
         panelRound2.setVisible(true);
         //new Application().showDialog();
     }//GEN-LAST:event_btn_Add_TaskActionPerformed
@@ -298,4 +333,5 @@ public class Home_Page extends javax.swing.JPanel {
     private Frontend.UI_Components.svgIcon svgIcon_welco;
     private javax.swing.JPanel today_tasks;
     // End of variables declaration//GEN-END:variables
+
 }

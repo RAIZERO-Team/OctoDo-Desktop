@@ -1,12 +1,16 @@
 package Frontend.Forms;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Week_Plan extends javax.swing.JPanel {
 
     public Week_Plan() {
         initComponents();
         init();
+        Dialog_init();
         setIcon();
     }
 
@@ -27,11 +31,31 @@ public class Week_Plan extends javax.swing.JPanel {
         add6.setCursorHand();
         add7.setCursorHand();
 
+        Day_Tasks.setSize(350, 585);
+        Day_Tasks.add(day_Tasks1);
+    }
+
+    private void Dialog_init() {
         Dialog.setSize(400, 600);
         Dialog.add(Week_plan_add_Task);
-        
-        Day_Tasks.setSize(350,585);
-        Day_Tasks.add(day_Tasks1);
+        Week_plan_add_Task.btn_cancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                createweekTasks();
+                Dialog.dispose();
+            }
+        });
+
+        // The Backend Work Week Task
+        Week_plan_add_Task.btn_save.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Backend Function
+
+                
+                Week_plan_add_Task.addTask();
+                Dialog.dispose();
+
+            }
+        });
     }
 
     private void setIcon() {
@@ -47,10 +71,16 @@ public class Week_Plan extends javax.swing.JPanel {
         add7.setSVGIcon("Asstes/SVG_Icons/addIcon.svg", 30, 30);
     }
 
-    public void close_Add_Task(){
-        Dialog.setVisible(false);
+    short T = 570;
+    public void createweekTasks() {
+        Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task( Week_plan_add_Task.Task_Name, Week_plan_add_Task.Task_Reminder_Time);
+        Tasks.setMaximumSize(new Dimension(240, 70));
+        pane_saturday.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(T, 2, -1, -1));
+        T -= 240;
+        revalidate();
+        repaint();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -420,7 +450,7 @@ public class Week_Plan extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
         Dialog.setVisible(true);
     }//GEN-LAST:event_add1MouseClicked
@@ -450,7 +480,7 @@ public class Week_Plan extends javax.swing.JPanel {
     }//GEN-LAST:event_add7MouseClicked
 
     private void pane_saturdayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pane_saturdayMouseClicked
-       Day_Tasks.setVisible(true);
+        Day_Tasks.setVisible(true);
     }//GEN-LAST:event_pane_saturdayMouseClicked
 
 
