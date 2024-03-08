@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.Preferences;
+import raven.toast.Notifications;
 
 public class sign_in extends javax.swing.JPanel {
 
@@ -35,14 +36,14 @@ public class sign_in extends javax.swing.JPanel {
 
         lab_password.putClientProperty(FlatClientProperties.STYLE, ""
                 + "foreground:$Whigt_Lab.background;");
-        
+
         PasswordField.putClientProperty(FlatClientProperties.STYLE, ""
                 + "showRevealButton:true;"
                 + "showCapsLock:true");
 
         cbx_rememberMe.putClientProperty(FlatClientProperties.STYLE, ""
                 + "foreground:$Whigt_Lab.background;");
-        
+
         btn_login.putClientProperty(FlatClientProperties.STYLE, ""
                 + "borderWidth:0;"
                 + "focusWidth:0");
@@ -117,7 +118,7 @@ public class sign_in extends javax.swing.JPanel {
         sign_in_Panel.add(lb_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
         lab_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lab_email.setText("User Name");
+        lab_email.setText("Email");
         sign_in_Panel.add(lab_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
         txt_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -260,7 +261,7 @@ public class sign_in extends javax.swing.JPanel {
 //        if (QueriesAdministrator.sign_in(email, password.toString().trim())) {
 //            try {
 //                // Successful sign-in
-//
+//                Notifications.getInstance().show(Notifications.Type.SUCCESS, "welcome Back");
 //                User.currentUser = QueriesAdministrator.CurrentUser(email);
 //                Application.sign_in();
 //
@@ -269,11 +270,23 @@ public class sign_in extends javax.swing.JPanel {
 //            }
 //        } else {
 //            // Unsuccessful sign-in   
-//
 //            if (QueriesAdministrator.isEmailExist(email)) {
-//                // Email exists, but password is incorrect              }
+//                // Email exists, but password is incorrect
+//                Notifications.getInstance().show(Notifications.Type.ERROR, "Wrong Password");
+//
+//                PasswordField.putClientProperty(FlatClientProperties.STYLE, ""
+//                        + "foreground:$App.accent.red.background;");
+//
+//                lab_error_Password.setText("Incorect Password please enter the correct");
 //            } else {
 //                // Email and password are both incorrect
+//                txt_email.putClientProperty(FlatClientProperties.STYLE, ""
+//                        + "foreground:$App.accent.red.background;");
+//
+//                PasswordField.putClientProperty(FlatClientProperties.STYLE, ""
+//                        + "foreground:$App.accent.red.background;");
+//
+//                Notifications.getInstance().show(Notifications.Type.ERROR, "The Email not exists");
 //            }
 //
 //        }

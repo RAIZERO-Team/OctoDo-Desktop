@@ -15,7 +15,6 @@ public class Notification extends javax.swing.JPanel {
     private void initComponents() {
 
         panelRound1 = new Frontend.UI_Components.PanelRound();
-        jLabel1 = new javax.swing.JLabel();
 
         panelRound1.setBackground(new java.awt.Color(106, 179, 140));
         panelRound1.setRoundBottomLeft(30);
@@ -23,11 +22,6 @@ public class Notification extends javax.swing.JPanel {
         panelRound1.setRoundTopLeft(30);
         panelRound1.setRoundTopRight(30);
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Hi MaMan");
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -49,7 +43,6 @@ public class Notification extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private Frontend.UI_Components.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

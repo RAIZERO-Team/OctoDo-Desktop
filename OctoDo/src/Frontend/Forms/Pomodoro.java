@@ -1,6 +1,9 @@
 package Frontend.Forms;
 
+import Backend.Date.Date_Time;
 import com.formdev.flatlaf.FlatClientProperties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Pomodoro extends javax.swing.JPanel {
 
@@ -57,11 +60,11 @@ public class Pomodoro extends javax.swing.JPanel {
         btn_stop = new javax.swing.JButton();
         svgIcon_steting = new Frontend.UI_Components.svgIcon();
         Timer = new Frontend.UI_Components.PanelRound();
-        shadow_Round_Panel1 = new Frontend.UI_Components.Shadow_Round_Panel();
+        Pane_UP = new Frontend.UI_Components.Shadow_Round_Panel();
         UP_Minutes = new Frontend.UI_Components.svgIcon();
-        shadow_Round_Panel2 = new Frontend.UI_Components.Shadow_Round_Panel();
+        Pane_Down = new Frontend.UI_Components.Shadow_Round_Panel();
         Dowen_Minutes = new Frontend.UI_Components.svgIcon();
-        TextField_minutes = new javax.swing.JTextField();
+        minutes_Timer = new javax.swing.JTextField();
         Sound_Player = new Frontend.UI_Components.PanelRound();
         lab_play_sound = new javax.swing.JLabel();
         svgIconplay_sound = new Frontend.UI_Components.svgIcon();
@@ -126,15 +129,33 @@ public class Pomodoro extends javax.swing.JPanel {
 
         btn_start.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_start.setText("Start Focus session");
-        Pomodoro.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, -1, -1));
+        btn_start.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_startActionPerformed(evt);
+            }
+        });
+        Pomodoro.add(btn_start, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 360, -1, -1));
 
         btn_reset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_reset.setText("RESET");
-        Pomodoro.add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
+        btn_reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_resetActionPerformed(evt);
+            }
+        });
+        Pomodoro.add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
 
         btn_stop.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_stop.setText("STOP");
-        Pomodoro.add(btn_stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, -1, -1));
+        btn_stop.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_stop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_stopActionPerformed(evt);
+            }
+        });
+        Pomodoro.add(btn_stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, -1, -1));
         Pomodoro.add(svgIcon_steting, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 30, 30));
 
         Timer.setRoundBottomLeft(40);
@@ -143,38 +164,53 @@ public class Pomodoro extends javax.swing.JPanel {
         Timer.setRoundTopRight(40);
         Timer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        shadow_Round_Panel1.setRippleColor(new java.awt.Color(153, 0, 153));
-        shadow_Round_Panel1.setRoundTopRight(30);
-        shadow_Round_Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Pane_UP.setRippleColor(new java.awt.Color(153, 0, 153));
+        Pane_UP.setRoundTopRight(30);
+        Pane_UP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Pane_UPMouseClicked(evt);
+            }
+        });
+        Pane_UP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UP_Minutes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 UP_MinutesMouseClicked(evt);
             }
         });
-        shadow_Round_Panel1.add(UP_Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 30, 30));
+        Pane_UP.add(UP_Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 30, 30));
 
-        Timer.add(shadow_Round_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 60, 60));
+        Timer.add(Pane_UP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 60, 60));
 
-        shadow_Round_Panel2.setRippleColor(new java.awt.Color(153, 0, 153));
-        shadow_Round_Panel2.setRoundBottomRight(30);
-        shadow_Round_Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Pane_Down.setRippleColor(new java.awt.Color(153, 0, 153));
+        Pane_Down.setRoundBottomRight(30);
+        Pane_Down.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Pane_DownMouseClicked(evt);
+            }
+        });
+        Pane_Down.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Dowen_Minutes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Dowen_MinutesMouseClicked(evt);
             }
         });
-        shadow_Round_Panel2.add(Dowen_Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 30, 30));
+        Pane_Down.add(Dowen_Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 30, 30));
 
-        Timer.add(shadow_Round_Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 60, 60));
+        Timer.add(Pane_Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 60, 60));
 
-        TextField_minutes.setFont(new java.awt.Font("Segoe UI", 1, 39)); // NOI18N
-        TextField_minutes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TextField_minutes.setText("25");
-        Timer.add(TextField_minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 120));
+        minutes_Timer.setFont(new java.awt.Font("Segoe UI", 1, 39)); // NOI18N
+        minutes_Timer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        minutes_Timer.setText("25");
+        minutes_Timer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minutes_TimerActionPerformed(evt);
+            }
+        });
+        Timer.add(minutes_Timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 120));
 
-        Pomodoro.add(Timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 160, 120));
+        Pomodoro.add(Timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 160, 120));
 
         Study_Space.add(Pomodoro, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 20, 500, 510));
 
@@ -294,23 +330,95 @@ public class Pomodoro extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private int minutes;
+    private int seconds;
+    
+    private void up_min() {
+        minutes = Short.parseShort(minutes_Timer.getText());
+        if (minutes < 240) {
+            minutes += 5;
+            minutes_Timer.setText(String.valueOf(minutes));
+        }
+    }
+
+    private void down_min() {
+        minutes = Short.parseShort(minutes_Timer.getText());
+        if (minutes > 10) {
+            minutes -= 5;
+            minutes_Timer.setText(String.valueOf(minutes));
+        }
+    }
+
+    private void start_Timer(int start) {
+        seconds = start * 60;
+        try {
+        for (int i = seconds - 1 ;i > 0; i--){
+            Thread.sleep(1000);
+            System.out.println(i);
+            
+            if (i % 60 == 0){
+                minutes-=1;
+                System.out.println(minutes);
+            }
+        }            
+        } catch (Exception e) {
+        }
+        
+
+    }
+
+    private void stop_Timer(short stop) {
+
+    }
+
     private void UP_MinutesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UP_MinutesMouseClicked
-        play_sounds.setVisible(true);
+        //play_sounds.setVisible(true);
+        up_min();
     }//GEN-LAST:event_UP_MinutesMouseClicked
 
     private void Dowen_MinutesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Dowen_MinutesMouseClicked
-
+        down_min();
     }//GEN-LAST:event_Dowen_MinutesMouseClicked
 
+    private void Pane_UPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pane_UPMouseClicked
+        up_min();
+    }//GEN-LAST:event_Pane_UPMouseClicked
+
+    private void Pane_DownMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pane_DownMouseClicked
+        down_min();
+    }//GEN-LAST:event_Pane_DownMouseClicked
+
+    private void minutes_TimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minutes_TimerActionPerformed
+        short tt = Short.parseShort(minutes_Timer.getText());
+        if ( tt < 10) {
+            minutes_Timer.setText("10");
+        }
+    }//GEN-LAST:event_minutes_TimerActionPerformed
+
+    private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_resetActionPerformed
+
+    private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
+        //start_Timer(2);
+        Date_Time.decreaseStopwatch(1);
+    }//GEN-LAST:event_btn_startActionPerformed
+
+    private void btn_stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_stopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_stopActionPerformed
+
+    // Daily Progress Section
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Frontend.UI_Components.PanelRound Daily_Progress;
     private Frontend.UI_Components.svgIcon Dowen_Minutes;
+    private Frontend.UI_Components.Shadow_Round_Panel Pane_Down;
+    private Frontend.UI_Components.Shadow_Round_Panel Pane_UP;
     private Frontend.UI_Components.PanelRound Pomodoro;
     private Frontend.UI_Components.PanelRound Sound_Player;
     private Frontend.UI_Components.PanelRound Study_Space;
     private Frontend.UI_Components.PanelRound Tasks;
-    private javax.swing.JTextField TextField_minutes;
     private Frontend.UI_Components.PanelRound Timer;
     private Frontend.UI_Components.svgIcon UP_Minutes;
     private javax.swing.JButton btn_reset;
@@ -332,10 +440,9 @@ public class Pomodoro extends javax.swing.JPanel {
     private javax.swing.JLabel lab_Daily_Day;
     private javax.swing.JLabel lab_play_sound;
     private javax.swing.JLabel lab_tasks;
+    private javax.swing.JTextField minutes_Timer;
     private Frontend.Mini_Forms.play_Sound play_Sound1;
     private javax.swing.JDialog play_sounds;
-    private Frontend.UI_Components.Shadow_Round_Panel shadow_Round_Panel1;
-    private Frontend.UI_Components.Shadow_Round_Panel shadow_Round_Panel2;
     private Frontend.UI_Components.spinner_progress.SpinnerProgress spinnerProgress;
     private Frontend.UI_Components.svgIcon svgIcon_edit;
     private Frontend.UI_Components.svgIcon svgIcon_soundcloud;

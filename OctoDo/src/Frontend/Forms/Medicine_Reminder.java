@@ -9,6 +9,7 @@ public class Medicine_Reminder extends javax.swing.JPanel {
     public Medicine_Reminder() {
         initComponents();
         init();
+        Dialog_init();
         setIcons();
     }
 
@@ -32,6 +33,11 @@ public class Medicine_Reminder extends javax.swing.JPanel {
         Day7.setCursorHand();
     }
 
+    private void Dialog_init(){
+        Add_midecine.setSize(550,650);
+        Add_midecine.add(add_Medicine_Reminder);
+    }
+    
     private void setIcons() {
 
     }
@@ -121,6 +127,8 @@ public class Medicine_Reminder extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Add_midecine = new javax.swing.JDialog();
+        add_Medicine_Reminder = new Frontend.Mini_Forms.Add_Medicine_Reminder();
         medicine_reminder = new Frontend.UI_Components.PanelRound();
         Days = new Frontend.UI_Components.PanelRound();
         Day1 = new Frontend.UI_Components.PanelRound();
@@ -161,6 +169,29 @@ public class Medicine_Reminder extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+
+        Add_midecine.setLocation(new java.awt.Point(588, 150));
+
+        javax.swing.GroupLayout Add_midecineLayout = new javax.swing.GroupLayout(Add_midecine.getContentPane());
+        Add_midecine.getContentPane().setLayout(Add_midecineLayout);
+        Add_midecineLayout.setHorizontalGroup(
+            Add_midecineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(Add_midecineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Add_midecineLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(add_Medicine_Reminder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        Add_midecineLayout.setVerticalGroup(
+            Add_midecineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(Add_midecineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Add_midecineLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(add_Medicine_Reminder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         medicine_reminder.setMinimumSize(new java.awt.Dimension(1050, 700));
         medicine_reminder.setPreferredSize(new java.awt.Dimension(1050, 700));
@@ -396,6 +427,11 @@ public class Medicine_Reminder extends javax.swing.JPanel {
 
         btn_add.setText("Add");
         btn_add.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
         Today_Plan.add(btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 120, -1));
 
         medicine_reminder.add(Today_Plan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 310, 470));
@@ -558,8 +594,13 @@ public class Medicine_Reminder extends javax.swing.JPanel {
        PaneDay7();
     }//GEN-LAST:event_lab_friMouseClicked
 
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+        Add_midecine.setVisible(true);
+    }//GEN-LAST:event_btn_addActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Add_midecine;
     private Frontend.UI_Components.PanelRound Day1;
     private Frontend.UI_Components.PanelRound Day2;
     private Frontend.UI_Components.PanelRound Day3;
@@ -570,6 +611,7 @@ public class Medicine_Reminder extends javax.swing.JPanel {
     private Frontend.UI_Components.PanelRound Days;
     private Frontend.UI_Components.PanelRound Medicine_Pane;
     private Frontend.UI_Components.PanelRound Today_Plan;
+    private Frontend.Mini_Forms.Add_Medicine_Reminder add_Medicine_Reminder;
     private Frontend.UI_Components.Shadow_Button btn_add;
     private Frontend.UI_Components.Shadow_Button btn_change_schedule;
     private Frontend.UI_Components.Shadow_Button btn_delete;

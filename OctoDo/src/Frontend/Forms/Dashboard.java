@@ -1,23 +1,18 @@
 package Frontend.Forms;
 
 import Backend.Account.User;
+import Frontend.Sign_Up.sign_up_Male_User;
 import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Dashboard extends javax.swing.JPanel {
 
     public Dashboard() {
         initComponents();
         init();
-        showDialog();
-        setSVGIcons();
+        Dialog_init();
         fillDadhboard();
-    }
-
-    private void fillDadhboard() {
-        user.setText(User.currentUser.getUserName());
-        email.setText(User.currentUser.getUserEmail());
-        //sound.setText(User.currentUser.getNotification().getNotification_name());
-
     }
 
     private void init() {
@@ -26,6 +21,7 @@ public class Dashboard extends javax.swing.JPanel {
                 + "arc:20;"
                 + "border:30,40,50,30");
 
+        //user_img.setIcon(new javax.swing.ImageIcon(getClass().getResource(sign_up_Male_User.getPath())));
         user_name.setCursorHand();
         user_email.setCursorHand();
         user_password.setCursorHand();
@@ -36,14 +32,6 @@ public class Dashboard extends javax.swing.JPanel {
         edit_Pass.setCursorHand();
         edit_sound.setCursorHand();
 
-    }
-
-    private void showDialog() {
-        Change_Pass.setSize(360, 500);
-        Change_Pass.add(change_Password);
-    }
-
-    private void setSVGIcons() {
         user_name.setSVGIcon("Asstes/SVG_Icons/user.svg", 30, 30);
         user_email.setSVGIcon("Asstes/SVG_Icons/email.svg", 30, 30);
         user_password.setSVGIcon("Asstes/SVG_Icons/password.svg", 30, 30);
@@ -53,6 +41,51 @@ public class Dashboard extends javax.swing.JPanel {
         edit_userName.setSVGIcon("Asstes/SVG_Icons/edit.svg", 30, 30);
         edit_Pass.setSVGIcon("Asstes/SVG_Icons/edit.svg", 30, 30);
         edit_sound.setSVGIcon("Asstes/SVG_Icons/edit.svg", 30, 30);
+
+    }
+
+    private void fillDadhboard() {
+        user.setText(User.currentUser.getUserName());
+        email.setText(User.currentUser.getUserEmail());
+        //sound.setText(User.currentUser.getNotification().getNotification_name());
+    }
+
+    private void Dialog_init() {
+        Change_Pass.setSize(360, 500);
+        Change_Pass.add(change_Password);
+
+        Change_userName.setSize(452, 216);
+        Change_userName.add(change_User_Details);
+
+        Change_sound.setSize(360, 500);
+        //Change_sound.add(this);
+
+        // change pass save button
+        change_Password.btn_save.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                change_Password.change_pass();
+                Change_Pass.dispose();
+            }
+        });
+
+        // change pass cancel button
+        change_Password.btn_cancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Change_Pass.dispose();
+            }
+        });
+
+        // change userName save button
+        
+        
+        // change userName cancel button
+        
+        
+        
+        // change sound save button
+        
+        
+        // change sound cancel button
     }
 
     @SuppressWarnings("unchecked")
@@ -61,6 +94,9 @@ public class Dashboard extends javax.swing.JPanel {
 
         Change_Pass = new javax.swing.JDialog();
         change_Password = new Frontend.Mini_Forms.Change_Password();
+        Change_userName = new javax.swing.JDialog();
+        change_User_Details = new Frontend.Mini_Forms.Change_User_Details();
+        Change_sound = new javax.swing.JDialog();
         Dashborad = new Frontend.UI_Components.PanelRound();
         user_img = new Frontend.UI_Components.ImageAvatar();
         pane_userName = new Frontend.UI_Components.PanelRound();
@@ -109,6 +145,42 @@ public class Dashboard extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+        Change_userName.setLocation(new java.awt.Point(550, 150));
+
+        javax.swing.GroupLayout Change_userNameLayout = new javax.swing.GroupLayout(Change_userName.getContentPane());
+        Change_userName.getContentPane().setLayout(Change_userNameLayout);
+        Change_userNameLayout.setHorizontalGroup(
+            Change_userNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(Change_userNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Change_userNameLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(change_User_Details, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        Change_userNameLayout.setVerticalGroup(
+            Change_userNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(Change_userNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Change_userNameLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(change_User_Details, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        Change_sound.setLocation(new java.awt.Point(550, 150));
+
+        javax.swing.GroupLayout Change_soundLayout = new javax.swing.GroupLayout(Change_sound.getContentPane());
+        Change_sound.getContentPane().setLayout(Change_soundLayout);
+        Change_soundLayout.setHorizontalGroup(
+            Change_soundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        Change_soundLayout.setVerticalGroup(
+            Change_soundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         Dashborad.setRoundBottomLeft(30);
         Dashborad.setRoundBottomRight(30);
         Dashborad.setRoundTopLeft(30);
@@ -143,11 +215,6 @@ public class Dashboard extends javax.swing.JPanel {
         pane_pass.setRoundBottomRight(40);
         pane_pass.setRoundTopLeft(40);
         pane_pass.setRoundTopRight(40);
-        pane_pass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                pane_passMouseClicked(evt);
-            }
-        });
         pane_pass.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lab_pass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -160,12 +227,6 @@ public class Dashboard extends javax.swing.JPanel {
         pass.setForeground(new java.awt.Color(0, 0, 0));
         pass.setText("********");
         pane_pass.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 35, 90, 20));
-
-        edit_Pass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                edit_PassMouseClicked(evt);
-            }
-        });
         pane_pass.add(edit_Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 15, 30, 30));
 
         Dashborad.add(pane_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 500, 60));
@@ -245,20 +306,15 @@ public class Dashboard extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pane_passMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pane_passMouseClicked
-        Change_Pass.setVisible(true);
-    }//GEN-LAST:event_pane_passMouseClicked
-
-    private void edit_PassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edit_PassMouseClicked
-        Change_Pass.setVisible(true);
-    }//GEN-LAST:event_edit_PassMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog Change_Pass;
+    private javax.swing.JDialog Change_sound;
+    private javax.swing.JDialog Change_userName;
     private Frontend.UI_Components.PanelRound Dashborad;
     private javax.swing.JLabel Delete_Account;
     private Frontend.Mini_Forms.Change_Password change_Password;
+    private Frontend.Mini_Forms.Change_User_Details change_User_Details;
     private Frontend.UI_Components.svgIcon delete_account;
     private Frontend.UI_Components.svgIcon edit_Pass;
     private Frontend.UI_Components.svgIcon edit_sound;
