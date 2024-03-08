@@ -6,6 +6,10 @@ import Frontend.Forms.Week_Plan;
 import Frontend.Forms.Home_Page;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class Add_Task extends javax.swing.JPanel {
 
@@ -37,23 +41,36 @@ public class Add_Task extends javax.swing.JPanel {
         Task_description.setText("");
         Set_Task_Time.setText("");
         timePicker.now();
-        Set_Task_Date.setText("");        
+        Set_Task_Date.setText(""); 
     }
     
     
     public void addTask() {
         Task_Name = Set_Task_Name.getText();
-        Task_Reminder_Time = Set_Task_Time.getText();
-        Task_Reminder_Date = Set_Task_Date.getText();
+        Task_Description   = Task_description.getText();
+        LocalTime reminderTime = LocalTime.parse(Task_Reminder_Time);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate reminderDate = LocalDate.parse(Task_Reminder_Date, formatter);
         
-        // Backend Work
+        LocalDate currentDate = LocalDate.now();
         
+        // Backend Work    
         task = new Task(Task_Name, Task_Reminder_Time);
         Htask = new Home_Page_Tasks(Task_Name, Task_Reminder_Time, Task_Reminder_Day, Task_Reminder_Date);
         task.getdata();
         // Here we want the day and date of create this task
         //Task_Day = Date_Time.getDay();
         //Task_Date = Date_Time.getDate();
+       
+        if(reminderDate.equals(currentDate))
+        {
+         //this is to day task  
+        }
+        else{
+        // this is to week task
+        }
+        
+        
     }
 
     @SuppressWarnings("unchecked")
