@@ -45,7 +45,6 @@ public class Add_Task extends javax.swing.JPanel {
         Task_Name = Set_Task_Name.getText();
         Task_Reminder_Time = Set_Task_Time.getText();
         Task_Reminder_Date = Set_Task_Date.getText();
-        
         // Backend Work
         
         task = new Task(Task_Name, Task_Reminder_Time);
@@ -53,7 +52,7 @@ public class Add_Task extends javax.swing.JPanel {
         task.getdata();
         // Here we want the day and date of create this task
         //Task_Day = Date_Time.getDay();
-        //Task_Date = Date_Time.getDate();
+        //Task_Date = Date_Time.getDate();   
     }
 
     @SuppressWarnings("unchecked")
