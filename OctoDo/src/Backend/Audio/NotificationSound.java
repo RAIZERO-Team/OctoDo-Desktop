@@ -1,14 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Backend.Audio;
 
-/**
- *
- * @author elmnshawy
- */
 public class NotificationSound {
+    
     
     private String notification_name ; 
     private String notification_path ;

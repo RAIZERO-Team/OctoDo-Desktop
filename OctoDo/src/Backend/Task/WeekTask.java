@@ -5,11 +5,13 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class WeekTask extends Task {
+    
 
-    public static ArrayList<Task> TodayTaskList = new ArrayList<>();
+    public static ArrayList<WeekTask> weekTaskList = new ArrayList<>();
 
     public WeekTask(String taskName, String description, LocalTime Reminder_time, LocalDate Reminder_Date) {
         super(taskName, description, Reminder_time, Reminder_Date);
+        weekTaskList.add(this);
     }
 
 }

@@ -6,8 +6,9 @@ import java.time.LocalTime;
 import java.util.Date;
 
 
-public class Task {
+public abstract class Task {
 
+    
     
     private String taskName;
     private String description;
@@ -16,12 +17,12 @@ public class Task {
     private String TaskType ; 
     private boolean completed;
 
-    public Task(String taskName, String description, LocalTime Reminder_time, LocalDate Reminder_Date, String TaskType) {
+    public Task(String taskName, String description, LocalTime Reminder_time, LocalDate Reminder_Date) {
         this.taskName = taskName;
         this.description = description;
         this.Reminder_time = Reminder_time;
         this.Reminder_Date = Reminder_Date;
-        this.TaskType = TaskType;
+        
     }
 
     public String getTaskName() {
