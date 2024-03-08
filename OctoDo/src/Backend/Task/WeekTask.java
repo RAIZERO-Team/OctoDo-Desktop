@@ -5,7 +5,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class WeekTask extends Task {
-    
 
     public static ArrayList<WeekTask> weekTaskList = new ArrayList<>();
 

@@ -12,7 +12,7 @@ public class Dashboard extends javax.swing.JPanel {
         initComponents();
         init();
         Dialog_init();
-        fillDadhboard();
+        //fillDadhboard();
     }
 
     private void init() {

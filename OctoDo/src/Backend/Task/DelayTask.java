@@ -5,7 +5,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class DelayTask extends Task {
-    
 
     public static ArrayList<DelayTask> DelayTaskList = new ArrayList<>();
 
