@@ -7,6 +7,9 @@ import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Home_Page extends javax.swing.JPanel {
 
@@ -46,14 +49,18 @@ public class Home_Page extends javax.swing.JPanel {
         // The Backend Work Week Task
         add_Task.btn_save.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Backend Function
-                
-                
-                add_Task.addTask();
-                createTasks();
-
-                week.createweekTasks();
-                Dialog.dispose();
+                try {
+                    // Backend Function
+                    
+                    
+                    add_Task.addTask();
+                    createTasks();
+                    
+                    week.createweekTasks();
+                    Dialog.dispose();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Home_Page.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
         });

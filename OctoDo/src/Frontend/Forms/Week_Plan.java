@@ -4,6 +4,9 @@ import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Week_Plan extends javax.swing.JPanel {
 
@@ -48,11 +51,14 @@ public class Week_Plan extends javax.swing.JPanel {
         // The Backend Work Week Task
         Week_plan_add_Task.btn_save.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Backend Function
+                try {
+                    // Backend Function
 
-                
-                Week_plan_add_Task.addTask();
-                Dialog.dispose();
+                    Week_plan_add_Task.addTask();
+                    Dialog.dispose();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Week_Plan.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
         });
@@ -72,8 +78,9 @@ public class Week_Plan extends javax.swing.JPanel {
     }
 
     short T = 570;
+
     public void createweekTasks() {
-        Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task( Week_plan_add_Task.Task_Name, Week_plan_add_Task.Task_Reminder_Time);
+        Frontend.Mini_Forms.Task Tasks = new Frontend.Mini_Forms.Task(Week_plan_add_Task.Task_Name, Week_plan_add_Task.Task_Reminder_Time);
         Tasks.setMaximumSize(new Dimension(240, 70));
         pane_saturday.add(Tasks, new org.netbeans.lib.awtextra.AbsoluteConstraints(T, 2, -1, -1));
         T -= 240;
