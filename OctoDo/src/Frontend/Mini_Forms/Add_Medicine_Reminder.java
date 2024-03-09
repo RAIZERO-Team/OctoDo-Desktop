@@ -120,6 +120,11 @@ public class Add_Medicine_Reminder extends javax.swing.JPanel {
 
         combo_reminder_time.setBackground(new java.awt.Color(153, 153, 153));
         combo_reminder_time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Once", "Twice", "Tree times" }));
+        combo_reminder_time.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_reminder_timeActionPerformed(evt);
+            }
+        });
         panelRound3.add(combo_reminder_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
         panelRound1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 470, 55));
@@ -228,11 +233,25 @@ public class Add_Medicine_Reminder extends javax.swing.JPanel {
 
     private void btn_doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_doneActionPerformed
         // TODO add your handling code here:
+        
+        String name = txt_name_of_medicine.getText();
+        String remider_time = combo_reminder_time.getSelectedItem().toString();
+        String time = txt_time.getText();
+        int dosage = Integer.parseInt(combo_dosage.getSelectedItem().toString());
+        String days = combo_day.getSelectedItem().toString();
+        String EndDuration = txt_end_of_duration.getText();
+        // voice 
+        
+                //combo_dosage.getSelectedItem().toString()
     }//GEN-LAST:event_btn_doneActionPerformed
 
     private void svgIcon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svgIcon1MouseClicked
         dateChooser.showPopup();
     }//GEN-LAST:event_svgIcon1MouseClicked
+
+    private void combo_reminder_timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_reminder_timeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_reminder_timeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
