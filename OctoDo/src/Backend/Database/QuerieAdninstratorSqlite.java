@@ -65,7 +65,6 @@ public class QuerieAdninstratorSqlite {
 
     }
 
-    
     public static boolean DeleteMedicine(String MedicineName) {
         try {
             stm = con.prepareStatement("DELETE FROM Medicine WHERE Medicine_Name =?");
@@ -160,4 +159,69 @@ public class QuerieAdninstratorSqlite {
         }
         return false;
     }
+
+    public static boolean weekToDayTasks(String taskName, LocalTime reminderTime) {
+        try {
+            stm = con.prepareStatement("UPDATE tasks SET taskType = '5317WTK' WHERE taskType = '1980DTA' AND  task_name = ? AND reminder_time = ? ");
+            stm.setString(1, taskName);
+            stm.setString(2, reminderTime.toString());
+            stm.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+
+    }
+    
+    public static boolean dayToDelayTasks(String taskName, LocalTime reminderTime) {
+        try {
+            stm = con.prepareStatement("UPDATE tasks SET taskType = '1801DTKH' WHERE taskType = '1980DTA' AND  task_name = ? AND reminder_time = ? ");
+            stm.setString(1, taskName);
+            stm.setString(2, reminderTime.toString());
+            stm.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    public static boolean dayToCompletedTasks(String taskName, LocalTime reminderTime) {
+        try {
+            stm = con.prepareStatement("UPDATE tasks SET taskType = '1097CTA' WHERE taskType = '1980DTA' AND  task_name = ? AND reminder_time = ? ");
+            stm.setString(1, taskName);
+            stm.setString(2, reminderTime.toString());
+            stm.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    public static boolean weekToCompletedTasks(String taskName, LocalTime reminderTime) {
+        try {
+            stm = con.prepareStatement("UPDATE tasks SET taskType = '1097CTA' WHERE taskType = '5317WTK' AND  task_name = ? AND reminder_time = ? ");
+            stm.setString(1, taskName);
+            stm.setString(2, reminderTime.toString());
+            stm.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
+    
+    public static boolean updateTasks(String taskName , LocalTime reminderTime , LocalDate Reminder_Date) {
+        try {
+            stm = ConnectionDB.con.prepareStatement("UPDATE tasks SET task_name = ? reminder_time = ? reminder_date = ? WHERE task_name = ? AND reminder_time = ? AND reminder_date = ? ");
+
+            stm.setString(1, taskName);
+            stm.setString(2, reminderTime.toString());
+            stm.setString(3, Reminder_Date.toString());
+            stm.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+    
 }

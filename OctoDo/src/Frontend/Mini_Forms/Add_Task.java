@@ -1,10 +1,12 @@
 package Frontend.Mini_Forms;
 
+import Backend.Database.QuerieAdninstratorSqlite;
 import Backend.Database.QueriesAdministrator;
 import Backend.Date.Date_Time;
 import Frontend.Forms.Week_Plan;
 import Frontend.Forms.Home_Page;
 import java.awt.Color;
+import java.sql.SQLException;
 import javax.swing.SwingConstants;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -45,9 +47,10 @@ public class Add_Task extends javax.swing.JPanel {
     }
     
     
-    public void addTask() {
+    public void addTask() throws SQLException {
         Task_Name = Set_Task_Name.getText();
         Task_Description   = Task_description.getText();
+        if(!(Task_Reminder_Time.isEmpty() || Task_Reminder_Date.isEmpty())){
         LocalTime reminderTime = LocalTime.parse(Task_Reminder_Time);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate reminderDate = LocalDate.parse(Task_Reminder_Date, formatter);
@@ -61,16 +64,17 @@ public class Add_Task extends javax.swing.JPanel {
         // Here we want the day and date of create this task
         //Task_Day = Date_Time.getDay();
         //Task_Date = Date_Time.getDate();
-       
         if(reminderDate.equals(currentDate))
         {
-         //this is to day task  
+         QuerieAdninstratorSqlite.insertTask(Task_Name, Task_Description, reminderDate, reminderTime, "1980DTA");
+         QuerieAdninstratorSqlite.selectToDayTasks();
         }
         else{
-        // this is to week task
+        QuerieAdninstratorSqlite.insertTask(Task_Name, Task_Description, reminderDate, reminderTime, "5317WTK");
+        QuerieAdninstratorSqlite.selectWeekTasks();
         }
-        
-        
+        }
+        else{} // show messege reminder 
     }
 
     @SuppressWarnings("unchecked")
