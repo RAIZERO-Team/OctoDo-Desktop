@@ -1,8 +1,6 @@
-
 package Frontend.Mini_Forms;
 
 import javax.swing.SwingConstants;
-
 
 public class Add_Medicine_Reminder extends javax.swing.JPanel {
 
@@ -12,20 +10,20 @@ public class Add_Medicine_Reminder extends javax.swing.JPanel {
         initComponents();
         init();
     }
-    
-    private void init(){
+
+    private void init() {
         timePicker.setEditor(txt_time);
         dateChooser.toDay();
         timePicker.setOrientation(SwingConstants.HORIZONTAL);
-        
+
         svgIcon1.setSVGIcon("Asstes/SVG_Icons/2.svg", 30, 30);
         svgIcon1.setCursorHand();
     }
-    
-    private void setData(){
+
+    private void setData() {
         Name_of_Medicine = txt_name_of_medicine.getText();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -233,7 +231,7 @@ public class Add_Medicine_Reminder extends javax.swing.JPanel {
 
     private void btn_doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_doneActionPerformed
         // TODO add your handling code here:
-        
+
         String name = txt_name_of_medicine.getText();
         String remider_time = combo_reminder_time.getSelectedItem().toString();
         String time = txt_time.getText();
@@ -241,8 +239,8 @@ public class Add_Medicine_Reminder extends javax.swing.JPanel {
         String days = combo_day.getSelectedItem().toString();
         String EndDuration = txt_end_of_duration.getText();
         // voice 
-        
-                //combo_dosage.getSelectedItem().toString()
+
+        //combo_dosage.getSelectedItem().toString()
     }//GEN-LAST:event_btn_doneActionPerformed
 
     private void svgIcon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_svgIcon1MouseClicked
