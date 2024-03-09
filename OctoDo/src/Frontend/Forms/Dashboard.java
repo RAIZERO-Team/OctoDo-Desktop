@@ -12,7 +12,7 @@ public class Dashboard extends javax.swing.JPanel {
         initComponents();
         init();
         Dialog_init();
-        fillDadhboard();
+        // fillDadhboard();
     }
 
     private void init() {
@@ -76,15 +76,8 @@ public class Dashboard extends javax.swing.JPanel {
         });
 
         // change userName save button
-        
-        
         // change userName cancel button
-        
-        
-        
         // change sound save button
-        
-        
         // change sound cancel button
     }
 
