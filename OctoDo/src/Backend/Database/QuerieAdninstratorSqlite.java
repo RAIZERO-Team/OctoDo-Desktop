@@ -2,7 +2,11 @@ package Backend.Database;
 
 import static Backend.Database.ConnectionDB.con;
 import static Backend.Database.ConnectionDB.sqlitecon;
+import Backend.Task.CompletedTask;
+import Backend.Task.DelayTask;
 import Backend.Task.Task;
+import Backend.Task.TodayTask;
+import Backend.Task.WeekTask;
 import com.sun.jdi.connect.spi.Connection;
 
 import java.sql.*;
@@ -42,7 +46,7 @@ public class QuerieAdninstratorSqlite {
     }
     static private PreparedStatement stm;
 
-    public static boolean InsertData(String Medicine_Name, String Reminder_Times, String Dosage_ParDay, String Medicine_Time, String Days, String Duration) {
+    public static boolean InsertMedicine(String Medicine_Name, String Reminder_Times, String Dosage_ParDay, String Medicine_Time, String Days, String Duration) {
         try {
             stm = con.prepareStatement("INSERT INTO Medicine (Medicine_name, reminderTimes,Dosage_ParDay, Medicine_Time, Days , Duration) VALUES (?, ?, ?, ?, ?, ?)");
             stm.setString(1, Medicine_Name);
@@ -61,7 +65,8 @@ public class QuerieAdninstratorSqlite {
 
     }
 
-    public static boolean DeleteData(String MedicineName) {
+    
+    public static boolean DeleteMedicine(String MedicineName) {
         try {
             stm = con.prepareStatement("DELETE FROM Medicine WHERE Medicine_Name =?");
             stm.setString(1, MedicineName);
@@ -99,7 +104,7 @@ public class QuerieAdninstratorSqlite {
             LocalDate reminderDate = LocalDate.parse(r.getString("reminder_date"));
             LocalTime reminderTime = LocalTime.parse(r.getString("reminder_time"));
 
-            new Task(taskName, description, reminderTime, reminderDate, " ");
+            new TodayTask(taskName, description, reminderTime, reminderDate);
         }
         return false;
     }
@@ -116,7 +121,8 @@ public class QuerieAdninstratorSqlite {
             LocalDate reminderDate = LocalDate.parse(r.getString("reminder_date"));
             LocalTime reminderTime = LocalTime.parse(r.getString("reminder_time"));
 
-            new Task(taskName, description, reminderTime, reminderDate, " ");
+            new WeekTask(taskName, description, reminderTime, reminderDate);
+
         }
         return false;
     }
@@ -133,7 +139,7 @@ public class QuerieAdninstratorSqlite {
             LocalDate reminderDate = LocalDate.parse(r.getString("reminder_date"));
             LocalTime reminderTime = LocalTime.parse(r.getString("reminder_time"));
 
-            new Task(taskName, description, reminderTime, reminderDate, " ");
+            new CompletedTask(taskName, description, reminderTime, reminderDate);
         }
         return false;
     }
@@ -150,7 +156,7 @@ public class QuerieAdninstratorSqlite {
             LocalDate reminderDate = LocalDate.parse(r.getString("reminder_date"));
             LocalTime reminderTime = LocalTime.parse(r.getString("reminder_time"));
 
-            new Task(taskName, description, reminderTime, reminderDate, " ");
+            new DelayTask(taskName, description, reminderTime, reminderDate);
         }
         return false;
     }
