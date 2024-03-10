@@ -127,3 +127,16 @@ public class QueriesAdministrator {
 //    }
 
 }
+       public static boolean UpdateUsername(String fname, String lname, String email) {
+    try {
+        stm = ConnectionDB.con.prepareStatement("UPDATE User SET User_fname = ?, User_lname = ? WHERE User_email = ?");
+        stm.setString(1, fname);
+        stm.setString(2, lname);
+        stm.setString(3, email);
+
+        int rowsAffected = stm.executeUpdate();
+        return rowsAffected > 0;
+    } catch (SQLException e) {
+        return false;
+    }
+}
