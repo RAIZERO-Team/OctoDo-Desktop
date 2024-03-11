@@ -77,6 +77,14 @@ public class QuerieAdninstratorSqlite {
 
     }
 
+    public static boolean selectAllMedicine() {
+        return true; // note : ترجع كل الميديسن بالترتيب علي حسبالتاريخ اولا ثم الوقت  
+    }
+
+    public static boolean updateMedicine(String Medicine_Name, String Reminder_Times, String Dosage_ParDay, String Medicine_Time, String Days, String Duration) {
+        return true; // note where condition (name and time and date)
+    }
+
     public static boolean insertTask(String taskName, String description, LocalDate reminderDate, LocalTime reminderTime, String taskType) {
         try {
             stm = con.prepareStatement("INSERT INTO tasks (task_name, descript, reminder_date, reminder_time, taskType) VALUES (?, ?, ?, ?, ?)");
@@ -172,7 +180,7 @@ public class QuerieAdninstratorSqlite {
         }
 
     }
-    
+
     public static boolean dayToDelayTasks(String taskName, LocalTime reminderTime) {
         try {
             stm = con.prepareStatement("UPDATE tasks SET taskType = '1801DTKH' WHERE taskType = '1980DTA' AND  task_name = ? AND reminder_time = ? ");
@@ -184,7 +192,7 @@ public class QuerieAdninstratorSqlite {
             return false;
         }
     }
-    
+
     public static boolean dayToCompletedTasks(String taskName, LocalTime reminderTime) {
         try {
             stm = con.prepareStatement("UPDATE tasks SET taskType = '1097CTA' WHERE taskType = '1980DTA' AND  task_name = ? AND reminder_time = ? ");
@@ -196,7 +204,7 @@ public class QuerieAdninstratorSqlite {
             return false;
         }
     }
-    
+
     public static boolean weekToCompletedTasks(String taskName, LocalTime reminderTime) {
         try {
             stm = con.prepareStatement("UPDATE tasks SET taskType = '1097CTA' WHERE taskType = '5317WTK' AND  task_name = ? AND reminder_time = ? ");
@@ -208,9 +216,8 @@ public class QuerieAdninstratorSqlite {
             return false;
         }
     }
-    
-    
-    public static boolean updateTasks(String taskName , LocalTime reminderTime , LocalDate Reminder_Date) {
+
+    public static boolean updateTasks(String taskName, LocalTime reminderTime, LocalDate Reminder_Date) {
         try {
             stm = ConnectionDB.con.prepareStatement("UPDATE tasks SET task_name = ? reminder_time = ? reminder_date = ? WHERE task_name = ? AND reminder_time = ? AND reminder_date = ? ");
 
@@ -223,5 +230,5 @@ public class QuerieAdninstratorSqlite {
             return false;
         }
     }
-    
+
 }
