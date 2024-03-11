@@ -1,70 +1,76 @@
 package Backend.Medicine;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+
 public class Medicine2 {
-  private String nameOfMedicine;
-        private LocalDate reminderTimes;
-        private int Dosage=0;
-        private LocalTime time;
-        private int Days;
-        private LocalDate end_of_duration;
-        private LocalTime[] Array =new LocalTime[Dosage];
 
-        public String getNameOfMedicine() {
-            return nameOfMedicine;
-        }
+    private String nameOfMedicine;
+    private LocalDate reminderTimes;
+    private int Dosage = 0;
+    private LocalTime time;
+    private int Days;
+    private LocalDate end_of_duration;
+    private LocalTime[] Array = new LocalTime[Dosage];
 
-        public LocalDate getReminderTimes() {
-            return reminderTimes;
-        }
+    public static ArrayList<Medicine2> MedicineList = new ArrayList<>();
 
-        public int getDosage() {
-            return Dosage;
-        }
+    public String getNameOfMedicine() {
+        return nameOfMedicine;
+    }
 
-        public LocalTime getTime() {
-            return time;
-        }
+    public LocalDate getReminderTimes() {
+        return reminderTimes;
+    }
 
-        public int getDays() {
-            return Days;
-        }
+    public int getDosage() {
+        return Dosage;
+    }
 
-        public LocalDate getEnd_of_duration() {
-            return end_of_duration;
-        }
+    public LocalTime getTime() {
+        return time;
+    }
 
-        public LocalTime[] getArray() {
-            return Array;
-        }
+    public int getDays() {
+        return Days;
+    }
 
-        public void setNameOfMedicine(String nameOfMedicine) {
-            this.nameOfMedicine = nameOfMedicine;
-        }
+    public LocalDate getEnd_of_duration() {
+        return end_of_duration;
+    }
 
-        public void setReminderTimes(LocalDate reminderTimes) {
-            this.reminderTimes = reminderTimes;
-        }
+    public LocalTime[] getArray() {
+        return Array;
+    }
 
-        public void setDosage(int Dosage) {
-            this.Dosage = Dosage;
-        }
+    public void setNameOfMedicine(String nameOfMedicine) {
+        this.nameOfMedicine = nameOfMedicine;
+    }
 
-        public void setTime(LocalTime time) {
-            this.time = time;
-        }
+    public void setReminderTimes(LocalDate reminderTimes) {
+        this.reminderTimes = reminderTimes;
+    }
 
-        public void setDays(int Days) {
-            this.Days = Days;
-        }
+    public void setDosage(int Dosage) {
+        this.Dosage = Dosage;
+    }
 
-        public void setEnd_of_duration(LocalDate end_of_duration) {
-            this.end_of_duration = end_of_duration;
-        }
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
 
-        public void setArray(LocalTime[] Array) {
-            this.Array = Array;
-        }
+    public void setDays(int Days) {
+        this.Days = Days;
+    }
+
+    public void setEnd_of_duration(LocalDate end_of_duration) {
+        this.end_of_duration = end_of_duration;
+    }
+
+    public void setArray(LocalTime[] Array) {
+        this.Array = Array;
+    }
 
     public Medicine2(String nameOfMedicine, LocalDate reminderTimes, LocalTime time, int Days, LocalDate end_of_duration) {
         this.nameOfMedicine = nameOfMedicine;
@@ -72,7 +78,7 @@ public class Medicine2 {
         this.time = time;
         this.Days = Days;
         this.end_of_duration = end_of_duration;
+        MedicineList.add(this);
     }
 
-       
 }
