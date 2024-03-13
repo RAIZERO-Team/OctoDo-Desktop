@@ -21,7 +21,7 @@ public class QuerieAdninstratorSqlite {
         // SQL statements to create tables
         String[] tableCreationStatements = {
             "CREATE TABLE taskType (typeID varchar (30) PRIMARY KEY, typeName varchar(60))",
-            "CREATE TABLE  tasks (task_name VARCHAR(150), descript TEXT , reminder_date DATE , reminder_time TIME , taskType varchar (30) ,  FOREIGN KEY (taskType) REFERENCES taskType(typeID))"
+            "CREATE TABLE  tasks (task_name VARCHAR(150), descript TEXT , reminder_date DATE , reminder_time TIME , taskType varchar (30) ,  FOREIGN KEY (taskType) REFERENCES taskType(typeID))","create table medicines (Medicine_Name varchar(50),Reminder_Times int  DEFAULT NULL,Dosage_perDay int DEFAULT NULL,Medicine_Time time DEFAULT NULL,Days int DEFAULT NULL,Duration int DEFAULT NULL)"
         // Add more table creation statements as needed
         };
 
