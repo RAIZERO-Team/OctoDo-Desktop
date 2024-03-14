@@ -110,7 +110,7 @@ public class QueriesAdministrator {
             return false;
         }
     }
-    
+
 //    public static boolean addTask(String Task_Name, String description, String Task_Reminder_Date, String Task_Reminder_Time) {
 //        try {
 //            PreparedStatement stm = ConnectionDB.con.prepareStatement("INSERT INTO tasks (task_name, descript, reminder_date, reminder_time) VALUES (?, ?, ?, ?)");
@@ -125,18 +125,17 @@ public class QueriesAdministrator {
 //            return false;
 //        }
 //    }
+    public static boolean UpdateUsername(String fname, String lname, String email) {
+        try {
+            stm = ConnectionDB.con.prepareStatement("UPDATE User SET User_fname = ?, User_lname = ? WHERE User_email = ?");
+            stm.setString(1, fname);
+            stm.setString(2, lname);
+            stm.setString(3, email);
 
-}
-       public static boolean UpdateUsername(String fname, String lname, String email) {
-    try {
-        stm = ConnectionDB.con.prepareStatement("UPDATE User SET User_fname = ?, User_lname = ? WHERE User_email = ?");
-        stm.setString(1, fname);
-        stm.setString(2, lname);
-        stm.setString(3, email);
-
-        int rowsAffected = stm.executeUpdate();
-        return rowsAffected > 0;
-    } catch (SQLException e) {
-        return false;
+            int rowsAffected = stm.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            return false;
+        }
     }
 }
