@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-//import org.json.JSONObject;
+
 public class Wisdom {
-     public static void main(String[] args) {
+   
+    public static String WISDOM(){
         try {
             URL url = new URL("https://api.quotable.io/random");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -23,16 +24,18 @@ public class Wisdom {
                 }
                 in.close();
 
-              //  JSONObject jsonObject = new JSONObject(response.toString());
-         //      String content = jsonObject.getJSONObject("content").getString("content");
+                // Parse JSON manually
+                String jsonString = response.toString();
+                String content = jsonString.substring(jsonString.indexOf("content") + 9, jsonString.indexOf("author") - 2);
                 System.out.println("Content:");
-                System.out.println(response);
+               // System.out.println(content);
+               return content;
             } else {
                 System.out.println("Failed to get quote. Response code: " + responseCode);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+        return "Error";
+  }
 }
-
