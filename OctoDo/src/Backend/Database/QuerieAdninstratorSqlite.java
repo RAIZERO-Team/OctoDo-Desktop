@@ -4,6 +4,7 @@ import static Backend.Database.ConnectionDB.con;
 import static Backend.Database.ConnectionDB.sqlitecon;
 import Backend.Task.CompletedTask;
 import Backend.Task.DelayTask;
+import static Backend.Task.DelayTask.DelayTaskList;
 import Backend.Task.Task;
 import Backend.Task.TodayTask;
 import Backend.Task.WeekTask;
@@ -157,6 +158,7 @@ public class QuerieAdninstratorSqlite {
 
         ResultSet r = stm.executeQuery();
 
+        DelayTaskList.clear();
         while (r.next()) {
             String taskName = r.getString("task_name");
             String description = r.getString("descript");
