@@ -24,8 +24,10 @@ public class QuerieAdninstratorSqlite {
     static void createTables() throws SQLException {
         // SQL statements to create tables
         String[] tableCreationStatements = {
+
             "CREATE TABLE IF NOT EXISTS taskType (typeID varchar (30) PRIMARY KEY, typeName varchar(60))",
             "CREATE TABLE IF NOT EXISTS  tasks (task_name VARCHAR(150), descript TEXT , reminder_date DATE , reminder_time TIME , taskType varchar (30) ,  FOREIGN KEY (taskType) REFERENCES taskType(typeID))"
+
         // Add more table creation statements as needed
         };
 
@@ -261,6 +263,7 @@ public class QuerieAdninstratorSqlite {
             return true;
         } catch (SQLException e) {
             return false;
+            
         }
     }
 
