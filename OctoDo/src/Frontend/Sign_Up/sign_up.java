@@ -5,6 +5,7 @@ import Backend.Account.PasswordUtil;
 import static Backend.Account.Vaildition.isValidName;
 import static Backend.Account.Vaildition.isValidPassword;
 import static Backend.Account.Vaildition.isValidemail;
+import static Backend.Database.ConnectionDB.method;
 import static Backend.Database.QueriesAdministrator.isEmailExist;
 import static Backend.Database.QueriesAdministrator.sign_up;
 import Frontend.Sign_In.sign_in;
@@ -31,6 +32,7 @@ public class sign_up extends javax.swing.JPanel {
 
         fillText();
         setSVGIcons();
+        method();
     }
 
     private void fillText() {
@@ -345,17 +347,20 @@ public class sign_up extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NextActionPerformed
+        /*
         if (rbn_male.isSelected()){
             SSS_Forms_Manager.getInstance().showForm(new sign_up_Male_User());
         } else {
             SSS_Forms_Manager.getInstance().showForm(new sign_up_Female_User());
-        }       
+        }  
+         */
 
         String Fname = txt_Fname.getText().trim();
         String Lname = txt_Lname.getText().trim();
         String Email = txt_email.getText().trim();
-        char[] password = PasswordField.getPassword();
-        String passwordstr = new String(password);//convert char[] to string (password)
+        //  char[] password = PasswordField.getPassword();
+        String password = PasswordField.getText();
+        //String passwordstr = new String(password);//convert char[] to string (password)
         String Gender;
         boolean Check = true; // check all information
 
@@ -377,7 +382,7 @@ public class sign_up extends javax.swing.JPanel {
             Check = false;
         }
 
-        if (!isValidPassword(passwordstr)) {//check valid password
+        if (!isValidPassword(password)) {//check valid password
             Check = false;
         }
 
@@ -389,7 +394,7 @@ public class sign_up extends javax.swing.JPanel {
 
         // check if all are ok or not
         if (Check) {
-            if (sign_up(Fname, Lname, Email, passwordstr, Gender)) {
+            if (sign_up(Fname, Lname, Email, password, Gender)) {
                 System.out.println("Successful stored");//informations stored
 
                 if (rbn_male.isSelected()) {

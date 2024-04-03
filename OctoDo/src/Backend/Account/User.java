@@ -1,6 +1,7 @@
 package Backend.Account;
 
 import Backend.Audio.NotificationSound;
+
 public class User {
 
     public static User currentUser;
@@ -10,7 +11,7 @@ public class User {
     private String userType;
     private String userImage;
     private String userGender;
-    private NotificationSound  notification ;
+    private NotificationSound notification;
 
     public String getUserName() {
         return userName;
@@ -36,12 +37,9 @@ public class User {
         return notification;
     }
 
-   
-
-    public User(String userName, String userEmail , String userGender) {
+    public User(String userName, String userEmail, String userGender) {
         this.userName = userName;
         this.userEmail = userEmail;
-        this.userImage = userImage;
         this.userGender = userGender;
     }
 

@@ -15,13 +15,17 @@ public class ConnectionDB {
     static Connection con;
     static Connection sqlitecon;
 
+    public static void method() {
+    }
+
     static {
 
         try {
-            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/Octodo",
-                    "root", "");
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6696329",
+                    "sql6696329", "6izBibqiWg");
 
         } catch (SQLException ex) {
+            System.out.println(ex);
             Notifications.getInstance().show(Notifications.Type.ERROR, "Error");
 
         }

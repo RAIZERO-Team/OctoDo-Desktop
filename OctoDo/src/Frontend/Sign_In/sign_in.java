@@ -254,43 +254,39 @@ public class sign_in extends javax.swing.JPanel {
     }//GEN-LAST:event_lab_forgetPassMouseClicked
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+/*
+        String email = txt_email.getText();
+        String password = PasswordField.getText();
+        // Check sign-in
+        if (QueriesAdministrator.sign_in(email, password.toString().trim())) {
+            // Successful sign-in
+            Notifications.getInstance().show(Notifications.Type.SUCCESS, "welcome Back");
+            User.currentUser = QueriesAdministrator.CurrentUser(email);
+            Application.sign_in();
+        } else {
+            // Unsuccessful sign-in   
+            if (QueriesAdministrator.isEmailExist(email)) {
+                // Email exists, but password is incorrect
+                Notifications.getInstance().show(Notifications.Type.ERROR, "Wrong Password");
 
-//        String email = txt_email.getText();
-//        String password = PasswordField.getText();
-//        // Check sign-in
-//        if (QueriesAdministrator.sign_in(email, password.toString().trim())) {
-//            try {
-//                // Successful sign-in
-//                Notifications.getInstance().show(Notifications.Type.SUCCESS, "welcome Back");
-//                User.currentUser = QueriesAdministrator.CurrentUser(email);
-//                Application.sign_in();
-//
-//            } catch (SQLException ex) {
-//                Logger.getLogger(sign_in.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        } else {
-//            // Unsuccessful sign-in   
-//            if (QueriesAdministrator.isEmailExist(email)) {
-//                // Email exists, but password is incorrect
-//                Notifications.getInstance().show(Notifications.Type.ERROR, "Wrong Password");
-//
-//                PasswordField.putClientProperty(FlatClientProperties.STYLE, ""
-//                        + "foreground:$App.accent.red.background;");
-//
-//                lab_error_Password.setText("Incorect Password please enter the correct");
-//            } else {
-//                // Email and password are both incorrect
-//                txt_email.putClientProperty(FlatClientProperties.STYLE, ""
-//                        + "foreground:$App.accent.red.background;");
-//
-//                PasswordField.putClientProperty(FlatClientProperties.STYLE, ""
-//                        + "foreground:$App.accent.red.background;");
-//
-//                Notifications.getInstance().show(Notifications.Type.ERROR, "The Email not exists");
-//            }
-//
-//        }
-        Application.sign_in();
+                PasswordField.putClientProperty(FlatClientProperties.STYLE, ""
+                        + "foreground:$App.accent.red.background;");
+
+                lab_error_Password.setText("Incorect Password please enter the correct");
+            } else {
+                // Email and password are both incorrect
+                txt_email.putClientProperty(FlatClientProperties.STYLE, ""
+                        + "foreground:$App.accent.red.background;");
+
+                PasswordField.putClientProperty(FlatClientProperties.STYLE, ""
+                        + "foreground:$App.accent.red.background;");
+
+                Notifications.getInstance().show(Notifications.Type.ERROR, "The Email not exists");
+            }
+
+        }
+        */
+         Application.sign_in();
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void lab_sign_upMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lab_sign_upMouseClicked
