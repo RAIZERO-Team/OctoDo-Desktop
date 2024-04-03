@@ -23,6 +23,15 @@ public abstract class Task {
         this.Reminder_Date = Reminder_Date;
 
     }
+    public Task(String taskName, String description, LocalTime Reminder_time, LocalDate Reminder_Date , boolean completed) {
+        this.taskName = taskName;
+        this.description = description;
+        this.Reminder_time = Reminder_time;
+        this.Reminder_Date = Reminder_Date;
+        this.completed = completed ;
+
+    }
+    
 
     public String getTaskName() {
         return taskName;
@@ -46,6 +55,10 @@ public abstract class Task {
 
     public boolean isCompleted() {
         return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
     
     

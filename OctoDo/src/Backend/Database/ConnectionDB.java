@@ -30,21 +30,19 @@ public class ConnectionDB {
 
     static {
         try {
-
-            System.out.println("mbmn");
-            sqlitecon = (Connection) DriverManager.getConnection("jdbc:sqlite:task.db");
-            System.out.println("ddsfsdf");
+            Class.forName("org.sqlite.JDBC");
+            sqlitecon = DriverManager.getConnection("jdbc:sqlite:tt.db");
             if (sqlitecon != null) {
                 // Create tables
-                System.out.println("not null");
                 createTables();
-                System.out.println("mmmmmmmmmmm");
                 insertData();
-                System.out.println("Tables created successfully.");
             }
         } catch (SQLException ex) {
             System.out.println(ex);
             Notifications.getInstance().show(Notifications.Type.ERROR, "Error");
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+            Logger.getLogger(ConnectionDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -21,12 +21,13 @@ import raven.toast.Notifications;
 
 public class QuerieAdninstratorSqlite {
 
+    static private PreparedStatement stm = null;
+
     static void createTables() throws SQLException {
         // SQL statements to create tables
         String[] tableCreationStatements = {
-
             "CREATE TABLE IF NOT EXISTS taskType (typeID varchar (30) PRIMARY KEY, typeName varchar(60))",
-            "CREATE TABLE IF NOT EXISTS  tasks (task_name VARCHAR(150), descript TEXT , reminder_date DATE , reminder_time TIME , taskType varchar (30) ,  FOREIGN KEY (taskType) REFERENCES taskType(typeID))"
+            "CREATE TABLE IF NOT EXISTS  tasks (task_name VARCHAR(150), descript varchar(254) , reminder_date DATE , reminder_time TIME , taskType varchar (30) , is_complete BOOLEAN DEFAULT FALSE ,  FOREIGN KEY (taskType) REFERENCES taskType(typeID))"
 
         // Add more table creation statements as needed
         };
@@ -51,7 +52,6 @@ public class QuerieAdninstratorSqlite {
             Notifications.getInstance().show(Notifications.Type.ERROR, "Error");
         }
     }
-    static private PreparedStatement stm = null;
 
     public static boolean InsertMedicine(String Medicine_Name, String Reminder_Times, String Dosage_ParDay, String Medicine_Time, String Days, String Duration) {
         try {
@@ -100,28 +100,28 @@ public class QuerieAdninstratorSqlite {
             stm.setString(3, reminderDate.toString());
             stm.setString(4, reminderTime.toString());
             stm.setString(5, taskType);
+            stm.execute();
             return true;
         } catch (SQLException e) {
+            System.out.println("errrorr insert");
             return false;
         }
     }
 
     public static boolean selectToDayTasks() {
-        PreparedStatement stm2;
-        DelayTaskList.clear();
-        System.out.println("inside function");
-        try {
-            stm2 = sqlitecon.prepareStatement("SELECT task_name, descript, reminder_date, reminder_time FROM tasks WHERE taskType = '1980DTA' AND reminder_time >= time('now') ORDER BY reminder_time desc");
 
-            System.out.println("inside function22");
-            ResultSet r = stm2.executeQuery();
-            System.out.println("ok statement");
+        DelayTaskList.clear();
+
+        try {
+            stm = sqlitecon.prepareStatement("SELECT task_name, descript, reminder_date, reminder_time FROM tasks WHERE taskType = '1980DTA' AND reminder_time >= time('now', 'localtime') ORDER BY reminder_time");
+
+            ResultSet r = stm.executeQuery();
+
             while (r.next()) {
                 String taskName = r.getString("task_name");
                 String description = r.getString("descript");
                 LocalDate reminderDate = LocalDate.parse(r.getString("reminder_date"));
                 LocalTime reminderTime = LocalTime.parse(r.getString("reminder_time"));
-
                 new TodayTask(taskName, description, reminderTime, reminderDate);
             }
             return true;
@@ -133,10 +133,11 @@ public class QuerieAdninstratorSqlite {
     }
 
     public static boolean selectWeekTasks() {
+
         WeekTaskList.clear();
 
         try {
-            Statement stm2 = sqlitecon.prepareStatement("SELECT task_name, descript, reminder_date, reminder_time FROM tasks WHERE taskType = '5317WTK' and reminder_date >= time('now') and reminder_time >= time('now') ORDER BY  reminder_date , reminder_time desc");
+            stm = sqlitecon.prepareStatement("SELECT task_name, descript, reminder_date, reminder_time FROM tasks WHERE taskType = '5317WTK' and reminder_date >= date('now')  ORDER BY  reminder_date , reminder_time");
 
             ResultSet r = stm.executeQuery();
 
@@ -160,16 +161,13 @@ public class QuerieAdninstratorSqlite {
     public static boolean selectCompletedTasks() {
         CompletedTaskList.clear();
         try {
-            stm = sqlitecon.prepareStatement("SELECT task_name, descript, reminder_date, reminder_time FROM tasks WHERE taskType = '1097CTA' ORDER BY  reminder_date , reminder_time desc");
-
+            stm = sqlitecon.prepareStatement("SELECT task_name, descript, reminder_date, reminder_time FROM tasks WHERE taskType = '1097CTA' ORDER BY  reminder_date , reminder_time ");
             ResultSet r = stm.executeQuery();
-
             while (r.next()) {
                 String taskName = r.getString("task_name");
                 String description = r.getString("descript");
                 LocalDate reminderDate = LocalDate.parse(r.getString("reminder_date"));
                 LocalTime reminderTime = LocalTime.parse(r.getString("reminder_time"));
-
                 new CompletedTask(taskName, description, reminderTime, reminderDate);
             }
             return true;
@@ -183,17 +181,14 @@ public class QuerieAdninstratorSqlite {
     public static boolean selectDelayTasks() {
 
         try {
-            stm = sqlitecon.prepareStatement("SELECT task_name, descript, reminder_date, reminder_time FROM tasks WHERE taskType = '1801DTKH' ORDER BY  reminder_date , reminder_time desc");
-
+            stm = sqlitecon.prepareStatement("SELECT task_name, descript, reminder_date, reminder_time FROM tasks WHERE taskType = '1801DTKH' ORDER BY  reminder_date , reminder_time ");
             ResultSet r = stm.executeQuery();
-
             DelayTaskList.clear();
             while (r.next()) {
                 String taskName = r.getString("task_name");
                 String description = r.getString("descript");
                 LocalDate reminderDate = LocalDate.parse(r.getString("reminder_date"));
                 LocalTime reminderTime = LocalTime.parse(r.getString("reminder_time"));
-
                 new DelayTask(taskName, description, reminderTime, reminderDate);
             }
             return true;
@@ -203,11 +198,9 @@ public class QuerieAdninstratorSqlite {
         }
     }
 
-    public static boolean weekToDayTasks(String taskName, LocalTime reminderTime) {
+    public static boolean weekToDayTasks() {
         try {
-            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '5317WTK' WHERE taskType = '1980DTA' AND  task_name = ? AND reminder_time = ? ");
-            stm.setString(1, taskName);
-            stm.setString(2, reminderTime.toString());
+            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1980DTA' WHERE taskType = '5317WTK' AND   reminder_date >= date('now') ");
             stm.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -216,11 +209,9 @@ public class QuerieAdninstratorSqlite {
 
     }
 
-    public static boolean dayToDelayTasks(String taskName, LocalTime reminderTime) {
+    public static boolean dayToDelayTasks() {
         try {
-            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1801DTKH' WHERE taskType = '1980DTA' AND  task_name = ? AND reminder_time = ? ");
-            stm.setString(1, taskName);
-            stm.setString(2, reminderTime.toString());
+            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1801DTKH' WHERE taskType = '1980DTA' AND is_complete ='FALSE' AND  reminder_time < time('now') ");
             stm.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -228,18 +219,19 @@ public class QuerieAdninstratorSqlite {
         }
     }
 
-    public static boolean dayToCompletedTasks(String taskName, LocalTime reminderTime) {
+    public static boolean ToCompletedTasks(String taskName, LocalTime reminderTime , LocalDate reminderDate) {
         try {
-            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1097CTA' WHERE taskType = '1980DTA' AND  task_name = ? AND reminder_time = ? ");
+            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1097CTA' , is_complete = 'TRUE' WHERE task_name = ? AND reminder_time = ? AND reminder_date = ?");
             stm.setString(1, taskName);
             stm.setString(2, reminderTime.toString());
+            stm.setString(3, reminderDate.toString());
             stm.executeUpdate();
             return true;
         } catch (SQLException e) {
             return false;
         }
     }
-
+/*
     public static boolean weekToCompletedTasks(String taskName, LocalTime reminderTime) {
         try {
             stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1097CTA' WHERE taskType = '5317WTK' AND  task_name = ? AND reminder_time = ? ");
@@ -252,6 +244,8 @@ public class QuerieAdninstratorSqlite {
         }
     }
 
+*/
+
     public static boolean updateTasks(String taskName, LocalTime reminderTime, LocalDate Reminder_Date) {
         try {
             stm = ConnectionDB.sqlitecon.prepareStatement("UPDATE tasks SET task_name = ? reminder_time = ? reminder_date = ? WHERE task_name = ? AND reminder_time = ? AND reminder_date = ? ");
@@ -263,7 +257,7 @@ public class QuerieAdninstratorSqlite {
             return true;
         } catch (SQLException e) {
             return false;
-            
+
         }
     }
 
