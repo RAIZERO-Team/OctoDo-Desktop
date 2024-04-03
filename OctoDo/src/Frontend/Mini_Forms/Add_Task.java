@@ -3,6 +3,9 @@ package Frontend.Mini_Forms;
 import Backend.Database.QuerieAdninstratorSqlite;
 import Backend.Database.QueriesAdministrator;
 import Backend.Date.Date_Time;
+import static Backend.Task.DelayTask.DelayTaskList;
+import static Backend.Task.TodayTask.TodayTaskList;
+import static Backend.Task.WeekTask.WeekTaskList;
 import Frontend.Forms.Week_Plan;
 import Frontend.Forms.Home_Page;
 import java.awt.Color;
@@ -12,7 +15,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-
 public class Add_Task extends javax.swing.JPanel {
 
     public static String Task_Name = "";
@@ -20,7 +22,6 @@ public class Add_Task extends javax.swing.JPanel {
     public static String Task_Reminder_Time = "";
     public static String Task_Reminder_Day = "";
     public static String Task_Reminder_Date = "";
-
 
     public Add_Task() {
         initComponents();
@@ -31,31 +32,25 @@ public class Add_Task extends javax.swing.JPanel {
         svgIcon1.setSVGIcon("Asstes/SVG_Icons/2.svg", 30, 30);
 
         svgIcon1.setCursorHand();
-        
+
         timePicker.setEditor(Set_Task_Time);
         timePicker.setOrientation(SwingConstants.HORIZONTAL);
         dateChooser.toDay();
-       
+
     }
 
-    public void clearData(){
+    public void clearData() {
         Set_Task_Name.setText("");
         Task_description.setText("");
         Set_Task_Time.setText("");
         timePicker.now();
-        Set_Task_Date.setText(""); 
+        Set_Task_Date.setText("");
     }
-    
-    
+
     public void addTask() throws SQLException {
+        /*
         Task_Name = Set_Task_Name.getText();
         Task_Description   = Task_description.getText();
-        if(!(Task_Reminder_Time.isEmpty() || Task_Reminder_Date.isEmpty())){
-        LocalTime reminderTime = LocalTime.parse(Task_Reminder_Time);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate reminderDate = LocalDate.parse(Task_Reminder_Date, formatter);
-        
-        LocalDate currentDate = LocalDate.now();
         
         // Backend Work    
         task = new Task(Task_Name, Task_Reminder_Time);
@@ -64,17 +59,47 @@ public class Add_Task extends javax.swing.JPanel {
         // Here we want the day and date of create this task
         //Task_Day = Date_Time.getDay();
         //Task_Date = Date_Time.getDate();
-        if(reminderDate.equals(currentDate))
-        {
-         QuerieAdninstratorSqlite.insertTask(Task_Name, Task_Description, reminderDate, reminderTime, "1980DTA");
-         QuerieAdninstratorSqlite.selectToDayTasks();
+        
+
+         */
+        Task_Name = Set_Task_Name.getText();
+        Task_Description = Task_description.getText();
+        Task_Reminder_Time = Set_Task_Time.getText();
+        Task_Reminder_Date = Set_Task_Date.getText();
+
+        if (!(Task_Reminder_Time.isEmpty() || Task_Reminder_Date.isEmpty())) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate reminderDate = LocalDate.parse(Task_Reminder_Date, formatter);
+            formatter = DateTimeFormatter.ofPattern("hh:mm a");
+            LocalTime reminderTime = LocalTime.parse(Task_Reminder_Time, formatter);
+
+            LocalDate currentDate = LocalDate.now();
+
+            if (reminderDate.equals(currentDate)) {
+                if (QuerieAdninstratorSqlite.insertTask(Task_Name, Task_Description, reminderDate, reminderTime, "1980DTA")) {
+                    QuerieAdninstratorSqlite.selectToDayTasks();
+                    // TodayTaskList >> this array list store all day task sorted
+                    // here succduffly add i DB
+                    // show panel in Day task
+                } else {
+                    // error day task dose not add  
+                }
+
+            } else if (reminderDate.compareTo(currentDate) > 0) {
+                if (QuerieAdninstratorSqlite.insertTask(Task_Name, Task_Description, reminderDate, reminderTime, "5317WTK")) {
+                    QuerieAdninstratorSqlite.selectWeekTasks();
+                    // WeekTaskList >> list caontain all week tasks
+                    // here succduffly add i DB
+                    // show panel in week task
+                }else {
+                    // error week task dose not add  
+                }
+            }else {
+                // here the user choise day passed
+            }
+        } else {
+            // show messege to entr data and time
         }
-        else{
-        QuerieAdninstratorSqlite.insertTask(Task_Name, Task_Description, reminderDate, reminderTime, "5317WTK");
-        QuerieAdninstratorSqlite.selectWeekTasks();
-        }
-        }
-        else{} // show messege reminder 
     }
 
     @SuppressWarnings("unchecked")
