@@ -42,7 +42,8 @@ public class QuerieAdninstratorSqlite {
     }
 
     static void insertData() throws SQLException {
-        String insertSQL = "INSERT INTO taskType VALUES('1980DTA', 'dayTask'), "
+        /*
+        String insertSQL = "INSERT OR IGNORE INTO taskType (typeID, typeName) VALUES('1980DTA', 'dayTask'), "
                 + "('5317WTK', 'weekTask'), "
                 + "('1097CTA', 'completedTask'), "
                 + "('1801DTKH', 'delayTask')";
@@ -51,6 +52,28 @@ public class QuerieAdninstratorSqlite {
         } catch (SQLException ex) {
             Notifications.getInstance().show(Notifications.Type.ERROR, "Error");
         }
+         */
+        try {
+            String[] insertQueries = {
+                "INSERT OR IGNORE INTO taskType (typeID, typeName) VALUES ('1980DTA', 'dayTask')",
+                "INSERT OR IGNORE INTO taskType (typeID, typeName) VALUES ('5317WTK', 'weekTask')",
+                "INSERT OR IGNORE INTO taskType (typeID, typeName) VALUES ('1097CTA', 'completedTask')",
+                "INSERT OR IGNORE INTO taskType (typeID, typeName) VALUES ('1801DTKH', 'delayTask')"
+            };
+
+            for (String insertQuery : insertQueries) {
+                try (PreparedStatement p = sqlitecon.prepareStatement(insertQuery)) {
+                    p.execute();
+                }
+            }
+
+            System.out.println("Insertion successful");
+        } catch (SQLException ex) {
+            System.out.println("Error inserting data");
+            ex.printStackTrace();
+            Notifications.getInstance().show(Notifications.Type.ERROR, "Error");
+        }
+
     }
 
     public static boolean InsertMedicine(String Medicine_Name, String Reminder_Times, String Dosage_ParDay, String Medicine_Time, String Days, String Duration) {
@@ -200,7 +223,7 @@ public class QuerieAdninstratorSqlite {
 
     public static boolean weekToDayTasks() {
         try {
-            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1980DTA' WHERE taskType = '5317WTK' AND   reminder_date >= date('now') ");
+            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1980DTA' WHERE taskType = '5317WTK' AND   reminder_date >= date('now')");
             stm.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -211,7 +234,7 @@ public class QuerieAdninstratorSqlite {
 
     public static boolean dayToDelayTasks() {
         try {
-            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1801DTKH' WHERE taskType = '1980DTA' AND is_complete ='FALSE' AND  reminder_time < time('now') ");
+            stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1980DTA' WHERE taskType = '5317WTK' AND julianday('now') > julianday(reminder_date)");
             stm.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -219,7 +242,7 @@ public class QuerieAdninstratorSqlite {
         }
     }
 
-    public static boolean ToCompletedTasks(String taskName, LocalTime reminderTime , LocalDate reminderDate) {
+    public static boolean ToCompletedTasks(String taskName, LocalTime reminderTime, LocalDate reminderDate) {
         try {
             stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1097CTA' , is_complete = 'TRUE' WHERE task_name = ? AND reminder_time = ? AND reminder_date = ?");
             stm.setString(1, taskName);
@@ -231,7 +254,8 @@ public class QuerieAdninstratorSqlite {
             return false;
         }
     }
-/*
+
+    /*
     public static boolean weekToCompletedTasks(String taskName, LocalTime reminderTime) {
         try {
             stm = sqlitecon.prepareStatement("UPDATE tasks SET taskType = '1097CTA' WHERE taskType = '5317WTK' AND  task_name = ? AND reminder_time = ? ");
@@ -244,8 +268,7 @@ public class QuerieAdninstratorSqlite {
         }
     }
 
-*/
-
+     */
     public static boolean updateTasks(String taskName, LocalTime reminderTime, LocalDate Reminder_Date) {
         try {
             stm = ConnectionDB.sqlitecon.prepareStatement("UPDATE tasks SET task_name = ? reminder_time = ? reminder_date = ? WHERE task_name = ? AND reminder_time = ? AND reminder_date = ? ");

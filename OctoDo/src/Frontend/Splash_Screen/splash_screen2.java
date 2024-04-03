@@ -1,6 +1,8 @@
 
 package Frontend.Splash_Screen;
 
+import static Backend.Database.QuerieAdninstratorSqlite.dayToDelayTasks;
+import static Backend.Database.QuerieAdninstratorSqlite.weekToDayTasks;
 import java.awt.Desktop;
 import java.net.URL;
 
@@ -9,6 +11,12 @@ public class splash_screen2 extends javax.swing.JPanel {
 
     public splash_screen2() {
         initComponents();
+        DBstart();
+    }
+    private static void DBstart(){
+    
+        dayToDelayTasks();
+        weekToDayTasks();
     }
 
 

@@ -1,5 +1,7 @@
 package Frontend.Splash_Screen;
 
+import static Backend.Database.QuerieAdninstratorSqlite.dayToDelayTasks;
+import static Backend.Database.QuerieAdninstratorSqlite.weekToDayTasks;
 import java.awt.Desktop;
 import java.net.URL;
 
@@ -9,8 +11,14 @@ public class splash_screen1 extends javax.swing.JPanel {
         initComponents();
         setIcon();
         borderPanel1.start();
+        DBstart();
     }
 
+    private static void DBstart() {
+
+        dayToDelayTasks();
+        weekToDayTasks();
+    }
     private void setIcon() {
         svgIconLinkedin.setSVGIcon("Icons/linkedin1.svg", 40, 40);
         svgIconLinkedin.setCursorHand();
