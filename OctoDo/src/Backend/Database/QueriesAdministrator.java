@@ -3,6 +3,8 @@ package Backend.Database;
 import Backend.Account.User;
 import static Backend.Database.ConnectionDB.con;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class QueriesAdministrator {
 
@@ -44,7 +46,7 @@ public class QueriesAdministrator {
             stm.executeUpdate();
             return true;
         } catch (SQLException e) {
-
+            System.out.println(e);
             return false;
         }
 
@@ -54,7 +56,7 @@ public class QueriesAdministrator {
         try {
             stm = con.prepareStatement("select count(*) from User where User_email = ? and User_password = ? ");
             stm.setString(1, Email);
-            stm.setString(2, encryptionPassword(paswword));
+            stm.setString(2, paswword);
 
             ResultSet re = stm.executeQuery();
             int count = 0;
@@ -64,27 +66,32 @@ public class QueriesAdministrator {
             return count == 1;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e);
             return false;
 
         }
 
     }
 
-    public static User CurrentUser(String email) throws SQLException {
+    public static User CurrentUser(String email) {
 
-        stm = ConnectionDB.con.prepareStatement("select User_fname , User_lname ,User_gender from user where User_email=? ");
-        stm.setNString(1, email);
-        ResultSet rs = stm.executeQuery();
-        if (rs.next()) {
-            String user_fname = rs.getString("User_fname");
-            String user_lname = rs.getString("User_lname");
-            String user_gender = rs.getString("User_gender");
+        try {
+            stm = con.prepareStatement("select User_fname , User_lname ,User_gender from User where User_email=?");
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                String user_fname = rs.getString("User_fname");
+                String user_lname = rs.getString("User_lname");
+                String user_gender = rs.getString("User_gender");
+                return new User(user_fname + " " + user_lname, email, user_gender);
+            }
 
-            return new User(user_fname + " " + user_lname, email, user_gender);
+            return null;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(QueriesAdministrator.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
-
-        return null;
 
     }
 
