@@ -1,5 +1,6 @@
 package Frontend.Mini_Forms;
 
+import static Backend.Database.QuerieAdninstratorSqlite.InsertMedicine;
 import javax.swing.SwingConstants;
 
 public class Add_Medicine_Reminder extends javax.swing.JPanel {
@@ -235,9 +236,14 @@ public class Add_Medicine_Reminder extends javax.swing.JPanel {
         String name = txt_name_of_medicine.getText();
         String remider_time = combo_reminder_time.getSelectedItem().toString();
         String time = txt_time.getText();
-        int dosage = Integer.parseInt(combo_dosage.getSelectedItem().toString());
+        String dosage = combo_dosage.getSelectedItem().toString();
         String days = combo_day.getSelectedItem().toString();
         String EndDuration = txt_end_of_duration.getText();
+        
+        if(InsertMedicine(name , remider_time , time , dosage , days , EndDuration))
+            // show sucsses add sout
+            System.out.println("");
+        else  System.out.println("");// show not sucsses add     
         // voice 
 
         //combo_dosage.getSelectedItem().toString()

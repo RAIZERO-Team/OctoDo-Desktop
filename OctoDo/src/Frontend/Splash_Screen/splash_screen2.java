@@ -1,6 +1,7 @@
 
 package Frontend.Splash_Screen;
 
+import Application.Main.Application;
 import static Backend.Database.QuerieAdninstratorSqlite.dayToDelayTasks;
 import static Backend.Database.QuerieAdninstratorSqlite.weekToDayTasks;
 import java.awt.Desktop;
@@ -129,6 +130,14 @@ public class splash_screen2 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_svgIconGitHubMouseClicked
 
+   static splash_screen2 app ;
+    public static void main(String[] args) {
+     
+        System.out.println("hhhhhhhhhh");
+         dayToDelayTasks();
+        weekToDayTasks();
+        System.out.println("llllllllllll");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Frontend.UI_Components.FancyBorderRadius.BorderPanel borderPanel1;

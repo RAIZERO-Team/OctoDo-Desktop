@@ -1,5 +1,6 @@
 package Frontend.Forms;
 
+import static Backend.Database.QuerieAdninstratorSqlite.DeleteMedicine;
 import Frontend.UI_Components.PanelRound;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
@@ -457,6 +458,11 @@ public class Medicine_Reminder extends javax.swing.JPanel {
 
         btn_delete.setText("Delete");
         btn_delete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteActionPerformed(evt);
+            }
+        });
         medicine.add(btn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 70, 40));
 
         Medicine_Pane.setBackground(new java.awt.Color(153, 153, 153));
@@ -597,6 +603,17 @@ public class Medicine_Reminder extends javax.swing.JPanel {
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         Add_midecine.setVisible(true);
     }//GEN-LAST:event_btn_addActionPerformed
+
+    private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
+        // TODO add your handling code here:
+        
+        String name  = lab_Medicine_Num.getText();
+        if (DeleteMedicine(name)) {
+            // sucsses delete
+        }else{
+            // not deleted  
+        }
+    }//GEN-LAST:event_btn_deleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

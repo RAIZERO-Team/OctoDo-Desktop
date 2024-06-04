@@ -125,6 +125,7 @@ public class splash_screen1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_svgIconGitHubMouseClicked
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Frontend.UI_Components.FancyBorderRadius.BorderPanel borderPanel1;

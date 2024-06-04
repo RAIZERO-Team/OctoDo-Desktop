@@ -27,7 +27,8 @@ public class QuerieAdninstratorSqlite {
         // SQL statements to create tables
         String[] tableCreationStatements = {
             "CREATE TABLE IF NOT EXISTS taskType (typeID varchar (30) PRIMARY KEY, typeName varchar(60))",
-            "CREATE TABLE IF NOT EXISTS  tasks (task_name VARCHAR(150), descript varchar(254) , reminder_date DATE , reminder_time TIME , taskType varchar (30) , is_complete BOOLEAN DEFAULT FALSE ,  FOREIGN KEY (taskType) REFERENCES taskType(typeID))"
+            "CREATE TABLE IF NOT EXISTS  tasks (task_name VARCHAR(150), descript varchar(254) , reminder_date DATE , reminder_time TIME , taskType varchar (30) , is_complete BOOLEAN DEFAULT FALSE ,  FOREIGN KEY (taskType) REFERENCES taskType(typeID))",
+            "create table if not exists Medicine (Medicine_name varchar(30), reminderTimes varchar(30), Dosage_ParDay varchar(10) ,Medicine_Time time,Days varchar(20) ,Duration date)" 
 
         // Add more table creation statements as needed
         };
