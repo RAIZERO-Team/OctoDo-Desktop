@@ -1,6 +1,8 @@
 package Backend.Database;
 
 import static Backend.Database.ConnectionDB.sqlitecon;
+import Backend.Medicine.Medicine2;
+import static Backend.Medicine.Medicine2.MedicineList;
 import Backend.Task.CompletedTask;
 import static Backend.Task.CompletedTask.CompletedTaskList;
 import Backend.Task.DelayTask;
@@ -109,7 +111,24 @@ public class QuerieAdninstratorSqlite {
     }
 
     public static boolean selectAllMedicine() {
-        return true; // note : ترجع كل الميديسن بالترتيب علي حسبالتاريخ اولا ثم الوقت  
+        MedicineList.clear();
+        try {
+            stm = sqlitecon.prepareStatement("select Medicine_name , reminderTimes , Dosage_ParDay  ,Medicine_Time ,Days ,Duration  from Medicine");
+            ResultSet r = stm.executeQuery();
+            while (r.next()) {
+                String Medicine_name = r.getString("Medicine_name");
+                String reminderTimes = r.getString("reminderTimes");
+                String Dosage_ParDay = r.getString("Dosage_ParDay");
+                String Days = r.getString("Days");
+                LocalDate Duration = LocalDate.parse(r.getString("Duration"));
+                LocalTime Medicine_Time = LocalTime.parse(r.getString("Medicine_Time"));
+                new Medicine2(Medicine_name , reminderTimes , Medicine_Time , Days , Duration );
+            }
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(QuerieAdninstratorSqlite.class.getName()).log(Level.SEVERE, null, ex);
+            return false ;
+        } // note : ترجع كل الميديسن بالترتيب علي حسبالتاريخ اولا ثم الوقت  
     }
 
     public static boolean updateMedicine(String Medicine_Name, String Reminder_Times, String Dosage_ParDay, String Medicine_Time, String Days, String Duration) {
